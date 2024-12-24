@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/24 10:41:36 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:51:29 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,25 @@ typedef struct s_map_data
 typedef struct s_player
 {
 	int		x_cordinate; //Player horizontal coordinate in pixel
-	int		y_cordinate; //Player horizontal coordinate in pixel
+	int		y_cordinate; //Player vertical coordinate in pixel
 	int		player_rotate; //Player roration flag
 	double	direction; //Player's facing direction
 	float	field_view;//Player viewpoint at any time(radian)
 	int		move_updown;
 	int		move_leftright;
 }	t_player_data;
+//Structure for raycasting
+typedef struct s_raycast
+{
+	/* data */
+}	t_raycasting;
 
+//Structure for game img ant attribute
 typedef struct s_mlx
 {
 	mlx_image_t		*game_image; //Image to render the game
 	mlx_instance_t	*instances; //Instance to manage window
 	t_player_data	*player; //player data
 	t_map_data		*s_map_data; //map containing map and player info.
+	t_raycasting	*raycast;
 }	t_mlx_render;
