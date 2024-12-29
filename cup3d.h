@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/29 09:20:11 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/29 09:43:24 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 # define CUP3D_H
 
 # include "MLX42/MLX42.h"
-# include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <math.h>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 
 # define DISPLAY_HEIGHT 900
 # define DISPLAY_WIDTH 1600

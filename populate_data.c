@@ -6,12 +6,11 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:32:57 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/12/29 09:19:46 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/29 09:39:12 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
-#include <math.h>
 
 /*Function to initialise the players pos and direction
 position the player ti mid of begining grid of the map
