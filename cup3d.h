@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/24 10:51:29 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/28 23:36:23 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ typedef struct s_mlx
 	t_player_data	*player; //player data
 	t_map_data		*s_map_data; //map containing map and player info.
 	t_raycasting	*raycast;
+
 }	t_mlx_render;
