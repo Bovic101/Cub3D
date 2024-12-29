@@ -6,9 +6,12 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/24 10:51:29 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/29 07:20:41 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CUP3D_H
+#define CUP3D_H
 
 #include <string.h>
 #include <stdio.h>
@@ -54,8 +57,11 @@ typedef struct s_raycast
 typedef struct s_mlx
 {
 	mlx_image_t		*game_image; //Image to render the game
-	mlx_instance_t	*instances; //Instance to manage window
-	t_player_data	*player; //player data
+	mlx_t	*ptr_img;
+	t_player_data	*player; //player data struct
 	t_map_data		*s_map_data; //map containing map and player info.
 	t_raycasting	*raycast;
 }	t_mlx_render;
+double degree_to_radian(double value);
+
+#endif
