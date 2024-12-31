@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/31 01:33:04 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:02:41 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define CUP3D_H
 
 # include "MLX42/MLX42.h"
+# include "get_next_line.h"
 # include <fcntl.h> //open() function header
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-#include "get_next_line.h"
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -76,6 +76,10 @@ typedef struct s_mlx
 }					t_mlx_render;
 double				degree_to_radian(double value);
 void				player_pos_init(t_mlx_render mlx_data);
-void	cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data);
+void	cub_file_loader(const char *cubfile_name,
+						t_mlx_render *mlx_data);
+int					ft_strncmp(const char *str1, const char *str2, size_t n);
+void				texture_input(const char *line_ptr, t_mlx_render *mlx_data);
+void				print_error(const char *string);
 
 #endif
