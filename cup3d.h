@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cup3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/31 03:24:19 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 17:02:28 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,14 @@ typedef struct s_map_data
 //Structure of player data
 typedef struct s_player
 {
-	int x_cordinate;   //Player horizontal coordinate in pixel
-	int y_cordinate;   //Player vertical coordinate in pixel
-	int player_rotate; //Player roration flag
-	double direction;  //Player's facing direction
+	int pos_x;   //Player horizontal coordinate in pixel
+	int pos_y;   //Player vertical coordinate in pixel
+	int p_rot; //Player roration flag
+	int	p_speed;
+	double dir_x;  //Player's facing direction
+	double dir_y;  //Player's facing direction
+	float plane_x;
+	float plane_y;
 	float field_view;  //Player viewpoint at any time(radian)
 	int				move_updown;
 	int				move_leftright;
@@ -78,8 +82,21 @@ typedef struct s_mlx
 	//contains the xpm data info. such as width,byte-pixel
 	int				floor_c;
 	int				ceiling_c;
-
 }					t_mlx_render;
+
+typedef struct s_game
+{
+	t_player_data *p;
+	t_mlx_render *mlx_r;
+	t_raycasting *rc;
+	t_map_data *mapdata;
+	mlx_t *mlx;
+	mlx_image_t *screen;
+	
+}	t_game;
+
+
+
 double				degree_to_radian(double value);
 void				player_pos_init(t_mlx_render mlx_data);
 void	cub_file_loader(const char *cubfile_name,
