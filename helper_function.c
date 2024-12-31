@@ -6,12 +6,12 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:50 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/12/31 02:02:03 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:22:27 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
-
+/*Function to converts an angle given in degrees into its equivalent in radian*/
 double	degree_to_radian(double value)
 {
 	return (value * M_PI / 180.0);

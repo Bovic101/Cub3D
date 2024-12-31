@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/12/31 02:15:25 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 03:16:57 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,18 @@ void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 	}
 	else
 		print_error("Inalid  texture identifier");
+}
+
+/*Function process a line of the map layout fo the cu file & store in  map struct*/
+void	map_layout_input(const char *line_ptr, t_map_data *map_data)
+{
+	if (map_data->map_height >= MAX_MAP_HEIGHT)
+	{
+		print_error("Error:Maximum height of map reached");
+	}
+	if (ft_strlen(line_ptr) > MAX_MAP_WIDTH)
+	{
+		print_error("Error:Maximum width of map reached");
+	}
+    //Implementation in progress
 }

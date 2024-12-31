@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/12/31 01:17:23 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 03:24:50 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data)
 		if (line_ptr[0] == 'N' || line_ptr[0] == 'S' || line_ptr[0] == 'W'
 			|| line_ptr[0] == 'E')
 		{
-			texture_input(); //To implement
+			texture_input(line_ptr, mlx_data);
 		}
 		else if (line_ptr[0] == 'F' || line_ptr[0] == 'C')
 		{
@@ -37,7 +37,7 @@ void	cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data)
 		}
 		else if (line_ptr[0] == '1' || line_ptr[0] == '0')
 		{
-			map_layout_input();
+			map_layout_input(line_ptr, mlx_data->map_data);
 		}
 		free(line_ptr);
 	}
