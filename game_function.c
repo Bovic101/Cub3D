@@ -6,23 +6,40 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/12/30 10:38:26 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 01:17:23 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
 
 /*Function that load the .cub file*/
-void cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data)
+void	cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data)
 {
 	int fd;
-	char  *character_counter;
-	
-	fd = open(cubfile_name,O_RDONLY);
+
+	fd = open(cubfile_name, O_RDONLY);
 	if (fd == -1)
 	{
 		perror("File unable to open");
-		return;
+		return ;
 	}
-	//Implementation in progress
+	char *line_ptr = NULL;
+	while ((line_ptr = get_next_line(fd)) != NULL)
+	{
+		if (line_ptr[0] == 'N' || line_ptr[0] == 'S' || line_ptr[0] == 'W'
+			|| line_ptr[0] == 'E')
+		{
+			texture_input(); //To implement
+		}
+		else if (line_ptr[0] == 'F' || line_ptr[0] == 'C')
+		{
+			color_input(); //To implement
+		}
+		else if (line_ptr[0] == '1' || line_ptr[0] == '0')
+		{
+			map_layout_input();
+		}
+		free(line_ptr);
+	}
+	close(fd);
 }

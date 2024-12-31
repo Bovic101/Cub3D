@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/30 10:41:55 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/12/31 01:33:04 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+#include "get_next_line.h"
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -67,7 +68,7 @@ typedef struct s_mlx
 	t_player_data *player;  //player data struct
 	t_map_data *s_map_data; //map containing map and player info.
 	t_raycasting *raycast;  //To be implemeted by Taha
-	mlx_texture_t	*xpm_texture;
+	mlx_texture_t	*xpm_texture[4];
 	//contains the xpm data info. such as width,byte-pixel
 	int				floor_c;
 	int				ceiling_c;
