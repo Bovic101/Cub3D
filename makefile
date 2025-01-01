@@ -3,7 +3,7 @@ NAME = cup3d
 LIBMLX = ./MLX42
 
 HEADERS = -I ./mlx/include -I $(LIBMLX)/include
-SRCS = main.c game_function.c helper_function.c populate_data.c get_next_line.c get_next_line_utils.c input_function.c
+SRCS = main.c #game_function.c helper_function.c populate_data.c get_next_line.c get_next_line_utils.c input_function.c
 LIBS = $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 OBJS = $(SRCS:.c=.o)
 CC = gcc
