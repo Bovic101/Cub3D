@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/01 03:54:12 by vodebunm         ###   ########.fr       */
+/*   Updated: 2025/01/01 03:57:28 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ typedef struct s_mlx
 	mlx_texture_t	*xpm_texture[4];
 	int				floor_c;
 	int				ceiling_c;
-
+	/*Raycasting*/
+	t_raycasting *raycast;  //To be implemeted by Taha
 }					t_mlx_render;
 
 typedef struct s_game
