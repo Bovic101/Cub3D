@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/01 13:50:47 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:07:02 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,8 @@
 # define VIEW_ANGLE 45
 # define PLAYER_MOVE_SPEED 3 //Player unit- movement per frame
 # define TURNING_SPEED 0.1   //turning speed can be change
-# define MAX_MAP_HEIGHT 50 // max num. of rows in the map
-# define MAX_MAP_WIDTH 50 // min num. of rows in the map
-
-
-
+# define MAX_MAP_HEIGHT 50   // max num. of rows in the map
+# define MAX_MAP_WIDTH 50    // min num. of rows in the map
 
 //Structure for player data and map
 typedef struct s_map_data
@@ -83,15 +80,17 @@ typedef struct s_raycast
 //Structure for game img ant attribute
 typedef struct s_mlx
 {
+	/*Map Data*/
+	t_player_data *player; //player data struct
+	t_map_data *map_data;  //map containing map and player info.
+	/*Game Randering*/
 	mlx_image_t *game_image; //Image to render the game
 	mlx_t			*ptr_img;
-	t_player_data *player;  //player data struct
-	t_map_data *map_data; //map containing map and player info.
-	t_raycasting *raycast;  //To be implemeted by Taha
 	mlx_texture_t	*xpm_texture[4];
-	//contains the xpm data info. such as width,byte-pixel
 	int				floor_c;
 	int				ceiling_c;
+	/*Raycasting*/
+	t_raycasting *raycast;  //To be implemeted by Taha
 }					t_mlx_render;
 
 typedef struct s_game
@@ -114,6 +113,7 @@ void	cub_file_loader(const char *cubfile_name,
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
 void				texture_input(const char *line_ptr, t_mlx_render *mlx_data);
 void				print_error(const char *string);
-void map_layout_input( const char *line_ptr, t_map_data *map_data);
+void				map_layout_input(const char *line_ptr,
+						t_map_data *map_data);
 
 #endif
