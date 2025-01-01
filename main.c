@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/01 14:01:21 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:22:47 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void	init_window(t_game *game)
+void	init_window(t_game *game)
 {
 	game->mlx = mlx_init(DISPLAY_WIDTH, DISPLAY_HEIGHT, "cup3d", false);
 	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
@@ -27,9 +27,8 @@ static void	init_window(t_game *game)
 		// terminate
 		//return
 	}
-	return (1);
 }
-static void	init_player(t_game *game)
+void	init_player(t_game *game)
 {
 	game->p->pos_x = 0;
 	game->p->pos_y = 0;
@@ -52,7 +51,7 @@ void	init_game(t_game *game)
 	init_player(game);
 }
 
-static void key_handler(mlx_key_data_t keydata, void *param)
+void key_handler(mlx_key_data_t keydata, void *param)
 {
 	t_game *game = (t_game *)param;
 
@@ -86,7 +85,7 @@ static void key_handler(mlx_key_data_t keydata, void *param)
 }
 
 
-static void move_player(t_game *game)
+void move_player(t_game *game)
 {
 	double move_speed = PLAYER_MOVE_SPEED;
 	double rot_speed = TURNING_SPEED;
@@ -97,8 +96,8 @@ static void move_player(t_game *game)
 	double new_x;			// gonna find way to decrease variable number. maybe gonna add to strcutures
 	double new_y;			// gonna find way to decrease variable number. maybe gonna add to strcutures
 
-    if (game->p->p_rot != 0)
-    {
+	if (game->p->p_rot != 0)
+	{
 		old_dir_x = game->p->dir_x;
 		old_plane_x = game->p->plane_x;
 		game->p->dir_x = game->p->dir_x * cos(game->p->p_rot * rot_speed) 
@@ -113,7 +112,7 @@ static void move_player(t_game *game)
 	move_player_cont(game, move_speed, new_x, new_y);
 }
 
-static void	move_player_cont(t_game *game, double move_speed, double new_x, double new_y)
+void	move_player_cont(t_game *game, double move_speed, double new_x, double new_y)
 {	
 	if (game->p->m_up)
 	{
@@ -145,6 +144,69 @@ static void	move_player_cont(t_game *game, double move_speed, double new_x, doub
 	}
 }
 
+void	game_loop(void *param)
+{
+	t_game *game;
+
+	game = param;
+	move_player(game);
+	ft_cast_ray(game);
+}
+
+void	ft_cast_ray(t_game *game)
+{
+	float	ray_angle;
+	float	angle_step;
+	int	x;
+
+	ray_angle = game->p->field_view -(VIEW_ANGLE / 2.0f);
+	angle_step = VIEW_ANGLE / (float)DISPLAY_WIDTH;
+	x = -1;
+	while (++x < DISPLAY_WIDTH)
+	{
+		game->rc->ray_angle = normalize_angle(ray_angle); // gonna add to fix angle
+		game->rc->cos_angle = cos(game->rc->ray_angle);
+		game->rc->sin_angle = sin(game->rc->ray_angle);
+		// ft_ray_hit(game) 		gonna add
+		// cal_wall_height (game)	gonna add
+		ray_angle += angle_step;
+	}
+}
+
+float normalize_angle(float angle)
+{
+	angle = fmod(angle, 2 * M_PI);
+	if (angle < 0)
+		angle += 2 * M_PI;
+	return angle;
+}
+
+void	ft_ray_hit(t_game *game)
+{
+	t_calc	calc;
+	float	next_x;
+	float	next_y;
+
+	// find_intersections() gonna add to find intersections
+	next_x = calc.x_intersect;
+	next_y = calc.y_intersect;
+	while (1)
+	{
+		if (check_wall_hit(game, next_x, next_y))
+		{
+			game->rc->hit_x = next_x;
+			game->rc->hit_y = next_y;
+			game->rc->hit_vertical = 0;
+			game->rc->distance = sqrt(pow(next_x - game->p->pos_x, 2)
+					+ pow(next_y - game->p->pos_y, 2));
+			break ;
+		}
+		next_x += calc.x_step;
+		next_y += calc.y_step;
+	}
+}
+
+// void	cal_wall_height(t_game *game)
 
 
 int	main(void)
@@ -154,5 +216,6 @@ int	main(void)
 	game = malloc(sizeof(t_game));
 	init_game(game);
 	mlx_key_hook(game->mlx, &key_handler, game);
+	mlx_loop_hook(game->mlx, &game_loop, game);
 	mlx_loop(game->mlx);
 }

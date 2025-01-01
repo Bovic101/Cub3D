@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cup3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/01 14:07:02 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:22:07 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,15 @@ typedef struct s_game
 }	t_game;
 
 
+typedef struct s_calc
+{
+	float	x_intersect;
+	float	y_intersect;
+	float	x_step; // fixed
+	float	y_step; // fixed
+}	t_calc;
+
+
 
 double				degree_to_radian(double value);
 void				player_pos_init(t_mlx_render mlx_data);
@@ -115,5 +124,17 @@ void				texture_input(const char *line_ptr, t_mlx_render *mlx_data);
 void				print_error(const char *string);
 void				map_layout_input(const char *line_ptr,
 						t_map_data *map_data);
+
+// movement, keybinding, ray casting etc...
+void move_player(t_game *game);
+void	init_game(t_game *game);
+void	init_player(t_game *game);
+void key_handler(mlx_key_data_t keydata, void *param);
+void	move_player_cont(t_game *game, double move_speed, double new_x, double new_y);
+void	init_window(t_game *game);
+void	game_loop(void *param);
+void	ft_cast_ray(t_game *game);
+
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vodebunm <vodebunm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/12/31 03:24:50 by vodebunm         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:09:35 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data)
 		}
 		else if (line_ptr[0] == 'F' || line_ptr[0] == 'C')
 		{
-			color_input(); //To implement
+			// color_input(); //To implement
 		}
 		else if (line_ptr[0] == '1' || line_ptr[0] == '0')
 		{
