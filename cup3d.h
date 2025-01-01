@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2024/12/31 17:02:28 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/01 13:50:47 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,24 @@ typedef struct s_player
 	float plane_x;
 	float plane_y;
 	float field_view;  //Player viewpoint at any time(radian)
-	int				move_updown;
-	int				move_leftright;
+	int				m_up;
+	int				m_down;
+	int				m_right;
+	int				m_left;
 }					t_player_data;
 //Structure for raycasting
 typedef struct s_raycast
 {
-	/* data */
-	//You can populate struct if you like to use it in your implementation
+	float ray_angle;
+	float distance;
+	float hit_x;
+	float hit_y;
+	int hit_vertical;
+	float p_height;
+	float p_pos;
+	float cos_angle;
+	float sin_angle;
+	float corrected_dist;
 }					t_raycasting;
 
 //Structure for game img ant attribute
