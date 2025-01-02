@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/01 19:22:47 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/02 13:11:13 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	init_window(t_game *game)
 	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
 	// if (game->screen) gonna add terminate and clean
 
-	if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
-	{
+	// if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
+	// {
 		//del image
 		// terminate
 		//return
-	}
+	// }
 }
 void	init_player(t_game *game)
 {
@@ -48,7 +48,7 @@ void	init_player(t_game *game)
 void	init_game(t_game *game)
 {
 	init_window(game);
-	init_player(game);
+	// init_player(game);
 }
 
 void key_handler(mlx_key_data_t keydata, void *param)
@@ -149,6 +149,8 @@ void	game_loop(void *param)
 	t_game *game;
 
 	game = param;
+	// ft_memset(game->screen->pixels, 0, 
+	// 	game->screen->width * game->screen->height * sizeof(uint32_t)); // gonna add later after linking libft
 	move_player(game);
 	ft_cast_ray(game);
 }
@@ -164,21 +166,39 @@ void	ft_cast_ray(t_game *game)
 	x = -1;
 	while (++x < DISPLAY_WIDTH)
 	{
-		game->rc->ray_angle = normalize_angle(ray_angle); // gonna add to fix angle
+		game->rc->ray_angle = ft_normalize_angle(ray_angle); // gonna add to fix angle
 		game->rc->cos_angle = cos(game->rc->ray_angle);
 		game->rc->sin_angle = sin(game->rc->ray_angle);
-		// ft_ray_hit(game) 		gonna add
-		// cal_wall_height (game)	gonna add
+		ft_ray_hit(game);
+		// ft_draw_walls(game, x) gonna add to draw walls
 		ray_angle += angle_step;
 	}
 }
 
-float normalize_angle(float angle)
+
+float	ft_normalize_angle(float angle)
 {
 	angle = fmod(angle, 2 * M_PI);
 	if (angle < 0)
 		angle += 2 * M_PI;
 	return angle;
+}
+
+void	ft_find_intersections(t_game *game, t_calc *calc)
+{
+	calc->y_intersect = floor(game->p->pos_y / BLOCK_SIZE) * BLOCK_SIZE;
+	if (game->rc->sin_angle > 0)
+		calc->y_intersect += BLOCK_SIZE;
+	calc->x_intersect = game->p->pos_x + (calc->y_intersect - game->p->pos_y)
+		/ tan(game->rc->ray_angle);
+	calc->y_step = BLOCK_SIZE;
+	if (game->rc->sin_angle < 0)
+		calc->y_step *= -1;
+	calc->x_step = BLOCK_SIZE / tan(game->rc->ray_angle);
+	if (game->rc->cos_angle < 0 && calc->x_step > 0)
+		calc->x_step *= -1;
+	if (game->rc->cos_angle > 0 && calc->x_step < 0)
+		calc->x_step *= -1;
 }
 
 void	ft_ray_hit(t_game *game)
@@ -187,26 +207,48 @@ void	ft_ray_hit(t_game *game)
 	float	next_x;
 	float	next_y;
 
-	// find_intersections() gonna add to find intersections
+	ft_find_intersections(game, &calc);
 	next_x = calc.x_intersect;
 	next_y = calc.y_intersect;
 	while (1)
 	{
-		if (check_wall_hit(game, next_x, next_y))
+		if (ft_check_wall_hit(game, next_x, next_y))
 		{
-			game->rc->hit_x = next_x;
-			game->rc->hit_y = next_y;
-			game->rc->hit_vertical = 0;
-			game->rc->distance = sqrt(pow(next_x - game->p->pos_x, 2)
-					+ pow(next_y - game->p->pos_y, 2));
+			ft_set_hit_values(game, next_x, next_y);
 			break ;
 		}
+		if (next_x < 0 || next_y < 0
+			|| next_x >= game->mapdata->map_width * BLOCK_SIZE
+			|| next_y >= game->mapdata->map_height * BLOCK_SIZE)
+			break ;
 		next_x += calc.x_step;
 		next_y += calc.y_step;
 	}
 }
 
-// void	cal_wall_height(t_game *game)
+void	ft_set_hit_values(t_game *game, float nx, float ny)
+{
+	game->rc->hit_x = nx;
+	game->rc->hit_y = ny;
+	game->rc->hit_vertical = 0;
+	game->rc->distance = sqrt(pow(nx - game->p->pos_x, 2)
+			+ pow(ny - game->p->pos_y, 2));
+}
+
+int	ft_check_wall_hit(t_game *game, float nx, float ny)
+{
+	int	map_x;
+	int	map_y;
+
+	if (nx < 0 || nx >= game->mapdata->map_width * BLOCK_SIZE
+		|| ny < 0 || ny >= game->mapdata->map_height * BLOCK_SIZE)
+		return (0);
+	map_x = (int)(nx / BLOCK_SIZE);
+	map_y = (int)(ny / BLOCK_SIZE);
+	if (map_y >= game->mapdata->map_height || map_x >= game->mapdata->map_width)
+		return (0);
+	return (game->mapdata->map_layout[map_y][map_x] == '1');
+}
 
 
 int	main(void)
@@ -215,7 +257,7 @@ int	main(void)
 
 	game = malloc(sizeof(t_game));
 	init_game(game);
-	mlx_key_hook(game->mlx, &key_handler, game);
-	mlx_loop_hook(game->mlx, &game_loop, game);
+	// mlx_key_hook(game->mlx, &key_handler, game);
+	// mlx_loop_hook(game->mlx, &game_loop, game);
 	mlx_loop(game->mlx);
 }

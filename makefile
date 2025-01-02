@@ -1,40 +1,42 @@
 NAME = cup3d
-
-LIBMLX = ./MLX42
-
-HEADERS = -I ./mlx/include -I $(LIBMLX)/include
-SRCS = main.c game_function.c helper_function.c populate_data.c get_next_line.c get_next_line_utils.c input_function.c
-LIBS = $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-OBJS = $(SRCS:.c=.o)
 CC = gcc
-CFLAGS = -Wunreachable-code -Ofast -g
+#CFLAGS = -Wall -Wextra -Werror -g
+MLX42_PATH = MLX42
+MLX42_LIB = $(MLX42_PATH)/build/libmlx42.a
 
-all: libmlx $(NAME)
+SRCS = main.c \
+	game_function.c \
+	helper_function.c \
+	populate_data.c \
+	get_next_line.c \
+	get_next_line_utils.c \
+	input_function.c
 
-libmlx:
-	@if [ ! -d "MLX42" ]; then \
-		git clone https://github.com/codam-coding-college/MLX42.git MLX42; \
-	else \
-		echo "Already have"; \
-	fi
-		@cd MLX42 && cmake -B build && cmake --build build -j4 \
+OBJS = $(SRCS:.c=.o)
+
+LIBS = -ldl -lglfw -pthread -lm 
+INCLUDES = -I./MLX42/include -I./libft
+
+all: $(MLX42_LIB) $(NAME)
+
+$(MLX42_LIB):
+	git clone https://github.com/codam-coding-college/MLX42.git || true
+	cd MLX42 && cmake -B build && cmake --build build -j4
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(HEADER) -o $(NAME)
+	$(CC) $(OBJS) $(MLX42_LIB) $(LIBS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
-	rm -rf $(LIBMLX)/build
-	make -C lib clean
+	rm -rf $(MLX42_PATH)/build
 
 fclean: clean
 	rm -f $(NAME)
-	make -C lib fclean
-	rm -rf MLX42
+	rm -rf $(MLX42_PATH)
 
 re: fclean all
 
-.PHONY: all clean fclean re libmlx
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/01 19:22:07 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/02 12:59:56 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ typedef struct s_player
 {
 	int pos_x;   //Player horizontal coordinate in pixel
 	int pos_y;   //Player vertical coordinate in pixel
-	int p_rot; //Player roration flag
-	int	p_speed;
+	double p_rot; //Player roration flag
+	double	p_speed;
 	double dir_x;  //Player's facing direction
 	double dir_y;  //Player's facing direction
 	float plane_x;
@@ -134,6 +134,11 @@ void	move_player_cont(t_game *game, double move_speed, double new_x, double new_
 void	init_window(t_game *game);
 void	game_loop(void *param);
 void	ft_cast_ray(t_game *game);
+void	ft_find_intersections(t_game *game, t_calc *calc);
+int	ft_check_wall_hit(t_game *game, float nx, float ny);
+void	ft_set_hit_values(t_game *game, float nx, float ny);
+float	ft_normalize_angle(float angle);
+void	ft_ray_hit(t_game *game);
 
 
 
