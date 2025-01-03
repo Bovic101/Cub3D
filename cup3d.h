@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/02 12:59:56 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/03 13:27:06 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ typedef struct s_game
 	t_map_data *mapdata;
 	mlx_t *mlx;
 	mlx_image_t *screen;
-	
+	int		ceiling_c;
+	int		floor_c;
 }	t_game;
 
 
@@ -139,6 +140,12 @@ int	ft_check_wall_hit(t_game *game, float nx, float ny);
 void	ft_set_hit_values(t_game *game, float nx, float ny);
 float	ft_normalize_angle(float angle);
 void	ft_ray_hit(t_game *game);
+void	ft_draw_walls(t_game *game, int column);
+// void	init_player_for_test(t_game *game);
+// void	init_test_map(t_game *game);
+void	move_player_forward_back(t_game *game, double move_speed);
+void	move_player_left_right(t_game *game, double move_speed);
+
 
 
 

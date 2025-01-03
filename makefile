@@ -2,7 +2,9 @@ NAME = cup3d
 CC = gcc
 #CFLAGS = -Wall -Wextra -Werror -g
 MLX42_PATH = MLX42
+LIBFT_PATH = libft
 MLX42_LIB = $(MLX42_PATH)/build/libmlx42.a
+LIBFT_OBJS = $(LIBFT_PATH)/libft.a
 
 SRCS = main.c \
 	game_function.c \
@@ -19,13 +21,15 @@ INCLUDES = -I./MLX42/include -I./libft
 
 all: $(MLX42_LIB) $(NAME)
 
+$(LIBFT_OBJS):
+	make -C $(LIBFT_PATH)
+
 $(MLX42_LIB):
-	git clone https://github.com/codam-coding-college/MLX42.git || true
+	@if [ ! -d "$(MLX42_PATH)" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
 	cd MLX42 && cmake -B build && cmake --build build -j4
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) $(MLX42_LIB) $(LIBS) -o $(NAME)
-	rm -f $(OBJS)
+$(NAME): $(OBJS) $(LIBFT_OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_OBJS) $(MLX42_LIB) $(LIBS) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
