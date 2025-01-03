@@ -25,6 +25,7 @@ $(MLX42_LIB):
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) $(MLX42_LIB) $(LIBS) -o $(NAME)
+	rm -f $(OBJS)  # Automatically remove .o files after building the binary
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
