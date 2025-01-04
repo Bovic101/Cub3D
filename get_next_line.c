@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 00:59:52 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/03/02 04:17:03 by vodebunm         ###   ########.fr       */
+/*   Updated: 2025/01/04 12:02:04 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,4 @@ char	*get_next_line(int fd)
 	free_null(&read_return);
 	return (res);
 }
+

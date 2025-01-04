@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/03 13:27:06 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/04 15:29:49 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,25 +127,31 @@ void				map_layout_input(const char *line_ptr,
 						t_map_data *map_data);
 
 // movement, keybinding, ray casting etc...
-void move_player(t_game *game);
+void	move_player(t_game *game);
 void	init_game(t_game *game);
 void	init_player(t_game *game);
-void key_handler(mlx_key_data_t keydata, void *param);
+void	key_handler(mlx_key_data_t keydata, void *param);
 void	move_player_cont(t_game *game, double move_speed, double new_x, double new_y);
 void	init_window(t_game *game);
 void	game_loop(void *param);
 void	ft_cast_ray(t_game *game);
 void	ft_find_intersections(t_game *game, t_calc *calc);
-int	ft_check_wall_hit(t_game *game, float nx, float ny);
+int		ft_check_wall_hit(t_game *game, float nx, float ny);
 void	ft_set_hit_values(t_game *game, float nx, float ny);
 float	ft_normalize_angle(float angle);
 void	ft_ray_hit(t_game *game);
 void	ft_draw_walls(t_game *game, int column);
-// void	init_player_for_test(t_game *game);
-// void	init_test_map(t_game *game);
+void	init_player_for_test(t_game *game);
+void	init_test_map(t_game *game);
 void	move_player_forward_back(t_game *game, double move_speed);
 void	move_player_left_right(t_game *game, double move_speed);
-
+void	test_draw(t_game *game);
+uint32_t	create_rgba(int r, int g, int b, int a);
+void	free_split(char **split);
+uint32_t	parse_color(const char *line);
+void	parse_color_line(t_game *game, const char *line);
+void	read_colors(t_game *game);
+void	rotate_player(t_game *game);
 
 
 

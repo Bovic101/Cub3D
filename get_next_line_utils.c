@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 01:00:22 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/02/22 20:21:35 by vodebunm         ###   ########.fr       */
+/*   Updated: 2025/01/04 12:02:13 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,3 +112,5 @@ char	*ft_strdup(const char *str)
 		s[i] = str[i];
 	return (s);
 }
+
+
