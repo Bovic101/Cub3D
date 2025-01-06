@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/04 15:29:49 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/06 10:12:19 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,21 @@ typedef struct s_raycast
 	float cos_angle;
 	float sin_angle;
 	float corrected_dist;
+	float	ray_dir_x;
+	float ray_dir_y;
+	float 	map_y;
+	float map_x;
+	float delta_dist_x;
+	float side_dist_x;
+	float step_x;
+	float step_y;
+	float delta_dist_y;
+	float side_dist_y;
+	float side;
+	float	perp_wall_dist;
+	
+
+
 }					t_raycasting;
 
 //Structure for game img ant attribute
@@ -131,7 +146,6 @@ void	move_player(t_game *game);
 void	init_game(t_game *game);
 void	init_player(t_game *game);
 void	key_handler(mlx_key_data_t keydata, void *param);
-void	move_player_cont(t_game *game, double move_speed, double new_x, double new_y);
 void	init_window(t_game *game);
 void	game_loop(void *param);
 void	ft_cast_ray(t_game *game);
@@ -152,7 +166,8 @@ uint32_t	parse_color(const char *line);
 void	parse_color_line(t_game *game, const char *line);
 void	read_colors(t_game *game);
 void	rotate_player(t_game *game);
-
+int is_valid_position(t_game *game, double x, double y);
+void	ft_calculate_ray_values(t_game *game, int x);
 
 
 #endif

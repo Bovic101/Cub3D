@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/04 15:34:38 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/06 10:14:00 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,46 +163,75 @@ void key_handler(mlx_key_data_t keydata, void *param)
 }
 
 
-void	move_player_forward_back(t_game *game, double move_speed)
+void move_player_forward_back(t_game *game, double move_speed)
 {
-	double	new_x;
-	double	new_y;
+	double new_x;
+	double new_y;
 
 	if (game->p->m_up)
 	{
 		new_x = game->p->pos_x + game->p->dir_x * move_speed;
 		new_y = game->p->pos_y + game->p->dir_y * move_speed;
-		game->p->pos_x = new_x;
-		game->p->pos_y = new_y;
+		if (is_valid_position(game, new_x, new_y))
+		{
+			game->p->pos_x = new_x;
+			game->p->pos_y = new_y;
+		}
 	}
 	if (game->p->m_down)
 	{
 		new_x = game->p->pos_x - game->p->dir_x * move_speed;
 		new_y = game->p->pos_y - game->p->dir_y * move_speed;
-		game->p->pos_x = new_x;
-		game->p->pos_y = new_y;
+		if (is_valid_position(game, new_x, new_y))
+		{
+			game->p->pos_x = new_x;
+			game->p->pos_y = new_y;
+		}
 	}
 }
 
-void	move_player_left_right(t_game *game, double move_speed)
+void move_player_left_right(t_game *game, double move_speed)
 {
-	double	new_x;
-	double	new_y;
+	double new_x;
+	double new_y;
 
 	if (game->p->m_left)
 	{
 		new_x = game->p->pos_x - game->p->plane_x * move_speed;
 		new_y = game->p->pos_y - game->p->plane_y * move_speed;
-		game->p->pos_x = new_x;
-		game->p->pos_y = new_y;
+		if (is_valid_position(game, new_x, new_y))
+		{
+			game->p->pos_x = new_x;
+			game->p->pos_y = new_y;
+		}
 	}
 	if (game->p->m_right)
 	{
 		new_x = game->p->pos_x + game->p->plane_x * move_speed;
 		new_y = game->p->pos_y + game->p->plane_y * move_speed;
-		game->p->pos_x = new_x;
-		game->p->pos_y = new_y;
+		if (is_valid_position(game, new_x, new_y))
+		{
+			game->p->pos_x = new_x;
+			game->p->pos_y = new_y;
+		}
 	}
+}
+
+
+int is_valid_position(t_game *game, double x, double y)
+{
+	int	map_x;
+	int	map_y;
+
+	if (x < 0 || y < 0 || 
+		x >= game->mapdata->map_width * BLOCK_SIZE || 
+		y >= game->mapdata->map_height * BLOCK_SIZE)
+			return (0);
+	map_x = (int)(x / BLOCK_SIZE);
+	map_y = (int)(y / BLOCK_SIZE);
+	if (game->mapdata->map_layout[map_y][map_x] == '1')
+		return (0);
+	return (1);
 }
 
 void	move_player(t_game *game)
@@ -212,6 +241,7 @@ void	move_player(t_game *game)
 	move_speed = PLAYER_MOVE_SPEED;
 	move_player_forward_back(game, move_speed);
 	move_player_left_right(game, move_speed);
+	rotate_player(game);  // Dönüş kontrolü ekle
 }
 
 void	game_loop(void *param)
@@ -492,3 +522,5 @@ void	read_colors(t_game *game)
 	}
 	close(fd);
 }
+
+
