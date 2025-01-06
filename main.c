@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/06 12:01:41 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/06 15:01:21 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,79 +104,69 @@ void	rotate_player(t_game *game)
 
 void init_game(t_game *game)
 {
-    game->p = malloc(sizeof(t_player_data));
-    game->rc = malloc(sizeof(t_raycasting));
-    game->mapdata = malloc(sizeof(t_map_data));
-    game->mlx_r = malloc(sizeof(t_mlx_render));
-    
-    if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
-        print_error("Memory allocation failed");
-    
-    init_window(game);
-    
-    // Initialize player data
-    game->p->pos_x = BLOCK_SIZE * 1.5; // Start position
-    game->p->pos_y = BLOCK_SIZE * 1.5;
-    game->p->dir_x = -1.0;  // Initial direction vector
-    game->p->dir_y = 0.0;
-    game->p->plane_x = 0.0; // Camera plane
-    game->p->plane_y = 0.66;
-    game->p->p_rot = 0;
-    game->p->p_speed = PLAYER_MOVE_SPEED;
-    game->p->m_up = 0;
-    game->p->m_down = 0;
-    game->p->m_left = 0;
-    game->p->m_right = 0;
-    game->p->field_view = VIEW_ANGLE * M_PI / 180.0;
-    
-    // Initialize map data
-    game->mapdata->map_layout = NULL;
-    game->mapdata->map_width = 0;
-    game->mapdata->map_height = 0;
-    game->mapdata->player_block_x = -1;
-    game->mapdata->player_block_y = -1;
-    
-    // Initialize colors
-    game->ceiling_c = 0x1E1E1EFF;
-    game->floor_c = 0x383838FF;
+	game->p = malloc(sizeof(t_player_data));
+	game->rc = malloc(sizeof(t_raycasting));
+	game->mapdata = malloc(sizeof(t_map_data));
+	game->mlx_r = malloc(sizeof(t_mlx_render));
+
+	if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
+		print_error("Memory allocation failed");
+	init_window(game);
+	game->p->pos_x = BLOCK_SIZE * 1.5;
+	game->p->pos_y = BLOCK_SIZE * 1.5;
+	game->p->dir_x = -1.0;
+	game->p->dir_y = 0.0;
+	game->p->plane_x = 0.0;
+	game->p->plane_y = 0.66;
+	game->p->p_rot = 0;
+	game->p->p_speed = PLAYER_MOVE_SPEED;
+	game->p->m_up = 0;
+	game->p->m_down = 0;
+	game->p->m_left = 0;
+	game->p->m_right = 0;
+	game->p->field_view = VIEW_ANGLE * M_PI / 180.0;
+	game->mapdata->map_layout = NULL;
+	game->mapdata->map_width = 0;
+	game->mapdata->map_height = 0;
+	game->mapdata->player_block_x = -1;
+	game->mapdata->player_block_y = -1;
+	game->ceiling_c = 0x1E1E1EFF;
+	game->floor_c = 0x383838FF;
 }
 
 void key_handler(mlx_key_data_t keydata, void *param)
 {
-    t_game *game = (t_game *)param;
+	t_game *game = (t_game *)param;
 
-    // W ve S tuşları aynen kalsın
-    if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-        game->p->m_up = 1;
-    else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-        game->p->m_down = 1;
-    else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S) && keydata.action == MLX_RELEASE)
-    {
-        game->p->m_up = 0;
-        game->p->m_down = 0;
-    }
+	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		game->p->m_up = 1;
+	else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		game->p->m_down = 1;
+	else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S) && keydata.action == MLX_RELEASE)
+	{
+		game->p->m_up = 0;
+		game->p->m_down = 0;
+	}
 
-    // A ve D tuşları aynen kalsın
-    if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-        game->p->m_left = 1;
-    else if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-        game->p->m_right = 1;
-    else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D) && keydata.action == MLX_RELEASE)
-    {
-        game->p->m_right = 0;
-        game->p->m_left = 0;
-    }
+	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		game->p->m_left = 1;
+	else if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		game->p->m_right = 1;
+	else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D) && keydata.action == MLX_RELEASE)
+	{
+		game->p->m_right = 0;
+		game->p->m_left = 0;
+	}
 
-    // Rotasyon tuşlarının yönlerini değiştirdik
-    if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-        game->p->p_rot = TURNING_SPEED;  // Negatif yerine pozitif
-    else if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-        game->p->p_rot = -TURNING_SPEED; // Pozitif yerine negatif
-    else if ((keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT) && keydata.action == MLX_RELEASE)
-        game->p->p_rot = 0;
+	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		game->p->p_rot = TURNING_SPEED;
+	else if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		game->p->p_rot = -TURNING_SPEED;
+	else if ((keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT) && keydata.action == MLX_RELEASE)
+		game->p->p_rot = 0;
 
-    if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-        mlx_close_window(game->mlx);
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		mlx_close_window(game->mlx);
 }
 
 
