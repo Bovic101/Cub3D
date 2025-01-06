@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/06 10:12:19 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/06 11:29:14 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define BLOCK_SIZE 40
 # define VIEW_ANGLE 45
 # define PLAYER_MOVE_SPEED 3 //Player unit- movement per frame
-# define TURNING_SPEED 0.1   //turning speed can be change
+# define TURNING_SPEED 0.04   //turning speed can be change
 # define MAX_MAP_HEIGHT 50   // max num. of rows in the map
 # define MAX_MAP_WIDTH 50    // min num. of rows in the map
 
@@ -75,22 +75,18 @@ typedef struct s_raycast
 	float cos_angle;
 	float sin_angle;
 	float corrected_dist;
-	float	ray_dir_x;
-	float ray_dir_y;
-	float 	map_y;
-	float map_x;
-	float delta_dist_x;
-	float side_dist_x;
-	float step_x;
-	float step_y;
-	float delta_dist_y;
-	float side_dist_y;
-	float side;
-	float	perp_wall_dist;
-	
-
-
 }					t_raycasting;
+
+typedef struct s_ray
+{
+	double	dir_x;
+	double	dir_y;
+	double	pos_x;
+	double	pos_y;
+	double	dist;
+	double	step;
+	int		hit;
+}	t_ray;
 
 //Structure for game img ant attribute
 typedef struct s_mlx
@@ -150,7 +146,7 @@ void	init_window(t_game *game);
 void	game_loop(void *param);
 void	ft_cast_ray(t_game *game);
 void	ft_find_intersections(t_game *game, t_calc *calc);
-int		ft_check_wall_hit(t_game *game, float nx, float ny);
+int		ft_check_wall_hit(t_game *game, double pos_x, double pos_y);
 void	ft_set_hit_values(t_game *game, float nx, float ny);
 float	ft_normalize_angle(float angle);
 void	ft_ray_hit(t_game *game);
@@ -168,6 +164,9 @@ void	read_colors(t_game *game);
 void	rotate_player(t_game *game);
 int is_valid_position(t_game *game, double x, double y);
 void	ft_calculate_ray_values(t_game *game, int x);
+void	ft_cast_single_ray(t_game *game, t_ray *ray);
+void	ft_fix_fisheye(t_game *game, t_ray *ray);
+void	ft_draw_vertical_line(t_game *game, int x, double dist);
 
 
 #endif
