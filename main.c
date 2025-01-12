@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/12 16:26:13 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/12 17:03:51 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,32 @@
 
 int main(int argc, char **argv)
 {
-    t_game *game;
-
     if (argc != 2)
     {
         print_error("Usage: ./cup3d <map_file.cub>\n");
-        return (EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
-    game = malloc(sizeof(t_game));
+    printf("status: Map file provided: '%s'\n", argv[1]);
+
+    t_game *game = malloc(sizeof(t_game));
     if (!game)
     {
         print_error("Error: Memory allocation failed for game structure\n");
-        return (EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     init_game(game);
-    cub_file_loader(argv[1], game->mlx_r);
+    cub_file_loader(argv[1], game->mlx_r); // Load the .cub file
     init_test_map(game);
     init_player_for_test(game);
-    mlx_key_hook(game->mlx, &key_handler, game);
+    mlx_key_hook(game->mlx, &key_handler, game);  // Setup for hooks and run the game loop
     mlx_loop_hook(game->mlx, &game_loop, game);
-    test_draw(game);
     mlx_loop(game->mlx);
 
     free(game);
-    return (EXIT_SUCCESS);
+    return EXIT_SUCCESS;
 }
-
-
-
 
 void	init_window(t_game *game)
 {
@@ -102,36 +98,47 @@ void	rotate_player(t_game *game)
 	}
 }
 
-void	init_game(t_game *game)
+void init_game(t_game *game)
 {
-	game->p = malloc(sizeof(t_player_data));
-	game->rc = malloc(sizeof(t_raycasting));
-	game->mapdata = malloc(sizeof(t_map_data));
-	game->mlx_r = malloc(sizeof(t_mlx_render));
-	if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
-		print_error("Memory allocation failed");
-	init_window(game);
-	game->p->pos_x = BLOCK_SIZE * 1.5;
-	game->p->pos_y = BLOCK_SIZE * 1.5;
-	game->p->dir_x = -1.0;
-	game->p->dir_y = 0.0;
-	game->p->plane_x = 0.0;
-	game->p->plane_y = 0.66;
-	game->p->p_rot = 0;
-	game->p->p_speed = PLAYER_MOVE_SPEED;
-	game->p->m_up = 0;
-	game->p->m_down = 0;
-	game->p->m_left = 0;
-	game->p->m_right = 0;
-	game->p->field_view = VIEW_ANGLE * M_PI / 180.0;
-	game->mapdata->map_layout = NULL;
-	game->mapdata->map_width = 0;
-	game->mapdata->map_height = 0;
-	game->mapdata->player_block_x = -1;
-	game->mapdata->player_block_y = -1;
-	game->ceiling_c = 0x1E1E1EFF;
-	game->floor_c = 0x383838FF;
+    game->p = malloc(sizeof(t_player_data));
+    game->rc = malloc(sizeof(t_raycasting));
+    game->mapdata = malloc(sizeof(t_map_data));
+    game->mlx_r = malloc(sizeof(t_mlx_render));
+    if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
+        print_error("Memory allocation failed");
+		
+    game->mlx_r->map_data = malloc(sizeof(t_map_data));
+    if (!game->mlx_r->map_data)
+        print_error("Memory allocation failed for map_data");
+		
+    init_window(game);
+
+    // Initialize player attributes
+    game->p->pos_x = BLOCK_SIZE * 1.5;
+    game->p->pos_y = BLOCK_SIZE * 1.5;
+    game->p->dir_x = -1.0;
+    game->p->dir_y = 0.0;
+    game->p->plane_x = 0.0;
+    game->p->plane_y = 0.66;
+    game->p->p_rot = 0;
+    game->p->p_speed = PLAYER_MOVE_SPEED;
+    game->p->m_up = 0;
+    game->p->m_down = 0;
+    game->p->m_left = 0;
+    game->p->m_right = 0;
+    game->p->field_view = VIEW_ANGLE * M_PI / 180.0;
+
+    // Initialize map attributes
+    game->mlx_r->map_data->map_layout = NULL;
+    game->mlx_r->map_data->map_width = 0;
+    game->mlx_r->map_data->map_height = 0;
+    game->mlx_r->map_data->player_block_x = -1;
+    game->mlx_r->map_data->player_block_y = -1;
+
+    game->ceiling_c = 0x1E1E1EFF;
+    game->floor_c = 0x383838FF;
 }
+
 
 void	key_handler(mlx_key_data_t keydata, void *param)
 {
@@ -587,32 +594,30 @@ void	parse_color_line(t_mlx_render *mlx_data, const char *line)
 
 void read_colors(const char *file_path, t_mlx_render *mlx_data)
 {
-    int fd;
-    char *line;
-
     if (!file_path || !mlx_data)
         print_error("Error: Invalid arguments passed to read_colors\n");
 
-    // Open the .cub file
-    fd = open(file_path, O_RDONLY);
+    printf("Debug: Opening file for reading colors: '%s'\n", file_path);
+
+    int fd = open(file_path, O_RDONLY);
     if (fd == -1)
     {
-        perror("Error opening file");
+        perror("Debug: Open failed");
         print_error("Error: Unable to open .cub file for reading colors\n");
     }
 
-    // Read lines and process only color-related lines
+    char *line;
     while ((line = get_next_line(fd)) != NULL)
     {
-        if (line[0] == 'F' || line[0] == 'C') // Floor or ceiling color
-        {
+        printf("Debug: Read line: %s\n", line);
+        if (line[0] == 'F' || line[0] == 'C')
             parse_color_line(mlx_data, line);
-        }
-        free(line); // Ensure no memory leaks
+        free(line);
     }
 
     if (close(fd) == -1)
         print_error("Error: Unable to close .cub file after reading colors\n");
 }
+
 
 

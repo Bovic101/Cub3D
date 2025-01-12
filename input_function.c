@@ -6,48 +6,61 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/12 16:00:24 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/12 17:01:54 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
 
 /*Function extractthe file path of a tecture from the config file(.cub flie) line*/
-char	*texture_path_parser(const char *line_ptr)
+char *texture_path_parser(const char *line_ptr)
 {
-	if (ft_strncmp(line_ptr, "NO ", 3) == 0)
-	{
-		return (ft_strdup(line_ptr + 3));
-	}
-	else if (ft_strncmp(line_ptr, "SO ", 3) == 0)
-	{
-		return (ft_strdup(line_ptr + 3));
-	}
-	else if (ft_strncmp(line_ptr, "WE ", 3) == 0)
-	{
-		return (ft_strdup(line_ptr + 3));
-	}
-	else if (ft_strncmp(line_ptr, "EA ", 3) == 0)
-	{
-		return (ft_strdup(line_ptr + 3));
-	}
-	else
-		print_error("Inalid  texture identifier\n");
-	return (NULL);
+    char *path = NULL;
+
+    if (ft_strncmp(line_ptr, "NO ", 3) == 0 ||
+        ft_strncmp(line_ptr, "SO ", 3) == 0 ||
+        ft_strncmp(line_ptr, "WE ", 3) == 0 ||
+        ft_strncmp(line_ptr, "EA ", 3) == 0)
+    {
+        path = ft_strdup(line_ptr + 3); // Duplicate the path
+        if (!path)
+            print_error("Error: Memory allocation failed for texture path\n");
+
+        size_t len = ft_strlen(path);
+        while (len > 0 && (path[len - 1] == '\n' || path[len - 1] == ' ')) // Trim whitespace and newlines
+        {
+            path[len - 1] = '\0';
+            len--;
+        }
+        return path;
+    }
+
+    print_error("Error: Invalid texture identifier\n");
+    return NULL;
 }
+
 /*Function that load texture into the exact position in the texture array as declared in the header*/
 void texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 {
     if (!texture_path || !texture_pos)
         print_error("Error: Invalid arguments in texture_loader\n");
 
-    if (access(texture_path, R_OK) == -1)
-        print_error("Error: File does not exist or is not readable\n");
+    printf("status: Checking texture path: '%s'\n", texture_path);
 
-    *texture_pos = mlx_load_png(texture_path);
+    if (access(texture_path, R_OK) == -1)  // Check if the texture file exists and is readable
+    {
+        perror("Debug: Texture file access failed");
+        print_error("Error: Texture file does not exist or is not readable\n");
+    }
+
+    *texture_pos = mlx_load_png(texture_path);  // Load the texture
     if (!(*texture_pos))
+    {
         print_error("Error: Failed to load texture\n");
+    }
+    printf("status: Successfully loaded texture: '%s'\n", texture_path);
 }
+
 
 
 /*Function parse and load textures using the texture_loader and texture_path-parser function*/
@@ -92,15 +105,16 @@ void map_layout_input(const char *line_ptr, t_map_data *map_data)
     {
         map_data->map_layout = malloc(MAX_MAP_HEIGHT * sizeof(char *));
         if (!map_data->map_layout)
-            print_error("Error: Memory allocation failure for map layout\n");
+            print_error("Error: Memory allocation failed for map layout\n");
     }
 
     map_data->map_layout[map_data->map_height] = malloc(MAX_MAP_WIDTH + 1);
     if (!map_data->map_layout[map_data->map_height])
-        print_error("Error: Memory allocation failure for map row\n");
+        print_error("Error: Memory allocation failed for map row\n");
 
     strncpy(map_data->map_layout[map_data->map_height], line_ptr, MAX_MAP_WIDTH);
     map_data->map_layout[map_data->map_height][MAX_MAP_WIDTH] = '\0'; // Null-terminate
     map_data->map_height++;
 }
+
 
