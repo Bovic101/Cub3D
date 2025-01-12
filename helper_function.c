@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   helper_function.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:50 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/04 12:01:36 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/12 13:21:44 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
+
 /*Function to converts an angle given in degrees into its equivalent in radian*/
 double	degree_to_radian(double value)
 {
@@ -26,8 +27,8 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	if (n == 0)
 		return (0);
 	i = 0;
-	s1 = (unsigned char *) str1;
-	s2 = (unsigned char *) str2;
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
 	while (i < n && s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 	{
 		i++;
@@ -36,8 +37,8 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		i--;
 	return (s1[i] - s2[i]);
 }
- void print_error(const char *string)
- {
-	perror(string);
+void	print_error(const char *error_message)
+{
+	write(2, error_message, ft_strlen(error_message));
 	exit(EXIT_FAILURE);
- }
+}

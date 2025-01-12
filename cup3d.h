@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/08 01:26:28 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/12 16:26:56 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <errno.h>
+# include <limits.h>
+# include <unistd.h>
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -125,10 +128,8 @@ typedef struct s_calc
 }					t_calc;
 
 double				degree_to_radian(double value);
-char				*texture_path_parser(const char *line_ptr);
-void				texture_loader(const char *texture_path,
-						mlx_texture_t **texture_pos);
-void				player_pos_init(t_mlx_render mlx_data);
+void				player_pos_init(t_mlx_render *mlx_data);
+void				texture_loader(const char *texture_path, mlx_texture_t **texture_pos);
 void	cub_file_loader(const char *cubfile_name,
 						t_mlx_render *mlx_data);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
@@ -159,8 +160,9 @@ void				test_draw(t_game *game);
 uint32_t			create_rgba(int r, int g, int b, int a);
 void				free_split(char **split);
 uint32_t			parse_color(const char *line);
-void				parse_color_line(t_game *game, const char *line);
-void				read_colors(t_game *game);
+void				parse_color_line(t_mlx_render *mlx_data, const char *line);
+//void				read_colors(t_game *game);
+void				read_colors(const char *file_path, t_mlx_render *mlx_data);
 void				rotate_player(t_game *game);
 int					is_valid_position(t_game *game, double x, double y);
 void				ft_calculate_ray_values(t_game *game, int x);

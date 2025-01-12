@@ -6,67 +6,66 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/08 00:11:10 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/12 16:26:13 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MLX42/MLX42.h"
-#include "libft.h"
 #include "cup3d.h"
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int	main(void)
+int main(int argc, char **argv)
 {
-	t_game	*game;
-	char	*line;
-	int		fd;
+    t_game *game;
 
-	game = malloc(sizeof(t_game));
-	if (!game)
-		return (1);
+    if (argc != 2)
+    {
+        print_error("Usage: ./cup3d <map_file.cub>\n");
+        return (EXIT_FAILURE);
+    }
 
-	init_game(game);
+    game = malloc(sizeof(t_game));
+    if (!game)
+    {
+        print_error("Error: Memory allocation failed for game structure\n");
+        return (EXIT_FAILURE);
+    }
 
-	// to just add ceiling and floor gonna remove after map parsing
-	fd = open("map.cub", O_RDONLY);
-	while ((line = get_next_line(fd)))
-	{
-		if (line[0] == 'F' || line[0] == 'C')
-			parse_color_line(game, line);
-		free(line);
-	}
-	close(fd);
-	// to just add ceiling and floor gonna remove after map parsing
+    init_game(game);
+    cub_file_loader(argv[1], game->mlx_r);
+    init_test_map(game);
+    init_player_for_test(game);
+    mlx_key_hook(game->mlx, &key_handler, game);
+    mlx_loop_hook(game->mlx, &game_loop, game);
+    test_draw(game);
+    mlx_loop(game->mlx);
 
-	init_test_map(game);
-	init_player_for_test(game);
-	mlx_key_hook(game->mlx, &key_handler, game);
-	mlx_loop_hook(game->mlx, &game_loop, game);
-	test_draw(game);
-	mlx_loop(game->mlx);
-
-	return (0);
+    free(game);
+    return (EXIT_SUCCESS);
 }
+
+
+
 
 void	init_window(t_game *game)
 {
 	game->mlx = mlx_init(DISPLAY_WIDTH, DISPLAY_HEIGHT, "cup3d", false);
 	if (!game->mlx)
-		return; // error handling ekle
-
+		return ; // error handling ekle
 	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
 	if (!game->screen)
 	{
 		mlx_terminate(game->mlx);
-		return; // error handling ekle
+		return ; // error handling ekle
 	}
 }
 
 void	init_player(t_game *game)
 {
-	t_game *game_change;
-	
+	t_game	*game_change;
+
 	game_change = game;
 	game_change->p->pos_x = 0;
 	game_change->p->pos_y = 0;
@@ -76,9 +75,9 @@ void	init_player(t_game *game)
 	game_change->p->plane_y = 0.66;
 	game_change->p->p_rot = TURNING_SPEED;
 	game_change->p->p_speed = PLAYER_MOVE_SPEED;
-	game_change->p->m_down = 0; // gs
-	game_change->p->m_up = 0; // gs
-	game_change->p->m_left = 0; // gs
+	game_change->p->m_down = 0;  // gs
+	game_change->p->m_up = 0;    // gs
+	game_change->p->m_left = 0;  // gs
 	game_change->p->m_right = 0; // gs
 	game_change->p->field_view = VIEW_ANGLE;
 }
@@ -91,25 +90,24 @@ void	rotate_player(t_game *game)
 	if (game->p->p_rot != 0)
 	{
 		old_dir_x = game->p->dir_x;
-		game->p->dir_x = game->p->dir_x * cos(game->p->p_rot) - 
+		game->p->dir_x = game->p->dir_x * cos(game->p->p_rot) -
 			game->p->dir_y * sin(game->p->p_rot);
-		game->p->dir_y = old_dir_x * sin(game->p->p_rot) + 
+		game->p->dir_y = old_dir_x * sin(game->p->p_rot) +
 			game->p->dir_y * cos(game->p->p_rot);
 		old_plane_x = game->p->plane_x;
-		game->p->plane_x = game->p->plane_x * cos(game->p->p_rot) - 
+		game->p->plane_x = game->p->plane_x * cos(game->p->p_rot) -
 			game->p->plane_y * sin(game->p->p_rot);
-		game->p->plane_y = old_plane_x * sin(game->p->p_rot) + 
+		game->p->plane_y = old_plane_x * sin(game->p->p_rot) +
 			game->p->plane_y * cos(game->p->p_rot);
 	}
 }
 
-void init_game(t_game *game)
+void	init_game(t_game *game)
 {
 	game->p = malloc(sizeof(t_player_data));
 	game->rc = malloc(sizeof(t_raycasting));
 	game->mapdata = malloc(sizeof(t_map_data));
 	game->mlx_r = malloc(sizeof(t_mlx_render));
-
 	if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
 		print_error("Memory allocation failed");
 	init_window(game);
@@ -135,46 +133,52 @@ void init_game(t_game *game)
 	game->floor_c = 0x383838FF;
 }
 
-void key_handler(mlx_key_data_t keydata, void *param)
+void	key_handler(mlx_key_data_t keydata, void *param)
 {
-	t_game *game = (t_game *)param;
+	t_game	*game;
 
-	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	game = (t_game *)param;
+	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
 		game->p->m_up = 1;
-	else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS
+				|| keydata.action == MLX_REPEAT))
 		game->p->m_down = 1;
-	else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S) && keydata.action == MLX_RELEASE)
+	else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S)
+			&& keydata.action == MLX_RELEASE)
 	{
 		game->p->m_up = 0;
 		game->p->m_down = 0;
 	}
-
-	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
 		game->p->m_left = 1;
-	else if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	else if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS
+				|| keydata.action == MLX_REPEAT))
 		game->p->m_right = 1;
-	else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D) && keydata.action == MLX_RELEASE)
+	else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)
+			&& keydata.action == MLX_RELEASE)
 	{
 		game->p->m_right = 0;
 		game->p->m_left = 0;
 	}
-
-	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
 		game->p->p_rot = TURNING_SPEED;
-	else if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+	else if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_PRESS
+				|| keydata.action == MLX_REPEAT))
 		game->p->p_rot = -TURNING_SPEED;
-	else if ((keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT) && keydata.action == MLX_RELEASE)
+	else if ((keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
+			&& keydata.action == MLX_RELEASE)
 		game->p->p_rot = 0;
-
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(game->mlx);
 }
 
-
-void move_player_forward_back(t_game *game, double move_speed)
+void	move_player_forward_back(t_game *game, double move_speed)
 {
-	double new_x;
-	double new_y;
+	double	new_x;
+	double	new_y;
 
 	if (game->p->m_up)
 	{
@@ -198,10 +202,10 @@ void move_player_forward_back(t_game *game, double move_speed)
 	}
 }
 
-void move_player_left_right(t_game *game, double move_speed)
+void	move_player_left_right(t_game *game, double move_speed)
 {
-	double new_x;
-	double new_y;
+	double	new_x;
+	double	new_y;
 
 	if (game->p->m_left)
 	{
@@ -225,16 +229,15 @@ void move_player_left_right(t_game *game, double move_speed)
 	}
 }
 
-
-int is_valid_position(t_game *game, double x, double y)
+int	is_valid_position(t_game *game, double x, double y)
 {
 	int	map_x;
 	int	map_y;
 
-	if (x < 0 || y < 0 || 
-		x >= game->mapdata->map_width * BLOCK_SIZE || 
+	if (x < 0 || y < 0 ||
+		x >= game->mapdata->map_width * BLOCK_SIZE ||
 		y >= game->mapdata->map_height * BLOCK_SIZE)
-			return (0);
+		return (0);
 	map_x = (int)(x / BLOCK_SIZE);
 	map_y = (int)(y / BLOCK_SIZE);
 	if (game->mapdata->map_layout[map_y][map_x] == '1')
@@ -249,18 +252,18 @@ void	move_player(t_game *game)
 	move_speed = PLAYER_MOVE_SPEED;
 	move_player_forward_back(game, move_speed);
 	move_player_left_right(game, move_speed);
-	rotate_player(game);  // Dönüş kontrolü ekle
+	rotate_player(game); // Dönüş kontrolü ekle
 }
 
 void	game_loop(void *param)
 {
-	t_game	*game;
-	static int	initialized = 0;
+	t_game		*game;
+	static int	initialized;
 
+	initialized = 0;
 	game = (t_game *)param;
-
-	ft_memset(game->screen->pixels, 0,
-		game->screen->width * game->screen->height * sizeof(uint32_t));
+	ft_memset(game->screen->pixels, 0, game->screen->width
+			* game->screen->height * sizeof(uint32_t));
 	move_player(game);
 	ft_cast_ray(game);
 	if (!initialized)
@@ -292,8 +295,8 @@ int	ft_check_wall_hit(t_game *game, double pos_x, double pos_y)
 
 	map_x = (int)(pos_x / BLOCK_SIZE);
 	map_y = (int)(pos_y / BLOCK_SIZE);
-	if (map_x >= 0 && map_x < game->mapdata->map_width
-		&& map_y >= 0 && map_y < game->mapdata->map_height)
+	if (map_x >= 0 && map_x < game->mapdata->map_width && map_y >= 0
+		&& map_y < game->mapdata->map_height)
 	{
 		if (game->mapdata->map_layout[map_y][map_x] == '1')
 			return (1);
@@ -332,32 +335,32 @@ void	ft_fix_fisheye(t_game *game, t_ray *ray)
 	ray->dist = ray->dist * cos(fix_angle);
 }
 
-void	ft_draw_vertical_line(t_game *game, int x, double dist)
+void ft_draw_vertical_line(t_game *game, int column, double dist) 
 {
-	int	line_height;
-	int	draw_start;
-	int	draw_end;
-	int	y;
+    int line_height = (dist > 0) ? (int)(DISPLAY_HEIGHT / dist * BLOCK_SIZE) : DISPLAY_HEIGHT;
+    int draw_start = -line_height / 2 + DISPLAY_HEIGHT / 2;
+    int draw_end = line_height / 2 + DISPLAY_HEIGHT / 2;
 
-	line_height = (dist > 0) ? (int)(DISPLAY_HEIGHT / dist * BLOCK_SIZE)
-		: DISPLAY_HEIGHT;
-	draw_start = -line_height / 2 + DISPLAY_HEIGHT / 2;
-	draw_end = line_height / 2 + DISPLAY_HEIGHT / 2;
-	if (draw_start < 0)
-		draw_start = 0;
-	if (draw_end >= DISPLAY_HEIGHT)
-		draw_end = DISPLAY_HEIGHT - 1;
-	y = 0;
-	while (y < draw_start)
-		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH + x]
-			= game->ceiling_c;
-	while (y < draw_end)
-		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH + x]
-			= 0xFF0000FF;
-	while (y < DISPLAY_HEIGHT)
-		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH + x]
-			= game->floor_c;
+    if (draw_start < 0)
+        draw_start = 0;
+    if (draw_end >= DISPLAY_HEIGHT)
+        draw_end = DISPLAY_HEIGHT - 1;
+
+    int y = 0;
+    while (y < draw_start) {
+        ((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + column] = game->ceiling_c;
+        y++;
+    }
+    while (y < draw_end) {
+        ((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + column] = 0xFF0000FF;
+        y++;
+    }
+    while (y < DISPLAY_HEIGHT) {
+        ((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + column] = game->floor_c;
+        y++;
+    }
 }
+
 
 void	ft_cast_ray(t_game *game)
 {
@@ -374,7 +377,7 @@ void	ft_cast_ray(t_game *game)
 		x++;
 	}
 }
-
+/*
 // void	ft_draw_walls(t_game *game, int column)
 // {
 // 	int	wall_top;
@@ -391,11 +394,14 @@ void	ft_cast_ray(t_game *game)
 // 		wall_bottom = DISPLAY_HEIGHT - 1;
 // 	y = 0;
 // 	while (y < wall_top)
-// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH + column] = game->ceiling_c;
+// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH
+			+ column] = game->ceiling_c;
 // 	while (y < wall_bottom)
-// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH + column] = 0xFF0000FF;
+// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH
+			+ column] = 0xFF0000FF;
 // 	while (y < DISPLAY_HEIGHT)
-// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH + column] = game->floor_c;
+// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH
+			+ column] = game->floor_c;
 // }
 
 // float	ft_normalize_angle(float angle)
@@ -403,8 +409,8 @@ void	ft_cast_ray(t_game *game)
 // 	angle = fmod(angle, 2 * M_PI);
 // 	if (angle < 0)
 // 		angle += 2 * M_PI;
-// 	return angle;
-// }
+// 	return (angle);
+// }*/
 
 void	ft_find_intersections(t_game *game, t_calc *calc)
 {
@@ -459,20 +465,22 @@ void	ft_find_intersections(t_game *game, t_calc *calc)
 
 void	init_test_map(t_game *game) // to test before map parsing
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	game->mapdata->map_width = 10;
 	game->mapdata->map_height = 10;
-	game->mapdata->map_layout = malloc(sizeof(char *) * game->mapdata->map_height);
+	game->mapdata->map_layout = malloc(sizeof(char *)
+			* game->mapdata->map_height);
 	i = 0;
 	while (i < game->mapdata->map_height)
 	{
-		game->mapdata->map_layout[i] = malloc(sizeof(char) * game->mapdata->map_width);
+		game->mapdata->map_layout[i] = malloc(sizeof(char)
+				* game->mapdata->map_width);
 		j = 0;
 		while (j < game->mapdata->map_width)
 		{
-			if (i == 0 || i == game->mapdata->map_height - 1 || 
+			if (i == 0 || i == game->mapdata->map_height - 1 ||
 				j == 0 || j == game->mapdata->map_width - 1)
 				game->mapdata->map_layout[i][j] = '1';
 			else
@@ -485,16 +493,15 @@ void	init_test_map(t_game *game) // to test before map parsing
 	game->mapdata->player_block_x = 1;
 }
 
-void init_player_for_test(t_game *game)
+void	init_player_for_test(t_game *game)
 {
 	game->p->pos_x = (1 + 0.5) * BLOCK_SIZE;
 	game->p->pos_y = (1 + 0.5) * BLOCK_SIZE;
 	game->p->dir_x = -1;
-	game->p->dir_y = 0;  
+	game->p->dir_y = 0;
 	game->p->plane_x = 0;
 	game->p->plane_y = 0.66;
 }
-
 
 void	test_draw(t_game *game)
 {
@@ -507,8 +514,8 @@ void	test_draw(t_game *game)
 		x = 0;
 		while (x < DISPLAY_WIDTH)
 		{
-			((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + x]
-				= game->ceiling_c;
+			((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
+				+ x] = game->ceiling_c;
 			x++;
 		}
 		y++;
@@ -518,8 +525,8 @@ void	test_draw(t_game *game)
 		x = 0;
 		while (x < DISPLAY_WIDTH)
 		{
-			((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + x]
-				= game->floor_c;
+			((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
+				+ x] = game->floor_c;
 			x++;
 		}
 		y++;
@@ -570,29 +577,42 @@ uint32_t	parse_color(const char *line)
 	return (create_rgba(r, g, b, 255));
 }
 
-void	parse_color_line(t_game *game, const char *line)
+void	parse_color_line(t_mlx_render *mlx_data, const char *line)
 {
 	if (line[0] == 'F')
-		game->floor_c = parse_color(line);
+		mlx_data->floor_c = parse_color(line); //strore parse floor color
 	else if (line[0] == 'C')
-		game->ceiling_c = parse_color(line);
+		mlx_data->ceiling_c = parse_color(line);
 }
 
-void	read_colors(t_game *game)
+void read_colors(const char *file_path, t_mlx_render *mlx_data)
 {
-	int		fd;
-	char	*line;
+    int fd;
+    char *line;
 
-	fd = open("map.cub", O_RDONLY);
-	if (fd == -1)
-		print_error("Cannot open map file");
-	while ((line = get_next_line(fd)))
-	{
-		if (line[0] == 'F' || line[0] == 'C')
-			parse_color_line(game, line);
-		free(line);
-	}
-	close(fd);
+    if (!file_path || !mlx_data)
+        print_error("Error: Invalid arguments passed to read_colors\n");
+
+    // Open the .cub file
+    fd = open(file_path, O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        print_error("Error: Unable to open .cub file for reading colors\n");
+    }
+
+    // Read lines and process only color-related lines
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        if (line[0] == 'F' || line[0] == 'C') // Floor or ceiling color
+        {
+            parse_color_line(mlx_data, line);
+        }
+        free(line); // Ensure no memory leaks
+    }
+
+    if (close(fd) == -1)
+        print_error("Error: Unable to close .cub file after reading colors\n");
 }
 
 
