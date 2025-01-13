@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 02:10:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/13 17:07:59 by victor-linu      ###   ########.fr       */
+/*   Updated: 2024/08/11 02:12:51 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,4 @@ double	ft_atoi_double(const char *str);
 void 	handle_error(const char *str);
 const char *acceptable_input(const char *str);
 long 	ft_atol(const char *str);
-int		ft_isspace(char c);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
 #endif
