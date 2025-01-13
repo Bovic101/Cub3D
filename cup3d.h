@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/12 16:26:56 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/13 18:21:53 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ typedef struct s_calc
 }					t_calc;
 
 double				degree_to_radian(double value);
+void				confirm_map_data(t_map_data *map_data);
 void				player_pos_init(t_mlx_render *mlx_data);
 void				texture_loader(const char *texture_path, mlx_texture_t **texture_pos);
 void	cub_file_loader(const char *cubfile_name,

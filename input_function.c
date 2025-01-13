@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/13 13:47:28 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/13 18:39:04 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,56 +102,8 @@ void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 	map_data->map_layout[map_data->map_height] = malloc(MAX_MAP_WIDTH + 1);
 	if (!map_data->map_layout[map_data->map_height])
 		print_error("Error: Memory allocation failed for map row\n");
-	strncpy(map_data->map_layout[map_data->map_height], line_ptr,
+	ft_strncpy(map_data->map_layout[map_data->map_height], line_ptr,
 			MAX_MAP_WIDTH);
 	map_data->map_layout[map_data->map_height][MAX_MAP_WIDTH] = '\0';
-	// Null-terminate
 	map_data->map_height++;
-}
-
-void	confirm_map_data(t_map_data *map_data)
-{
-	int		i;
-	int		j;
-	int		player_count;
-	char	compare;
-
-	if (!map_data || !map_data->map_layout)
-		print_error("Error: Map data is null\n");
-	i = 0;
-	j = 0;
-	while (j < map_data->map_width)
-	// Checking boundaries for walls(top& bottom)
-	{
-		if (map_data->map_layout[0][j] != '1' ||
-			map_data->map_layout[map_data->map_height - 1][j] != '1')
-			print_error("Error: Map is unnclosed by walls\n");
-		j++;
-	}
-	while (i < map_data->map_height)
-	// Checking boundaries for walls(left& right)
-	{
-		if (map_data->map_layout[i][0] != '1' ||
-			map_data->map_layout[i][map_data->map_width - 1] != '1')
-			print_error("Error: Map is unenclosed by walls\n");
-		i++;
-	}
-	i = 0; //reset for next loop
-	player_count = 0;
-	while (i < map_data->map_height)
-	// Checking for a valid number of player positions
-	{
-		j = 0;
-		while (j < map_data->map_width)
-		{
-			compare = map_data->map_layout[i][j];
-			if (compare == 'N' || compare == 'S' || compare == 'E'
-				|| compare == 'W')
-				player_count++;
-			j++;
-		}
-		i++;
-	}
-	if (player_count != 1)
-		print_error("Error: Map must have one player starting position\n");
 }
