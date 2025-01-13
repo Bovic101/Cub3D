@@ -110,7 +110,6 @@ void	texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 	printf("status: Successfully loaded texture: '%s'\n", texture_path);
 }
 
->>>>>>> d3b55e6 (implementationa anbd addition of function function ensures the map is fully enclosed by walls,contains exactly one player starting position)
 /*Function parse and load textures using the texture_loader and texture_path-parser function*/
 void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 {
@@ -138,7 +137,6 @@ void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 /*Function that read map line in the cub and stores it in the 2D array rep. d map*/
 void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 {
-<<<<<<< HEAD
     if (!map_data)
         print_error("Error: Null map_data in map_layout_input\n");
 
@@ -162,7 +160,6 @@ void	map_layout_input(const char *line_ptr, t_map_data *map_data)
     strncpy(map_data->map_layout[map_data->map_height], line_ptr, MAX_MAP_WIDTH);
     map_data->map_layout[map_data->map_height][MAX_MAP_WIDTH] = '\0'; // Null-terminate
     map_data->map_height++;
-=======
 	if (!map_data)
 		print_error("Error: Null map_data in map_layout_input\n");
 	if (map_data->map_height >= MAX_MAP_HEIGHT)
@@ -183,7 +180,6 @@ void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 	map_data->map_layout[map_data->map_height][MAX_MAP_WIDTH] = '\0';
 		// Null-terminate
 	map_data->map_height++;
->>>>>>> d3b55e6 (implementationa anbd addition of function function ensures the map is fully enclosed by walls,contains exactly one player starting position)
 }
 
 
