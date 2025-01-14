@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/12 17:03:51 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/14 19:29:28 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    if (argc != 2)
-    {
-        print_error("Usage: ./cup3d <map_file.cub>\n");
-        return EXIT_FAILURE;
-    }
+	t_game	game;
 
-    printf("status: Map file provided: '%s'\n", argv[1]);
-
-    t_game *game = malloc(sizeof(t_game));
-    if (!game)
-    {
-        print_error("Error: Memory allocation failed for game structure\n");
-        return EXIT_FAILURE;
-    }
-
-    init_game(game);
-    cub_file_loader(argv[1], game->mlx_r); // Load the .cub file
-    init_test_map(game);
-    init_player_for_test(game);
-    mlx_key_hook(game->mlx, &key_handler, game);  // Setup for hooks and run the game loop
-    mlx_loop_hook(game->mlx, &game_loop, game);
-    mlx_loop(game->mlx);
-
-    free(game);
-    return EXIT_SUCCESS;
+	if (argc != 2)
+	{
+		printf("Usage: %s <map_file>\n", argv[0]);
+		return (1);
+	}
+	if (!init_game(&game, argv[1]))
+	{
+		printf("Failed to initialize game\n");
+		return (1);
+	}
+	mlx_loop_hook(game.mlx, &game_loop, &game);
+	mlx_loop(game.mlx);
+	cleanup_game(&game);
+	return (0);
 }
 
 void	init_window(t_game *game)
 {
-	game->mlx = mlx_init(DISPLAY_WIDTH, DISPLAY_HEIGHT, "cup3d", false);
+	game->mlx = mlx_init(DISPLAY_WIDTH, DISPLAY_HEIGHT, "Cub3D", true);
 	if (!game->mlx)
-		return ; // error handling ekle
-	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
-	if (!game->screen)
 	{
-		mlx_terminate(game->mlx);
-		return ; // error handling ekle
+		write(2, "Error: Failed to initialize mlx\n", 32);
+		exit(1);
+	}
+	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+	if (!game->screen || !game->screen->pixels)
+	{
+		write(2, "Error: Failed to create screen image\n", 37);
+		exit(1);
 	}
 }
 
@@ -71,10 +65,10 @@ void	init_player(t_game *game)
 	game_change->p->plane_y = 0.66;
 	game_change->p->p_rot = TURNING_SPEED;
 	game_change->p->p_speed = PLAYER_MOVE_SPEED;
-	game_change->p->m_down = 0;  // gs
-	game_change->p->m_up = 0;    // gs
-	game_change->p->m_left = 0;  // gs
-	game_change->p->m_right = 0; // gs
+	game_change->p->m_down = 0;
+	game_change->p->m_up = 0;
+	game_change->p->m_left = 0;
+	game_change->p->m_right = 0;
 	game_change->p->field_view = VIEW_ANGLE;
 }
 
@@ -98,47 +92,73 @@ void	rotate_player(t_game *game)
 	}
 }
 
-void init_game(t_game *game)
+int	init_game(t_game *game, const char *map_file)
 {
-    game->p = malloc(sizeof(t_player_data));
-    game->rc = malloc(sizeof(t_raycasting));
-    game->mapdata = malloc(sizeof(t_map_data));
-    game->mlx_r = malloc(sizeof(t_mlx_render));
-    if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
-        print_error("Memory allocation failed");
-		
-    game->mlx_r->map_data = malloc(sizeof(t_map_data));
-    if (!game->mlx_r->map_data)
-        print_error("Memory allocation failed for map_data");
-		
-    init_window(game);
-
-    // Initialize player attributes
-    game->p->pos_x = BLOCK_SIZE * 1.5;
-    game->p->pos_y = BLOCK_SIZE * 1.5;
-    game->p->dir_x = -1.0;
-    game->p->dir_y = 0.0;
-    game->p->plane_x = 0.0;
-    game->p->plane_y = 0.66;
-    game->p->p_rot = 0;
-    game->p->p_speed = PLAYER_MOVE_SPEED;
-    game->p->m_up = 0;
-    game->p->m_down = 0;
-    game->p->m_left = 0;
-    game->p->m_right = 0;
-    game->p->field_view = VIEW_ANGLE * M_PI / 180.0;
-
-    // Initialize map attributes
-    game->mlx_r->map_data->map_layout = NULL;
-    game->mlx_r->map_data->map_width = 0;
-    game->mlx_r->map_data->map_height = 0;
-    game->mlx_r->map_data->player_block_x = -1;
-    game->mlx_r->map_data->player_block_y = -1;
-
-    game->ceiling_c = 0x1E1E1EFF;
-    game->floor_c = 0x383838FF;
+	game->p = malloc(sizeof(t_player_data));
+	game->rc = malloc(sizeof(t_raycasting));
+	game->mapdata = malloc(sizeof(t_map_data));
+	game->mlx_r = malloc(sizeof(t_mlx_render));
+	if (!game->p || !game->rc || !game->mapdata || !game->mlx_r)
+	{
+		print_error("Error: Memory allocation failed in initialize_game\n");
+		return (0);
+	}
+	// Initialize map data
+	game->mapdata->map_layout = NULL;
+	game->mapdata->map_width = 0;
+	game->mapdata->map_height = 0;
+	game->mapdata->allocated_height = 0;
+	// Initialize rendering components
+	game->mlx_r->map_data = game->mapdata;
+	game->mlx_r->player = game->p;
+	game->mlx_r->floor_c = 0x383838FF;
+	game->mlx_r->ceiling_c = 0x1E1E1EFF;
+	cub_file_loader(map_file, game->mlx_r);  // Load the map.cub file and map data
+	player_pos_init(game->mlx_r); // Initialize the player's position
+	init_window(game);
+	if (!game->mlx || !game->screen)
+	{
+		print_error("Error: Failed to initialize the game window\n");
+		return (0);
+	}
+	return (1);
 }
+/*Function to free up the game buf*/
+void	cleanup_game(t_game *game)
+{
+	int	i;
 
+	if (game->mapdata)
+	{
+		i = 0;
+		while (i < game->mapdata->map_height)
+		{
+			free(game->mapdata->map_layout[i]);
+			i++;
+		}
+		free(game->mapdata->map_layout);
+		free(game->mapdata);
+	}
+	if (game->mlx_r)
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (game->mlx_r->xpm_texture[i])
+				mlx_delete_texture(game->mlx_r->xpm_texture[i]);
+			i++;
+		}
+		free(game->mlx_r);
+	}
+	if (game->rc)
+		free(game->rc);
+	if (game->p)
+		free(game->p);
+	if (game->screen)
+		mlx_delete_image(game->mlx, game->screen);
+	if (game->mlx)
+		mlx_terminate(game->mlx);
+}
 
 void	key_handler(mlx_key_data_t keydata, void *param)
 {
@@ -264,21 +284,18 @@ void	move_player(t_game *game)
 
 void	game_loop(void *param)
 {
-	t_game		*game;
-	static int	initialized;
+	t_game	*game;
+	int		column;
 
-	initialized = 0;
 	game = (t_game *)param;
-	ft_memset(game->screen->pixels, 0, game->screen->width
-			* game->screen->height * sizeof(uint32_t));
-	move_player(game);
-	ft_cast_ray(game);
-	if (!initialized)
+	column = 0;
+	while (column < DISPLAY_WIDTH)
 	{
-		if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
-			print_error("Failed to put image to window");
-		initialized = 1;
+		ft_cast_ray(game, column);
+		ft_draw_walls(game, column);
+		column++;
 	}
+	mlx_image_to_window(game->mlx, game->screen, 0, 0); // Render to the window
 }
 
 void	ft_init_ray(t_game *game, int x, t_ray *ray)
@@ -342,82 +359,162 @@ void	ft_fix_fisheye(t_game *game, t_ray *ray)
 	ray->dist = ray->dist * cos(fix_angle);
 }
 
-void ft_draw_vertical_line(t_game *game, int column, double dist) 
+void	ft_draw_vertical_line(t_game *game, int column, double dist)
 {
-    int line_height = (dist > 0) ? (int)(DISPLAY_HEIGHT / dist * BLOCK_SIZE) : DISPLAY_HEIGHT;
-    int draw_start = -line_height / 2 + DISPLAY_HEIGHT / 2;
-    int draw_end = line_height / 2 + DISPLAY_HEIGHT / 2;
+	int	line_height;
+	int	draw_start;
+	int	draw_end;
+	int	y;
 
-    if (draw_start < 0)
-        draw_start = 0;
-    if (draw_end >= DISPLAY_HEIGHT)
-        draw_end = DISPLAY_HEIGHT - 1;
-
-    int y = 0;
-    while (y < draw_start) {
-        ((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + column] = game->ceiling_c;
-        y++;
-    }
-    while (y < draw_end) {
-        ((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + column] = 0xFF0000FF;
-        y++;
-    }
-    while (y < DISPLAY_HEIGHT) {
-        ((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + column] = game->floor_c;
-        y++;
-    }
-}
-
-
-void	ft_cast_ray(t_game *game)
-{
-	t_ray	ray;
-	int		x;
-
-	x = 0;
-	while (x < DISPLAY_WIDTH)
+	line_height = (int)(DISPLAY_HEIGHT / dist);
+	draw_start = -line_height / 2 + DISPLAY_HEIGHT / 2;
+	draw_end = line_height / 2 + DISPLAY_HEIGHT / 2;
+	if (draw_start < 0)
+		draw_start = 0;
+	if (draw_end >= DISPLAY_HEIGHT)
+		draw_end = DISPLAY_HEIGHT - 1;
+	y = 0;
+	while (y < draw_start) // Draw ceiling
 	{
-		ft_init_ray(game, x, &ray);
-		ft_cast_single_ray(game, &ray);
-		ft_fix_fisheye(game, &ray);
-		ft_draw_vertical_line(game, x, ray.dist);
-		x++;
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
+			+ column] = game->ceiling_c;
+		y++;
+	}
+	while (y < draw_end)
+	{
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
+			+ column] = 0xFF0000FF;
+		y++;
+	}
+	while (y < DISPLAY_HEIGHT) // Draw floor
+	{
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
+			+ column] = game->floor_c;
+		y++;
 	}
 }
-/*
-// void	ft_draw_walls(t_game *game, int column)
-// {
-// 	int	wall_top;
-// 	int	wall_bottom;
-// 	int	y;
-// 	int	wall_height;
 
-// 	wall_height = (int)(DISPLAY_HEIGHT / game->rc->corrected_dist);
-// 	wall_top = (DISPLAY_HEIGHT / 2) - (wall_height / 2);
-// 	wall_bottom = (DISPLAY_HEIGHT / 2) + (wall_height / 2);
-// 	if (wall_top < 0)
-// 		wall_top = 0;
-// 	if (wall_bottom >= DISPLAY_HEIGHT)
-// 		wall_bottom = DISPLAY_HEIGHT - 1;
-// 	y = 0;
-// 	while (y < wall_top)
-// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH
+double	ft_cast_ray(t_game *game, int x)
+{
+	double	ray_angle;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		map_x;
+	int		map_y;
+	int		hit;
+	int		side;
+	double	corrected_dist;
+
+	ray_angle = game->p->field_view * ((double)x / DISPLAY_WIDTH - 0.5);
+	ray_angle = ft_normalize_angle(ray_angle);
+	game->rc->ray_angle = ray_angle;
+	delta_dist_x = fabs(1 / cos(ray_angle));
+	delta_dist_y = fabs(1 / sin(ray_angle));
+	int step_x, step_y;
+	double side_dist_x, side_dist_y;
+	map_x = (int)(game->p->pos_x / BLOCK_SIZE);
+	map_y = (int)(game->p->pos_y / BLOCK_SIZE);
+	if (cos(ray_angle) > 0)
+	{
+		step_x = 1;
+		side_dist_x = (map_x + 1.0 - (game->p->pos_x / BLOCK_SIZE))
+			* delta_dist_x;
+	}
+	else
+	{
+		step_x = -1;
+		side_dist_x = ((game->p->pos_x / BLOCK_SIZE) - map_x) * delta_dist_x;
+	}
+	if (sin(ray_angle) > 0)
+	{
+		step_y = 1;
+		side_dist_y = (map_y + 1.0 - (game->p->pos_y / BLOCK_SIZE))
+			* delta_dist_y;
+	}
+	else
+	{
+		step_y = -1;
+		side_dist_y = ((game->p->pos_y / BLOCK_SIZE) - map_y) * delta_dist_y;
+	}
+	hit = 0;
+	side = 0;
+	while (!hit)
+	{
+		if (side_dist_x < side_dist_y)
+		{
+			side_dist_x += delta_dist_x;
+			map_x += step_x;
+			side = 0;
+		}
+		else
+		{
+			side_dist_y += delta_dist_y;
+			map_y += step_y;
+			side = 1;
+		}
+		if (game->mlx_r->map_data->map_layout[map_y][map_x] == '1')
+			hit = 1;
+	}
+	if (side == 0)
+		corrected_dist = (side_dist_x - delta_dist_x);
+	else
+		corrected_dist = (side_dist_y - delta_dist_y);
+	game->rc->corrected_dist = corrected_dist;
+	return (corrected_dist);
+}
+/*This function perform the raycast and return the ray distance*/
+double	perform_raycast(t_game *game, int x)
+{
+	double	ray_dist;
+
+	ray_dist = ft_cast_ray(game, x);
+	return (ray_dist);
+}
+float	ft_normalize_angle(float angle)
+{
+	while (angle < 0)
+		angle += 2 * M_PI;
+	while (angle >= 2 * M_PI)
+		angle -= 2 * M_PI;
+	return (angle);
+}
+
+void	ft_draw_walls(t_game *game, int column)
+{
+	if (!game || !game->screen || !game->screen->pixels)
+	{
+		write(2, "Error: Invalid screen or pixels\n", 32);
+		return ;
+	}
+	int wall_top, wall_bottom, wall_height, y = 0;
+	wall_height = (int)(DISPLAY_HEIGHT / game->rc->corrected_dist);
+	if (wall_height <= 0)
+		return ;
+	wall_top = (DISPLAY_HEIGHT / 2) - (wall_height / 2);
+	wall_bottom = (DISPLAY_HEIGHT / 2) + (wall_height / 2);
+	if (wall_top < 0)
+		wall_top = 0;
+	if (wall_bottom >= DISPLAY_HEIGHT)
+		wall_bottom = DISPLAY_HEIGHT - 1;
+	while (y < wall_top)
+	{
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
 			+ column] = game->ceiling_c;
-// 	while (y < wall_bottom)
-// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH
+		y++;
+	}
+	while (y < wall_bottom)
+	{
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
 			+ column] = 0xFF0000FF;
-// 	while (y < DISPLAY_HEIGHT)
-// 		((uint32_t *)game->screen->pixels)[y++ * DISPLAY_WIDTH
+		y++;
+	}
+	while (y < DISPLAY_HEIGHT)
+	{
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
 			+ column] = game->floor_c;
-// }
-
-// float	ft_normalize_angle(float angle)
-// {
-// 	angle = fmod(angle, 2 * M_PI);
-// 	if (angle < 0)
-// 		angle += 2 * M_PI;
-// 	return (angle);
-// }*/
+		y++;
+	}
+}
 
 void	ft_find_intersections(t_game *game, t_calc *calc)
 {
@@ -565,59 +662,26 @@ void	free_split(char **split)
 
 uint32_t	parse_color(const char *line)
 {
-	int		r;
-	int		g;
-	int		b;
 	char	**split;
 
+	int r, g, b;
 	while (*line == 'F' || *line == 'C' || *line == ' ')
 		line++;
 	split = ft_split(line, ',');
 	if (!split)
-		print_error("Memory allocation failed");
+		print_error("Error: Memory allocation failed in parse_color\n");
+	if (!split[0] || !split[1] || !split[2] || split[3])
+	{
+		free_split(split);
+		print_error("Error: Invalid RGB format in parse_color\n");
+	}
 	r = ft_atoi(split[0]);
 	g = ft_atoi(split[1]);
 	b = ft_atoi(split[2]);
 	free_split(split);
 	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-		print_error("Invalid RGB values");
+		print_error("Error: RGB values out of range in parse_color\n");
 	return (create_rgba(r, g, b, 255));
 }
-
-void	parse_color_line(t_mlx_render *mlx_data, const char *line)
-{
-	if (line[0] == 'F')
-		mlx_data->floor_c = parse_color(line); //strore parse floor color
-	else if (line[0] == 'C')
-		mlx_data->ceiling_c = parse_color(line);
-}
-
-void read_colors(const char *file_path, t_mlx_render *mlx_data)
-{
-    if (!file_path || !mlx_data)
-        print_error("Error: Invalid arguments passed to read_colors\n");
-
-    printf("Debug: Opening file for reading colors: '%s'\n", file_path);
-
-    int fd = open(file_path, O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Debug: Open failed");
-        print_error("Error: Unable to open .cub file for reading colors\n");
-    }
-
-    char *line;
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("Debug: Read line: %s\n", line);
-        if (line[0] == 'F' || line[0] == 'C')
-            parse_color_line(mlx_data, line);
-        free(line);
-    }
-
-    if (close(fd) == -1)
-        print_error("Error: Unable to close .cub file after reading colors\n");
-}
-
 
 

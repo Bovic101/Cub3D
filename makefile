@@ -1,6 +1,6 @@
 NAME = cup3d
 CC = gcc
-#CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g
 MLX42_PATH = MLX42
 LIBFT_PATH = libft
 MLX42_LIB = $(MLX42_PATH)/build/libmlx42.a
@@ -19,7 +19,7 @@ OBJS = $(SRCS:.c=.o)
 LIBS = -ldl -lglfw -pthread -lm 
 INCLUDES = -I./MLX42/include -I./libft
 
-all: $(MLX42_LIB) $(NAME)
+all: $(MLX42_LIB) $(LIBFT_OBJS) $(NAME)
 
 $(LIBFT_OBJS):
 	make -C $(LIBFT_PATH)
@@ -37,11 +37,20 @@ $(NAME): $(OBJS) $(LIBFT_OBJS)
 clean:
 	rm -f $(OBJS)
 	rm -rf $(MLX42_PATH)/build
+	make -C $(LIBFT_PATH) clean
 
 fclean: clean
 	rm -f $(NAME)
 	rm -rf $(MLX42_PATH)
+	make -C $(LIBFT_PATH) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+debug: CFLAGS += -g -fsanitize=address
+debug: re
+
+run: all
+	./$(NAME) map.cub
+
+.PHONY: all clean fclean re debug run
+

@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/13 18:39:04 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/14 19:17:45 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,15 @@ void	texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 {
 	if (!texture_path || !texture_pos)
 		print_error("Error: Invalid arguments in texture_loader\n");
-	printf("status: Checking texture path: '%s'\n", texture_path);
 	if (access(texture_path, R_OK) == -1)
 	{
-		perror("Debug: Texture file access failed");
+		perror("Error: Failed to access texture file");
 		print_error("Error: Texture file does not exist or is not readable\n");
-			// Check if the texture file exists and is readable
 	}
-	*texture_pos = mlx_load_png(texture_path); // Load the texture
+	*texture_pos = mlx_load_png(texture_path);
 	if (!(*texture_pos))
-	{
 		print_error("Error: Failed to load texture\n");
-	}
-	printf("status: Successfully loaded texture: '%s'\n", texture_path);
+	printf("Status: Successfully loaded texture: '%s'\n", texture_path);
 }
 
 /*Function parse and load textures using the texture_loader and texture_path-parser function*/
@@ -87,23 +83,66 @@ void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 /*Function that read map line in the cub and stores it in the 2D array rep. d map*/
 void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 {
+	size_t	line_length;
+
+	line_length = ft_strlen(line_ptr);
 	if (!map_data)
 		print_error("Error: Null map_data in map_layout_input\n");
-	if (map_data->map_height >= MAX_MAP_HEIGHT)
-		print_error("Error: Maximum map height exceeded\n");
-	if (ft_strlen(line_ptr) > MAX_MAP_WIDTH)
-		print_error("Error: Maximum map width exceeded\n");
 	if (!map_data->map_layout)
 	{
-		map_data->map_layout = malloc(MAX_MAP_HEIGHT * sizeof(char *));
+		map_data->allocated_height = MAX_MAP_HEIGHT;
+		map_data->map_layout = malloc(map_data->allocated_height
+				* sizeof(char *));
 		if (!map_data->map_layout)
 			print_error("Error: Memory allocation failed for map layout\n");
 	}
-	map_data->map_layout[map_data->map_height] = malloc(MAX_MAP_WIDTH + 1);
+	if (map_data->map_height >= map_data->allocated_height)
+	{
+		map_data->allocated_height *= 2;
+		map_data->map_layout = realloc(map_data->map_layout,
+										map_data->allocated_height
+											* sizeof(char *));
+		if (!map_data->map_layout)
+			print_error("Error: Memory allocation failed during map reallocation\n");
+	}
+	map_data->map_layout[map_data->map_height] = malloc(line_length + 1);
 	if (!map_data->map_layout[map_data->map_height])
 		print_error("Error: Memory allocation failed for map row\n");
 	ft_strncpy(map_data->map_layout[map_data->map_height], line_ptr,
-			MAX_MAP_WIDTH);
-	map_data->map_layout[map_data->map_height][MAX_MAP_WIDTH] = '\0';
+			line_length);
+	map_data->map_layout[map_data->map_height][line_length] = '\0';
 	map_data->map_height++;
+}
+
+void	parse_color_line(t_mlx_render *mlx_data, const char *line)
+{
+	if (line[0] == 'F')
+		mlx_data->floor_c = parse_color(line); //strore parse floor color
+	else if (line[0] == 'C')
+		mlx_data->ceiling_c = parse_color(line);
+}
+
+void	read_colors(const char *file_path, t_mlx_render *mlx_data)
+{
+	int		fd;
+	char	*line;
+
+	if (!file_path || !mlx_data)
+		print_error("Error: Invalid arguments passed to read_colors\n");
+	printf("status: Opening file for reading colors: '%s'\n", file_path);
+	fd = open(file_path, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("status: Open failed");
+		print_error("Error: Unable to open .cub file for reading colors\n");
+	}
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("status: Read line: %s\n", line);
+		if (line[0] == 'F' || line[0] == 'C')
+			parse_color_line(mlx_data, line);
+		free(line);
+	}
+	if (close(fd) == -1)
+		print_error("Error: Unable to close .cub file after reading colors\n");
 }
