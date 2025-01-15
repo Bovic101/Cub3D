@@ -1,6 +1,6 @@
 NAME = cup3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -Wall -Wextra -Werror -g
 MLX42_PATH = MLX42
 LIBFT_PATH = libft
 MLX42_LIB = $(MLX42_PATH)/build/libmlx42.a

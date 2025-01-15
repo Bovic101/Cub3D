@@ -1,0 +1,3248 @@
+Debug: Starting game initialization
+Debug: Loading map file
+status:Opening file: 'map.cub'
+status: Processing line: 'NO textures/NO.png'
+Status: Successfully loaded texture: 'textures/NO.png'
+status: Processing line: 'SO textures/SO.png'
+Status: Successfully loaded texture: 'textures/SO.png'
+status: Processing line: 'WE textures/WE.png'
+Status: Successfully loaded texture: 'textures/WE.png'
+status: Processing line: 'EA textures/EA.png'
+Status: Successfully loaded texture: 'textures/EA.png'
+status: Processing line: 'F 0,0,0'
+status: Processing line: 'C 50,50,255'
+status: Processing line: '11111'
+status: Processing line: '10001'
+status: Processing line: '10N01'
+status: Processing line: '10001'
+status: Processing line: '11111'
+status: Player found at (2, 2)
+status: Total player positions found: 1
+status: Parsed Map Layout:
+11111
+10001
+10N01
+10001
+11111
+Debug: Initializing player position
+Debug: Player initialized at pos: (100.000000, 100.000000), dir: (0.000000, -1.000000)
+Debug: Initializing window
+Debug: Creating MLX window
+Debug: Creating screen image
+Debug: Window initialization completed successfully
+Debug: Putting image to window
+Debug: Setting up hooks
+Debug: Starting game loop
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (100.000000, 100.000000)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - A key pressed
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - S key pressed
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Player pos: (118.129445, 110.336191)
+Debug - Movement flags: up=0, down=1, left=0, right=0, rot=0.000000
+Debug - Checking position (2, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Player pos: (134.128218, 110.137972)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (134.128218, 110.137972)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - S key pressed
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - A key pressed
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Player pos: (154.208450, 116.489691)
+Debug - Movement flags: up=0, down=1, left=1, right=0, rot=0.000000
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - Checking position (4, 2) on map
+Debug - Wall collision
+Debug - A key pressed
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Player pos: (159.322539, 125.667036)
+Debug - Movement flags: up=0, down=0, left=1, right=0, rot=0.000000
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 3) on map
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=1, right=0, rot=0.000000
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - S key pressed
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (3, 4) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Checking position (4, 3) on map
+Debug - Wall collision
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (159.747727, 159.984394)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - W key pressed
+Debug - Trying to move to: (159.355376, 159.064578)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (158.963026, 158.144762)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (158.570676, 157.224946)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (158.178326, 156.305130)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (157.785975, 155.385314)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (157.393625, 154.465498)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (157.001275, 153.545682)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (156.608925, 152.625866)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (156.216575, 151.706051)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (155.824224, 150.786235)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (155.431874, 149.866419)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (155.039524, 148.946603)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (154.647174, 148.026787)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (154.254823, 147.106971)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Player pos: (154.254823, 147.106971)
+Debug - Movement flags: up=1, down=0, left=0, right=0, rot=0.000000
+Debug - Trying to move to: (153.862473, 146.187155)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (153.470123, 145.267339)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (153.077773, 144.347523)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (152.685423, 143.427707)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (152.293072, 142.507892)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (151.900722, 141.588076)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (151.508372, 140.668260)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (151.116022, 139.748444)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (150.723671, 138.828628)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (150.331321, 137.908812)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (149.938971, 136.988996)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (149.546621, 136.069180)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (149.154271, 135.149364)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (148.761920, 134.229548)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (148.369570, 133.309732)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (147.977220, 132.389917)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (147.584870, 131.470101)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (147.192519, 130.550285)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (146.800169, 129.630469)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (146.407819, 128.710653)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (146.015469, 127.790837)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (145.623118, 126.871021)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (145.230768, 125.951205)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (144.838418, 125.031389)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (144.446068, 124.111573)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (144.053718, 123.191757)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (143.661367, 122.271942)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (143.269017, 121.352126)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (142.876667, 120.432310)
+Debug - Checking position (3, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (142.484317, 119.512494)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (142.091966, 118.592678)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (141.699616, 117.672862)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (141.307266, 116.753046)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (140.914916, 115.833230)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (140.522566, 114.913414)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (140.130215, 113.993598)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (139.737865, 113.073783)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (139.345515, 112.153967)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (138.953165, 111.234151)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (138.560814, 110.314335)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (138.168464, 109.394519)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (137.776114, 108.474703)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (137.383764, 107.554887)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (136.991414, 106.635071)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (136.599063, 105.715255)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (136.206713, 104.795439)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (135.814363, 103.875623)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (135.422013, 102.955808)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (135.029662, 102.035992)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (134.637312, 101.116176)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (134.244962, 100.196360)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (133.852612, 99.276544)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (133.460262, 98.356728)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (133.067911, 97.436912)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (132.675561, 96.517096)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (132.283211, 95.597280)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (131.890861, 94.677464)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (131.498510, 93.757648)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - W key pressed
+Debug - Player pos: (131.498510, 93.757648)
+Debug - Movement flags: up=1, down=0, left=0, right=0, rot=0.000000
+Debug - Trying to move to: (131.106160, 92.837833)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (130.713810, 91.918017)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (130.321460, 90.998201)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (129.929110, 90.078385)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (129.536759, 89.158569)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (129.144409, 88.238753)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (128.752059, 87.318937)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (128.359709, 86.399121)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (127.967358, 85.479305)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (127.575008, 84.559489)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (127.182658, 83.639674)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (126.790308, 82.719858)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=-0.010000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=-0.010000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=-0.010000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=-0.010000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=-0.010000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - Player pos: (126.790308, 82.719858)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - W key pressed
+Debug - Trying to move to: (127.125296, 83.662080)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (127.460284, 84.604302)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (127.795272, 85.546525)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (128.130260, 86.488747)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (128.465248, 87.430969)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (128.800237, 88.373192)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (129.135225, 89.315414)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (129.470213, 90.257636)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (129.805201, 91.199859)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (130.140189, 92.142081)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (130.475177, 93.084303)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (130.810166, 94.026526)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (131.145154, 94.968748)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (131.480142, 95.910970)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (131.815130, 96.853193)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (132.150118, 97.795415)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (132.485106, 98.737637)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (132.820094, 99.679860)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (133.155083, 100.622082)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (133.490071, 101.564304)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (133.825059, 102.506527)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (134.160047, 103.448749)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Player pos: (134.160047, 103.448749)
+Debug - Movement flags: up=1, down=0, left=0, right=0, rot=0.000000
+Debug - Trying to move to: (134.495035, 104.390971)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (134.830023, 105.333194)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (135.165011, 106.275416)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (135.500000, 107.217638)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (135.834988, 108.159861)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (136.169976, 109.102083)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (136.504964, 110.044305)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (136.839952, 110.986528)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Player pos: (136.839952, 110.986528)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (136.839952, 110.986528)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (136.839952, 110.986528)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - A key pressed
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - W key pressed
+Debug - Player pos: (136.569552, 113.612477)
+Debug - Movement flags: up=1, down=0, left=1, right=0, rot=0.010000
+Debug - Trying to move to: (135.577683, 113.485213)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (134.503142, 114.002669)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (133.423480, 114.509354)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (132.338805, 115.005217)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (131.249226, 115.490209)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (130.154852, 115.964281)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (129.055792, 116.427386)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (127.952155, 116.879477)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (126.844053, 117.320510)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (125.731596, 117.750439)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (124.614896, 118.169223)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (123.494064, 118.576819)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (122.369211, 118.973187)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (121.240452, 119.358286)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (3, 2) on map
+Debug - Trying to move to: (120.107898, 119.732079)
+Debug - Checking position (3, 2) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (118.971662, 120.094527)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (117.831859, 120.445595)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (116.688603, 120.785248)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (115.542007, 121.113452)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (114.392186, 121.430173)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (113.239256, 121.735381)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (112.083332, 122.029044)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (110.924528, 122.311134)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (109.762962, 122.581621)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (108.598749, 122.840480)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (107.432005, 123.087684)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (106.262848, 123.323208)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (105.091395, 123.547029)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (103.917761, 123.759124)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (102.742066, 123.959473)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (101.564425, 124.148055)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (100.384958, 124.324851)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (99.203782, 124.489844)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (98.021015, 124.643017)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (96.836775, 124.784355)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (95.651182, 124.913844)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (94.464352, 125.031470)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (93.276406, 125.137223)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (92.087462, 125.231091)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (90.897638, 125.313065)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Checking position (2, 3) on map
+Debug - Trying to move to: (89.707055, 125.383137)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (88.848120, 124.871051)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (87.994349, 124.350402)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (87.145828, 123.821241)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (86.302640, 123.283622)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (85.464870, 122.737598)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (84.632603, 122.183224)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (83.805921, 121.620555)
+Debug - Checking position (2, 3) on map
+Debug - Move successful
+Debug - Player pos: (83.805921, 121.620555)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (83.805921, 121.620555)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - S key pressed
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (2, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - A key pressed
+Debug - Player pos: (79.218025, 153.256102)
+Debug - Movement flags: up=0, down=1, left=1, right=0, rot=0.000000
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Player pos: (48.695950, 158.976623)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - D key pressed
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 3) on map
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Player pos: (53.893629, 159.905346)
+Debug - Movement flags: up=0, down=0, left=0, right=1, rot=0.000000
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - D key pressed
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - Checking position (1, 4) on map
+Debug - Wall collision
+Debug - W key pressed
+Debug - Trying to move to: (54.069524, 158.920937)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (54.895128, 158.052619)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (55.720733, 157.184300)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (56.546338, 156.315981)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Player pos: (57.196047, 156.432072)
+Debug - Movement flags: up=1, down=0, left=0, right=1, rot=0.000000
+Debug - Trying to move to: (57.371942, 155.447663)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (58.197547, 154.579344)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (59.023152, 153.711026)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (59.848756, 152.842707)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (60.674361, 151.974389)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (61.499965, 151.106070)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (62.325570, 150.237751)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (63.151175, 149.369433)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (63.976779, 148.501114)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (64.802384, 147.632796)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (65.627989, 146.764477)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (66.453593, 145.896159)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (67.279198, 145.027840)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (68.104803, 144.159521)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (68.930407, 143.291203)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (69.756012, 142.422884)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (70.581617, 141.554566)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (71.407221, 140.686247)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (72.232826, 139.817929)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (73.058431, 138.949610)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (73.884035, 138.081291)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (74.709640, 137.212973)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (75.535244, 136.344654)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (76.360849, 135.476336)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Checking position (1, 3) on map
+Debug - Trying to move to: (77.186454, 134.608017)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (77.362349, 133.623608)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (77.538243, 132.639199)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (77.714138, 131.654790)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (77.890033, 130.670381)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (78.065928, 129.685972)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (78.241823, 128.701563)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (78.417718, 127.717154)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (78.593612, 126.732745)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (78.769507, 125.748336)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (78.945402, 124.763928)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (79.121297, 123.779519)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (79.297192, 122.795110)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (79.473086, 121.810701)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (79.648981, 120.826292)
+Debug - Checking position (1, 3) on map
+Debug - Move successful
+Debug - Trying to move to: (79.824876, 119.841883)
+Debug - Checking position (1, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (80.000771, 118.857474)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (80.176666, 117.873065)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (80.352561, 116.888656)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (80.528455, 115.904247)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (80.704350, 114.919838)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (80.880245, 113.935429)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (81.056140, 112.951020)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (81.232035, 111.966611)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (81.407930, 110.982202)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (81.583824, 109.997793)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (81.759719, 109.013384)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (81.935614, 108.028975)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (82.111509, 107.044566)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (82.287404, 106.060157)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (82.463299, 105.075748)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (82.639193, 104.091339)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (82.815088, 103.106930)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (82.990983, 102.122521)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (83.166878, 101.138112)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (83.342773, 100.153703)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Player pos: (83.342773, 100.153703)
+Debug - Movement flags: up=1, down=0, left=0, right=0, rot=0.000000
+Debug - Trying to move to: (83.518667, 99.169294)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (83.694562, 98.184885)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (83.870457, 97.200477)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (84.046352, 96.216068)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (84.222247, 95.231659)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (84.398142, 94.247250)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Player pos: (84.398142, 94.247250)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (84.398142, 94.247250)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - A key pressed
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Player pos: (84.098206, 78.448023)
+Debug - Movement flags: up=0, down=0, left=1, right=0, rot=0.010000
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Player pos: (99.325527, 42.534004)
+Debug - Movement flags: up=0, down=0, left=1, right=0, rot=0.010000
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 1) on map
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - A key pressed
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - A key pressed
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Player pos: (101.516168, 40.066432)
+Debug - Movement flags: up=0, down=0, left=1, right=0, rot=0.010000
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - S key pressed
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Player pos: (101.516168, 40.066432)
+Debug - Movement flags: up=0, down=1, left=1, right=0, rot=0.000000
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - Checking position (2, 0) on map
+Debug - Wall collision
+Debug - W key pressed
+Debug - Trying to move to: (101.640623, 41.058658)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (101.765077, 42.050883)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (101.889531, 43.043108)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.013986, 44.035334)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.138440, 45.027559)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.262895, 46.019784)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.387349, 47.012009)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.511803, 48.004235)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.636258, 48.996460)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.760712, 49.988685)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (102.885167, 50.980911)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.009621, 51.973136)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Player pos: (103.009621, 51.973136)
+Debug - Movement flags: up=1, down=0, left=0, right=0, rot=0.000000
+Debug - Trying to move to: (103.134076, 52.965361)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.258530, 53.957587)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.382984, 54.949812)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.507439, 55.942037)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.631893, 56.934263)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.756348, 57.926488)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (103.880802, 58.918713)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.005257, 59.910939)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.129711, 60.903164)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.254165, 61.895389)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.378620, 62.887615)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.503074, 63.879840)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.627529, 64.872065)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.751983, 65.864291)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (104.876438, 66.856516)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.000892, 67.848741)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.125346, 68.840967)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.249801, 69.833192)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.374255, 70.825417)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.498710, 71.817643)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.623164, 72.809868)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.747619, 73.802093)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.872073, 74.794319)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (105.996527, 75.786544)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (106.120982, 76.778769)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (106.245436, 77.770995)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (106.369891, 78.763220)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (106.494345, 79.755445)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (106.618799, 80.747671)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (106.743254, 81.739896)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (106.867708, 82.732121)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (106.992163, 83.724347)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.116617, 84.716572)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.241072, 85.708797)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.365526, 86.701023)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.489980, 87.693248)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.614435, 88.685473)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.738889, 89.677698)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.863344, 90.669924)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (107.987798, 91.662149)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (108.112253, 92.654374)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (108.236707, 93.646600)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (108.361161, 94.638825)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (108.485616, 95.631050)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (108.610070, 96.623276)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - Trying to move to: (108.734525, 97.615501)
+Debug - Checking position (2, 2) on map
+Debug - Move successful
+Debug - A key pressed
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Player pos: (115.283211, 96.794100)
+Debug - Movement flags: up=0, down=0, left=1, right=0, rot=0.000000
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (2, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - S key pressed
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 2) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Player pos: (148.601519, 44.238879)
+Debug - Movement flags: up=0, down=1, left=1, right=0, rot=0.000000
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 1) on map
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Checking position (3, 0) on map
+Debug - Wall collision
+Debug - Player pos: (150.068307, 40.023557)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.010000
+Debug - Player pos: (150.068307, 40.023557)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug - W key pressed
+Debug - Trying to move to: (149.397555, 40.765239)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (148.726803, 41.506921)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (148.056051, 42.248603)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (147.385300, 42.990285)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (146.714548, 43.731966)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (146.043796, 44.473648)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (145.373044, 45.215330)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (144.702292, 45.957012)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (144.031540, 46.698694)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (143.360788, 47.440376)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (142.690037, 48.182057)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (142.019285, 48.923739)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (141.348533, 49.665421)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (140.677781, 50.407103)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (140.007029, 51.148785)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (139.336277, 51.890467)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (138.665525, 52.632148)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (137.994774, 53.373830)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (137.324022, 54.115512)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (136.653270, 54.857194)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (135.982518, 55.598876)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (135.311766, 56.340558)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (134.641014, 57.082239)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (133.970262, 57.823921)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (133.299511, 58.565603)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (132.628759, 59.307285)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Player pos: (132.628759, 59.307285)
+Debug - Movement flags: up=1, down=0, left=0, right=0, rot=0.000000
+Debug - Trying to move to: (131.958007, 60.048967)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (131.287255, 60.790649)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (130.616503, 61.532331)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (129.945751, 62.274012)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (129.275000, 63.015694)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (128.604248, 63.757376)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (127.933496, 64.499058)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (127.262744, 65.240740)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (126.591992, 65.982422)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (125.921240, 66.724103)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (125.250488, 67.465785)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (124.579737, 68.207467)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (123.908985, 68.949149)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (123.238233, 69.690831)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (122.567481, 70.432513)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (121.896729, 71.174194)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (121.225977, 71.915876)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (120.555225, 72.657558)
+Debug - Checking position (3, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (119.884474, 73.399240)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (119.213722, 74.140922)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (118.542970, 74.882604)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (117.872218, 75.624285)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (117.201466, 76.365967)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Trying to move to: (116.530714, 77.107649)
+Debug - Checking position (2, 1) on map
+Debug - Move successful
+Debug - Player pos: (116.530714, 77.107649)
+Debug - Movement flags: up=0, down=0, left=0, right=0, rot=0.000000
+Debug: Cleaning up
