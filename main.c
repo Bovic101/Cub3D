@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/15 14:20:05 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/16 18:20:43 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -412,6 +412,7 @@ void	ft_perform_dda(t_game *game)
 	}
 }
 
+
 void	ft_render_wall(t_game *game, int x, int y)
 {
 	if (!game || !game->screen || !game->screen->pixels)
@@ -448,7 +449,6 @@ void	ft_render_wall(t_game *game, int x, int y)
 		y++;
 	}
 }
-
 uint32_t	create_rgba(int r, int g, int b, int a)
 {
 	return ((r << 24) | (g << 16) | (b << 8) | a);

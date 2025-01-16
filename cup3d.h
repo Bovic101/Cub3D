@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cup3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/15 14:46:13 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/16 18:02:33 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,13 @@ typedef struct s_rc
 	int			draw_start;
 	int 		draw_end;
 	uint32_t	color;
+
+	double  wall_x;         // duvara çarpma noktası
+    int     tex_x;          // texture'ın x koordinatı
+    int     tex_y;          // texture'ın y koordinatı
+    int     tex_num;        // hangi texture (0:NO, 1:SO, 2:WE, 3:EA)
+    double  step;           // texture'ın y koordinatı için adım
+    double  tex_pos;
 }		t_rc;
 
 // Function prototypes

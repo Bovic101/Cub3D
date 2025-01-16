@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/14 19:17:45 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/16 18:23:21 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 }
 
 /*Function parse and load textures using the texture_loader and texture_path-parser function*/
-void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
+
+void texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 {
 	char	*texture_path;
 	int		texture_index;
@@ -79,6 +80,7 @@ void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 	texture_loader(texture_path, &mlx_data->xpm_texture[texture_index]);
 	free(texture_path);
 }
+
 
 /*Function that read map line in the cub and stores it in the 2D array rep. d map*/
 void	map_layout_input(const char *line_ptr, t_map_data *map_data)
