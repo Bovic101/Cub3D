@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/16 18:02:33 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/16 18:26:43 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,12 +115,12 @@ typedef struct s_rc
 	int 		draw_end;
 	uint32_t	color;
 
-	double  wall_x;         // duvara çarpma noktası
-    int     tex_x;          // texture'ın x koordinatı
-    int     tex_y;          // texture'ın y koordinatı
-    int     tex_num;        // hangi texture (0:NO, 1:SO, 2:WE, 3:EA)
-    double  step;           // texture'ın y koordinatı için adım
-    double  tex_pos;
+	double	wall_x;
+	int		tex_x;
+	int		tex_y;
+	int		tex_num;
+	double	step;
+	double	tex_pos;
 }		t_rc;
 
 // Function prototypes
@@ -146,8 +146,8 @@ void		init_window(t_game *game);
 void		game_loop(void *param);
 void		move_player_forward_back(t_game *game, double move_speed);
 void		move_player_left_right(t_game *game, double move_speed);
-uint32_t	create_rgba(int r, int g, int b, int a);
 void		free_split(char **split);
+uint32_t	create_rgba(int r, int g, int b, int a);
 uint32_t	parse_color(const char *line);
 void		parse_color_line(t_mlx_render *mlx_data, const char *line);
 void		read_colors(const char *file_path, t_mlx_render *mlx_data);
@@ -155,9 +155,9 @@ void		rotate_player(t_game *game);
 int			is_valid_position(t_game *game, double x, double y);
 void		cleanup_game(t_game *game);
 void		key_handler_sec(mlx_key_data_t keydata, t_game *game);
-void	ft_draw_ceiling_floor(t_game *game);
+void		ft_draw_ceiling_floor(t_game *game);
 void		ft_cast_rays(t_game *game, int x, int y);
-void	ft_perform_dda(t_game *game);
-void	ft_render_wall(t_game *game, int x, int y);
+void		ft_perform_dda(t_game *game);
+void		ft_render_wall(t_game *game, int x, int y);
 
 #endif

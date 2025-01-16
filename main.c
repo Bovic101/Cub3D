@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/16 18:20:43 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/16 19:00:25 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,19 +433,32 @@ void	ft_render_wall(t_game *game, int x, int y)
 	game->rc->draw_end = game->rc->line_height / 2 + DISPLAY_HEIGHT / 2;
 	if (game->rc->draw_end >= DISPLAY_HEIGHT)
 		game->rc->draw_end = DISPLAY_HEIGHT - 1;
+		if (x == DISPLAY_WIDTH / 2)
+		{
+			printf("ray hit p = %.3f\n",  game->rc->wall_x);
+			printf("texture hit p = %d\n", game->rc->tex_x);
+		}
+	y = game->rc->draw_start; // gonna check later
+	// HERE WILL BE IMPLEMENTATION OF TEXTURES
+		if (game->rc->side == 0)
+		game->rc->wall_x = game->p->pos_y / BLOCK_SIZE + game->rc->perp_wall_dist * game->rc->ray_dir_y;
+	else
+	game->rc->wall_x = game->p->pos_x / BLOCK_SIZE + game->rc->perp_wall_dist * game->rc->ray_dir_x;
+	game->rc->wall_x -= floor(game->rc->wall_x);
+	game->rc->tex_x = (int)(game->rc->wall_x * 64.0);
 	y = game->rc->draw_start;
 	while (y <= game->rc->draw_end)
 	{
 		if (y < 0 || y >= DISPLAY_HEIGHT)
 		{
 			print_error("Error: y out of bounds\n");
-			break ;
+			break;
 		}
+		game->rc->tex_y = ((y - game->rc->draw_start) * 64) / game->rc->line_height;
 		game->rc->color = 0xFF0000FF;
 		if (game->rc->side == 1)
 			game->rc->color = 0x800000FF;
-		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH
-			+ x] = game->rc->color;
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + x] = game->rc->color;
 		y++;
 	}
 }
