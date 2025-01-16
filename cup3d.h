@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/16 18:26:43 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/16 19:23:21 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,6 @@ void		ft_draw_ceiling_floor(t_game *game);
 void		ft_cast_rays(t_game *game, int x, int y);
 void		ft_perform_dda(t_game *game);
 void		ft_render_wall(t_game *game, int x, int y);
+void		ft_texture_selection(t_rc **rc);
 
 #endif

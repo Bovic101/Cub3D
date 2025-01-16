@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/16 19:00:25 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/16 22:53:37 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -412,9 +412,15 @@ void	ft_perform_dda(t_game *game)
 	}
 }
 
-
 void	ft_render_wall(t_game *game, int x, int y)
 {
+	uint8_t *pixel;
+	uint8_t r; // gonna add to structure
+	uint8_t g; // gonna add to structure
+	uint8_t b; // gonna add to structure
+ 	uint8_t a; // gonna add to structure
+	uint32_t color; // r,g,b
+
 	if (!game || !game->screen || !game->screen->pixels)
 	{
 		print_error("Error: Invalid game or screen buffer\n");
@@ -440,6 +446,7 @@ void	ft_render_wall(t_game *game, int x, int y)
 		}
 	y = game->rc->draw_start; // gonna check later
 	// HERE WILL BE IMPLEMENTATION OF TEXTURES
+	ft_texture_selection(&game->rc);
 		if (game->rc->side == 0)
 		game->rc->wall_x = game->p->pos_y / BLOCK_SIZE + game->rc->perp_wall_dist * game->rc->ray_dir_y;
 	else
@@ -449,19 +456,36 @@ void	ft_render_wall(t_game *game, int x, int y)
 	y = game->rc->draw_start;
 	while (y <= game->rc->draw_end)
 	{
-		if (y < 0 || y >= DISPLAY_HEIGHT)
-		{
-			print_error("Error: y out of bounds\n");
-			break;
-		}
-		game->rc->tex_y = ((y - game->rc->draw_start) * 64) / game->rc->line_height;
-		game->rc->color = 0xFF0000FF;
-		if (game->rc->side == 1)
-			game->rc->color = 0x800000FF;
-		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + x] = game->rc->color;
-		y++;
+		// gonna new implementation for textures with pixels
+		game->rc->tex_y = (int)game->rc->tex_pos % 64;
+		game->rc->tex_pos += game->rc->step;
+
+		pixel = &game->mlx_r->xpm_texture[game->rc->tex_num]->pixels[
+			(game->rc->tex_y * 64 + game->rc->tex_x) * 4];
 	}
 }
+
+void	ft_texture_selection(t_rc **rc)
+{
+	t_rc *temp;
+
+	temp = *rc;
+	if (temp->side == 0)
+	{
+		if (temp->ray_dir_x > 0)
+			temp->tex_num = 3;
+		else
+			temp->tex_num = 2;
+	}
+	else
+	{
+		if (temp->ray_dir_y > 0)
+			temp->tex_num = 1;
+		else
+			temp->tex_num = 0;
+	}
+}
+
 uint32_t	create_rgba(int r, int g, int b, int a)
 {
 	return ((r << 24) | (g << 16) | (b << 8) | a);
