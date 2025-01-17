@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/16 19:23:21 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 09:42:52 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@
 # define DISPLAY_WIDTH 1600
 # define BLOCK_SIZE 40
 # define VIEW_ANGLE 45
-# define PLAYER_MOVE_SPEED 1 // Player movement per frame
-# define TURNING_SPEED 0.01  // Turning speed
+# define PLAYER_MOVE_SPEED 1.5 // Player movement per frame
+# define TURNING_SPEED 0.03  // Turning speed
 # define MAX_MAP_HEIGHT 100  // Max rows in the map
 # define MAX_MAP_WIDTH 100   // Max columns in the map
+# define R_MULTI 16777216
+# define G_MULTI 65536
+# define B_MULTI 256
 
 // Structure for map data
 typedef struct s_map_data

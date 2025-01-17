@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/16 22:53:37 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 09:45:54 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -439,13 +439,20 @@ void	ft_render_wall(t_game *game, int x, int y)
 	game->rc->draw_end = game->rc->line_height / 2 + DISPLAY_HEIGHT / 2;
 	if (game->rc->draw_end >= DISPLAY_HEIGHT)
 		game->rc->draw_end = DISPLAY_HEIGHT - 1;
-		if (x == DISPLAY_WIDTH / 2)
+		if (x == DISPLAY_WIDTH / 2) // to debug
 		{
 			printf("ray hit p = %.3f\n",  game->rc->wall_x);
 			printf("texture hit p = %d\n", game->rc->tex_x);
 		}
 	y = game->rc->draw_start; // gonna check later
 	// HERE WILL BE IMPLEMENTATION OF TEXTURES
+	game->rc->step = 1.0 * 64 / game->rc->line_height;
+	game->rc->tex_pos = (game->rc->draw_start - DISPLAY_HEIGHT / 2 + game->rc->line_height / 2) 
+		* game->rc->step;
+	if (game->rc->side == 0 && game->rc->ray_dir_x > 0)
+	game->rc->tex_x = 64 - game->rc->tex_x - 1;
+	if (game->rc->side == 1 && game->rc->ray_dir_y < 0)
+	game->rc->tex_x = 64 - game->rc->tex_x - 1;
 	ft_texture_selection(&game->rc);
 		if (game->rc->side == 0)
 		game->rc->wall_x = game->p->pos_y / BLOCK_SIZE + game->rc->perp_wall_dist * game->rc->ray_dir_y;
@@ -454,14 +461,27 @@ void	ft_render_wall(t_game *game, int x, int y)
 	game->rc->wall_x -= floor(game->rc->wall_x);
 	game->rc->tex_x = (int)(game->rc->wall_x * 64.0);
 	y = game->rc->draw_start;
-	while (y <= game->rc->draw_end)
+	y -= 1;
+	while (++y <= game->rc->draw_end)
 	{
-		// gonna new implementation for textures with pixels
 		game->rc->tex_y = (int)game->rc->tex_pos % 64;
 		game->rc->tex_pos += game->rc->step;
-
 		pixel = &game->mlx_r->xpm_texture[game->rc->tex_num]->pixels[
 			(game->rc->tex_y * 64 + game->rc->tex_x) * 4];
+		r = pixel[3];
+		g = pixel[2];
+		b = pixel[1];
+		a = pixel[0];
+		color = create_rgba(r,g,b,a);
+		if (game->rc->side == 1)
+		{
+			r = (r * 0.7);
+			g = (g * 0.7);
+			b = (b * 0.7);
+			color = create_rgba(r,g,b,a);
+
+		}
+		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + x] = color;
 	}
 }
 
@@ -488,7 +508,7 @@ void	ft_texture_selection(t_rc **rc)
 
 uint32_t	create_rgba(int r, int g, int b, int a)
 {
-	return ((r << 24) | (g << 16) | (b << 8) | a);
+	return ((r * R_MULTI) + (g * G_MULTI) + (b * B_MULTI) + a);
 }
 
 void	free_split(char **split)
