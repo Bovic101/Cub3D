@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/17 10:39:46 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 12:40:57 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ typedef struct s_game
 	int				ceiling_c;
 	int				floor_c;
 	struct s_rc		*rc;
+	int	window_width;
+	int window_height;
 }			t_game;
 
 typedef struct s_rc
@@ -178,5 +180,6 @@ void ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x);
 void	ft_render_wall_cont(t_game **game, int x, int y);
 void	ft_rgb_modifier(t_rgb *rgb);
 void	ft_exit_in_wall(char *str);
+void ft_resize_handle(int32_t widht, int32_t height, void *param);
 
 #endif

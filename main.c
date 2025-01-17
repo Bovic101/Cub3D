@@ -25,7 +25,11 @@ int	main(int argc, char **argv)
 		printf("error: bad arguments\n");
 		return (1);
 	}
+	game.window_height = DISPLAY_HEIGHT;
+	game.window_width = DISPLAY_WIDTH;
 	ft_memset(&game, 0, sizeof(t_game));
+	printf("%d\n",game.window_height);
+	printf("%d\n",game.window_width);
 	if (!init_game(&game, argv[1]))
 	{
 		printf("error: game initialization failed\n");
@@ -34,6 +38,7 @@ int	main(int argc, char **argv)
 	}
 	mlx_key_hook(game.mlx, &key_handler, &game);
 	mlx_loop_hook(game.mlx, &game_loop, &game);
+	mlx_resize_hook(game.mlx, &ft_resize_handle, &game);
 	if (mlx_image_to_window(game.mlx, game.screen, 0, 0) < 0)
 	{
 		printf("error: failed to put image to window\n");
@@ -45,9 +50,29 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+void ft_resize_handle(int32_t widht, int32_t height, void *param) // will be improved
+{
+	t_game *game;
+
+	game = (t_game*)param;
+	if (game->screen)
+		mlx_delete_image(game->mlx, game->screen);
+	game->screen = mlx_new_image(game->mlx, widht, height);
+	if (!game->screen || !game->screen->pixels)
+	{
+		printf("error: screen creation fail\n");
+		mlx_close_window(game->mlx);
+		return;
+	}
+	game->window_height = height;
+	game->window_width = widht;
+	ft_draw_ceiling_floor(game);
+	ft_cast_rays(game,0,0);
+}
+
 void	init_window(t_game *game)
 {
-	game->mlx = mlx_init(DISPLAY_WIDTH, DISPLAY_HEIGHT, "Cub3D", true);
+	game->mlx = mlx_init(game->window_width, game->window_height, "Cub3D", true);
 	if (!game->mlx)
 	{
 		printf("error: MLX initialization failed\n");
