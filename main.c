@@ -112,10 +112,7 @@ int	init_game(t_game *game, const char *map_file)
 	game->rc = malloc(sizeof(t_rc));
 	game->rc->rgb = malloc(sizeof(t_rgb));
 	if (!game->p || !game->mapdata || !game->mlx_r)
-	{
-		printf("Memory allocation failed\n");
-		return (0);
-	}
+		cleanup_game(game);
 	game->mapdata->map_layout = NULL;
 	game->mapdata->map_width = 0;
 	game->mapdata->map_height = 0;
@@ -128,15 +125,9 @@ int	init_game(t_game *game, const char *map_file)
 	player_pos_init(game->mlx_r);
 	init_window(game);
 	if (!game->mlx || !game->screen)
-	{
-		printf("Window initialization failed\n");
 		return (0);
-	}
 	if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
-	{
-		printf("Failed to put image to window\n");
 		return (0);
-	}
 	return (1);
 }
 /*Function to free up the game buf*/
@@ -406,7 +397,6 @@ void ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x)
 	}
 }
 
-
 void	ft_perform_dda(t_game *game)
 {
 	game->rc->hit = 0;
@@ -433,13 +423,10 @@ void	ft_perform_dda(t_game *game)
 	}
 }
 
-void	ft_render_wall(t_game *game, int x, int y)
+void ft_render_wall(t_game *game, int x, int y)
 {
 	if (!game || !game->screen || !game->screen->pixels)
-	{
-		print_error("Error: Invalid game or screen buffer\n");
-		return ;
-	}
+		ft_exit_in_wall("error: invalid game or screen");
 	if (game->rc->side == 0)
 		game->rc->perp_wall_dist = (game->rc->side_dist_x
 				- game->rc->delta_dist_x);
@@ -465,7 +452,13 @@ void	ft_render_wall(t_game *game, int x, int y)
 	ft_render_wall_cont(&game, x, y);
 }
 
-void	ft_render_wall_cont(t_game **game, int x, int y)
+void ft_exit_in_wall(char *str)
+{
+	print_error(str);
+	exit(1);
+}
+
+void ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
 {
 	t_game *temp;
 
@@ -494,14 +487,14 @@ void	ft_render_wall_cont(t_game **game, int x, int y)
 		((uint32_t *)temp->screen->pixels)[y++ * DISPLAY_WIDTH + x] = temp->rc->rgb->color;
 	}
 }
-void	ft_rgb_modifier(t_rgb *rgb)
+
+void ft_rgb_modifier(t_rgb *rgb)
 {
-	rgb->r = (rgb->r * 0.7);
-	rgb->g = (rgb->g * 0.7);
-	rgb->b = (rgb->b * 0.7);
+	// rgb->r = (rgb->r * 0.7);
+	// rgb->g = (rgb->g * 0.7);
+	// rgb->b = (rgb->b * 0.7);
 	rgb->color = create_rgba(rgb->r,
 		rgb->g,rgb->b,rgb->a);
-
 }
 
 
@@ -544,7 +537,7 @@ void	free_split(char **split)
 	free(split);
 }
 
-uint32_t	parse_color(const char *line)
+uint32_t	parse_color(const char *line) // bunu duzelt
 {
 	char	**split;
 
@@ -553,17 +546,17 @@ uint32_t	parse_color(const char *line)
 		line++;
 	split = ft_split(line, ',');
 	if (!split)
-		print_error("Error: Memory allocation failed in parse_color\n");
+		print_error("error: memory allocation failed in parse_color\n");
 	if (!split[0] || !split[1] || !split[2] || split[3])
 	{
 		free_split(split);
-		print_error("Error: Invalid RGB format in parse_color\n");
+		print_error("error: invalid RGB format in parse_color\n");
 	}
 	r = ft_atoi(split[0]);
 	g = ft_atoi(split[1]);
 	b = ft_atoi(split[2]);
 	free_split(split);
 	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-		print_error("Error: RGB values out of range in parse_color\n");
+		print_error("error: RGB values out of range in parse_color\n");
 	return (create_rgba(r, g, b, 255));
 }

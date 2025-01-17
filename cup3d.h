@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/17 10:37:04 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 10:39:46 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,4 +177,6 @@ void ft_cast_ray_fabs(t_rc **rc,t_game *game, int x);
 void ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x);
 void	ft_render_wall_cont(t_game **game, int x, int y);
 void	ft_rgb_modifier(t_rgb *rgb);
+void	ft_exit_in_wall(char *str);
+
 #endif
