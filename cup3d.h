@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/17 09:42:52 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 10:37:04 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,32 +99,42 @@ typedef struct s_game
 
 typedef struct s_rc
 {
-	double		camera_x;
-	double		ray_dir_x;
-	double		ray_dir_y;
-	int			map_x;
-	int			map_y;
-	double		side_dist_x;
-	double		side_dist_y;
-	double		delta_dist_x;
-	double		delta_dist_y;
-	int			step_x;
-	int			step_y;
-	int			hit;
-	int			side;
-	double		perp_wall_dist;
-	int			line_height;
-	int			draw_start;
-	int 		draw_end;
-	uint32_t	color;
-
-	double	wall_x;
-	int		tex_x;
-	int		tex_y;
-	int		tex_num;
-	double	step;
-	double	tex_pos;
+	double			camera_x;
+	double			ray_dir_x;
+	double			ray_dir_y;
+	int				map_x;
+	int				map_y;
+	double			side_dist_x;
+	double			side_dist_y;
+	double			delta_dist_x;
+	double			delta_dist_y;
+	int				step_x;
+	int				step_y;
+	int				hit;
+	int				side;
+	double			perp_wall_dist;
+	int				line_height;
+	int				draw_start;
+	int 			draw_end;
+	double			wall_x;
+	int				tex_x;
+	int				tex_y;
+	int				tex_num;
+	double			step;
+	double			tex_pos;
+	struct s_rgb	*rgb;
 }		t_rc;
+
+typedef struct s_rgb
+{
+	uint8_t *pixel;
+	uint32_t color;
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+ 	uint8_t a;
+
+}	t_rgb;
 
 // Function prototypes
 double		degree_to_radian(double value);
@@ -163,5 +173,8 @@ void		ft_cast_rays(t_game *game, int x, int y);
 void		ft_perform_dda(t_game *game);
 void		ft_render_wall(t_game *game, int x, int y);
 void		ft_texture_selection(t_rc **rc);
-
+void ft_cast_ray_fabs(t_rc **rc,t_game *game, int x);
+void ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x);
+void	ft_render_wall_cont(t_game **game, int x, int y);
+void	ft_rgb_modifier(t_rgb *rgb);
 #endif

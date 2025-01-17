@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+;/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/17 09:45:54 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 09:50:50 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("Usage: %s <map_file>\n", argv[0]);
+		printf("error: bad arguments\n");
 		return (1);
 	}
 	ft_memset(&game, 0, sizeof(t_game));
 	if (!init_game(&game, argv[1]))
 	{
-		printf("Game initialization failed\n");
+		printf("error: game initialization failed\n");
 		cleanup_game(&game);
 		return (1);
 	}
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game.mlx, &game_loop, &game);
 	if (mlx_image_to_window(game.mlx, game.screen, 0, 0) < 0)
 	{
-		printf("Failed to put image to window\n");
+		printf("error: failed to put image to window\n");
 		cleanup_game(&game);
 		return (1);
 	}
@@ -50,13 +50,13 @@ void	init_window(t_game *game)
 	game->mlx = mlx_init(DISPLAY_WIDTH, DISPLAY_HEIGHT, "Cub3D", true);
 	if (!game->mlx)
 	{
-		printf("MLX initialization failed\n");
+		printf("error: MLX initialization failed\n");
 		exit(1);
 	}
 	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
 	if (!game->screen || !game->screen->pixels)
 	{
-		printf("Screen creation failed\n");
+		printf("error: screen creation failed\n");
 		mlx_terminate(game->mlx);
 		exit(1);
 	}
@@ -104,11 +104,13 @@ void	rotate_player(t_game *game)
 
 int	init_game(t_game *game, const char *map_file)
 {
-	memset(game, 0, sizeof(t_game));
+	ft_memset(game, 0, sizeof(t_game));
+
 	game->p = malloc(sizeof(t_player_data));
 	game->mapdata = malloc(sizeof(t_map_data));
 	game->mlx_r = malloc(sizeof(t_mlx_render));
 	game->rc = malloc(sizeof(t_rc));
+	game->rc->rgb = malloc(sizeof(t_rgb));
 	if (!game->p || !game->mapdata || !game->mlx_r)
 	{
 		printf("Memory allocation failed\n");
@@ -346,29 +348,7 @@ void	ft_cast_rays(t_game *game, int x, int y)
 	x = -1;
 	while (++x < DISPLAY_WIDTH)
 	{
-		game->rc->camera_x = 2 * x / (double)DISPLAY_WIDTH - 1;
-		game->rc->ray_dir_x = game->p->dir_x + game->p->plane_x
-			* game->rc->camera_x;
-		game->rc->ray_dir_y = game->p->dir_y + game->p->plane_y
-			* game->rc->camera_x;
-		game->rc->map_x = (int)(game->p->pos_x / BLOCK_SIZE);
-		game->rc->map_y = (int)(game->p->pos_y / BLOCK_SIZE);
-		game->rc->delta_dist_x = (game->rc->ray_dir_x == 0) ? 1e30 : fabs(1
-				/ game->rc->ray_dir_x);
-		game->rc->delta_dist_y = (game->rc->ray_dir_y == 0) ? 1e30 : fabs(1
-				/ game->rc->ray_dir_y);
-		if (game->rc->ray_dir_x < 0)
-		{
-			game->rc->step_x = -1;
-			game->rc->side_dist_x = (game->p->pos_x / BLOCK_SIZE
-					- game->rc->map_x) * game->rc->delta_dist_x;
-		}
-		else
-		{
-			game->rc->step_x = 1;
-			game->rc->side_dist_x = (game->rc->map_x + 1.0 - game->p->pos_x
-					/ BLOCK_SIZE) * game->rc->delta_dist_x;
-		}
+		ft_cast_ray_fabs(&(game->rc), game, x);
 		if (game->rc->ray_dir_y < 0)
 		{
 			game->rc->step_y = -1;
@@ -381,10 +361,51 @@ void	ft_cast_rays(t_game *game, int x, int y)
 			game->rc->side_dist_y = (game->rc->map_y + 1.0 - game->p->pos_y
 					/ BLOCK_SIZE) * game->rc->delta_dist_y;
 		}
+		
 		ft_perform_dda(game);
 		ft_render_wall(game, x, y);
 	}
 }
+
+void ft_cast_ray_fabs(t_rc **rc,t_game *game, int x)
+{
+	t_rc *temp;
+
+	temp = *rc;
+		temp->camera_x = 2 * x / (double)DISPLAY_WIDTH - 1;
+		temp->ray_dir_x = game->p->dir_x + game->p->plane_x
+			* temp->camera_x;
+		temp->ray_dir_y = game->p->dir_y + game->p->plane_y
+			* temp->camera_x;
+		temp->map_x = (int)(game->p->pos_x / BLOCK_SIZE);
+		temp->map_y = (int)(game->p->pos_y / BLOCK_SIZE);
+		if (temp->ray_dir_x == 0)
+			temp->delta_dist_x = 1e30;
+		else
+			temp->delta_dist_x = fabs(1 / temp->ray_dir_x);
+		if (temp->ray_dir_y == 0)
+			temp->delta_dist_y = 1e30;
+		else
+			temp->delta_dist_y = fabs(1 / temp->ray_dir_y);
+		ft_cast_ray_fabs_cont(game, temp, x);
+}
+
+void ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x)
+{
+	if (temp->ray_dir_x < 0)
+	{
+		temp->step_x = -1;
+		temp->side_dist_x = (game->p->pos_x / BLOCK_SIZE
+				- temp->map_x) * temp->delta_dist_x;
+	}
+	else
+	{
+		temp->step_x = 1;
+		temp->side_dist_x = (temp->map_x + 1.0 - game->p->pos_x
+				/ BLOCK_SIZE) * temp->delta_dist_x;
+	}
+}
+
 
 void	ft_perform_dda(t_game *game)
 {
@@ -414,13 +435,6 @@ void	ft_perform_dda(t_game *game)
 
 void	ft_render_wall(t_game *game, int x, int y)
 {
-	uint8_t *pixel;
-	uint8_t r; // gonna add to structure
-	uint8_t g; // gonna add to structure
-	uint8_t b; // gonna add to structure
- 	uint8_t a; // gonna add to structure
-	uint32_t color; // r,g,b
-
 	if (!game || !game->screen || !game->screen->pixels)
 	{
 		print_error("Error: Invalid game or screen buffer\n");
@@ -439,51 +453,57 @@ void	ft_render_wall(t_game *game, int x, int y)
 	game->rc->draw_end = game->rc->line_height / 2 + DISPLAY_HEIGHT / 2;
 	if (game->rc->draw_end >= DISPLAY_HEIGHT)
 		game->rc->draw_end = DISPLAY_HEIGHT - 1;
-		if (x == DISPLAY_WIDTH / 2) // to debug
-		{
-			printf("ray hit p = %.3f\n",  game->rc->wall_x);
-			printf("texture hit p = %d\n", game->rc->tex_x);
-		}
-	y = game->rc->draw_start; // gonna check later
-	// HERE WILL BE IMPLEMENTATION OF TEXTURES
+	y = game->rc->draw_start;
 	game->rc->step = 1.0 * 64 / game->rc->line_height;
 	game->rc->tex_pos = (game->rc->draw_start - DISPLAY_HEIGHT / 2 + game->rc->line_height / 2) 
 		* game->rc->step;
 	if (game->rc->side == 0 && game->rc->ray_dir_x > 0)
 	game->rc->tex_x = 64 - game->rc->tex_x - 1;
 	if (game->rc->side == 1 && game->rc->ray_dir_y < 0)
-	game->rc->tex_x = 64 - game->rc->tex_x - 1;
+		game->rc->tex_x = 64 - game->rc->tex_x - 1;
 	ft_texture_selection(&game->rc);
-		if (game->rc->side == 0)
-		game->rc->wall_x = game->p->pos_y / BLOCK_SIZE + game->rc->perp_wall_dist * game->rc->ray_dir_y;
-	else
-	game->rc->wall_x = game->p->pos_x / BLOCK_SIZE + game->rc->perp_wall_dist * game->rc->ray_dir_x;
-	game->rc->wall_x -= floor(game->rc->wall_x);
-	game->rc->tex_x = (int)(game->rc->wall_x * 64.0);
-	y = game->rc->draw_start;
-	y -= 1;
-	while (++y <= game->rc->draw_end)
-	{
-		game->rc->tex_y = (int)game->rc->tex_pos % 64;
-		game->rc->tex_pos += game->rc->step;
-		pixel = &game->mlx_r->xpm_texture[game->rc->tex_num]->pixels[
-			(game->rc->tex_y * 64 + game->rc->tex_x) * 4];
-		r = pixel[3];
-		g = pixel[2];
-		b = pixel[1];
-		a = pixel[0];
-		color = create_rgba(r,g,b,a);
-		if (game->rc->side == 1)
-		{
-			r = (r * 0.7);
-			g = (g * 0.7);
-			b = (b * 0.7);
-			color = create_rgba(r,g,b,a);
+	ft_render_wall_cont(&game, x, y);
+}
 
-		}
-		((uint32_t *)game->screen->pixels)[y * DISPLAY_WIDTH + x] = color;
+void	ft_render_wall_cont(t_game **game, int x, int y)
+{
+	t_game *temp;
+
+	temp = *game;
+	if (temp->rc->side == 0)
+		temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE + temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
+	else
+	temp->rc->wall_x = temp->p->pos_x / BLOCK_SIZE + temp->rc->perp_wall_dist * temp->rc->ray_dir_x;
+	temp->rc->wall_x -= floor(temp->rc->wall_x);
+	temp->rc->tex_x = (int)(temp->rc->wall_x * 64.0);
+	y = temp->rc->draw_start;
+	while (y <= temp->rc->draw_end)
+	{
+		temp->rc->tex_y = (int)temp->rc->tex_pos % 64;
+		temp->rc->tex_pos += temp->rc->step;
+		temp->rc->rgb->pixel = &temp->mlx_r->xpm_texture[temp->rc->tex_num]->pixels[
+			(temp->rc->tex_y * 64 + temp->rc->tex_x) * 4];
+		temp->rc->rgb->r = temp->rc->rgb->pixel[3];
+		temp->rc->rgb->g = temp->rc->rgb->pixel[2];
+		temp->rc->rgb->b = temp->rc->rgb->pixel[1];
+		temp->rc->rgb->a = temp->rc->rgb->pixel[0];
+		temp->rc->rgb->color = create_rgba(temp->rc->rgb->r,
+			temp->rc->rgb->g,temp->rc->rgb->b,temp->rc->rgb->a);
+		if (temp->rc->side == 1)
+			ft_rgb_modifier(temp->rc->rgb);
+		((uint32_t *)temp->screen->pixels)[y++ * DISPLAY_WIDTH + x] = temp->rc->rgb->color;
 	}
 }
+void	ft_rgb_modifier(t_rgb *rgb)
+{
+	rgb->r = (rgb->r * 0.7);
+	rgb->g = (rgb->g * 0.7);
+	rgb->b = (rgb->b * 0.7);
+	rgb->color = create_rgba(rgb->r,
+		rgb->g,rgb->b,rgb->a);
+
+}
+
 
 void	ft_texture_selection(t_rc **rc)
 {
