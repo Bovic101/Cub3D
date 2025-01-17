@@ -1,4 +1,5 @@
-;/* ************************************************************************** */
+;
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -22,17 +23,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("error: bad arguments\n");
 		return (1);
 	}
+	ft_memset(&game, 0, sizeof(t_game));
 	game.window_height = DISPLAY_HEIGHT;
 	game.window_width = DISPLAY_WIDTH;
-	ft_memset(&game, 0, sizeof(t_game));
-	printf("%d\n",game.window_height);
-	printf("%d\n",game.window_width);
 	if (!init_game(&game, argv[1]))
 	{
-		printf("error: game initialization failed\n");
 		cleanup_game(&game);
 		return (1);
 	}
@@ -41,7 +38,6 @@ int	main(int argc, char **argv)
 	mlx_resize_hook(game.mlx, &ft_resize_handle, &game);
 	if (mlx_image_to_window(game.mlx, game.screen, 0, 0) < 0)
 	{
-		printf("error: failed to put image to window\n");
 		cleanup_game(&game);
 		return (1);
 	}
@@ -50,11 +46,11 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void ft_resize_handle(int32_t widht, int32_t height, void *param) // will be improved
+void	ft_resize_handle(int32_t widht, int32_t height, void *param)  // will be improved
 {
 	t_game *game;
 
-	game = (t_game*)param;
+	game = (t_game *)param;
 	if (game->screen)
 		mlx_delete_image(game->mlx, game->screen);
 	game->screen = mlx_new_image(game->mlx, widht, height);
@@ -62,26 +58,30 @@ void ft_resize_handle(int32_t widht, int32_t height, void *param) // will be imp
 	{
 		printf("error: screen creation fail\n");
 		mlx_close_window(game->mlx);
-		return;
+		return ;
 	}
 	game->window_height = height;
 	game->window_width = widht;
 	ft_draw_ceiling_floor(game);
-	ft_cast_rays(game,0,0);
+	ft_cast_rays(game, 0, 0);
 }
 
 void	init_window(t_game *game)
 {
-	game->mlx = mlx_init(game->window_width, game->window_height, "Cub3D", true);
-	if (!game->mlx)
+	if (game->window_width <= 0 || game->window_height <= 0)
 	{
-		printf("error: MLX initialization failed\n");
 		exit(1);
 	}
-	game->screen = mlx_new_image(game->mlx, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+	game->mlx = mlx_init(game->window_width, game->window_height, "Cub3D",
+			true);
+	if (!game->mlx)
+	{
+		exit(1);
+	}
+	game->screen = mlx_new_image(game->mlx, game->window_width,
+			game->window_height);
 	if (!game->screen || !game->screen->pixels)
 	{
-		printf("error: screen creation failed\n");
 		mlx_terminate(game->mlx);
 		exit(1);
 	}
@@ -130,14 +130,19 @@ void	rotate_player(t_game *game)
 int	init_game(t_game *game, const char *map_file)
 {
 	ft_memset(game, 0, sizeof(t_game));
-
+	game->window_width = DISPLAY_WIDTH;
+	game->window_height = DISPLAY_HEIGHT;
 	game->p = malloc(sizeof(t_player_data));
 	game->mapdata = malloc(sizeof(t_map_data));
 	game->mlx_r = malloc(sizeof(t_mlx_render));
 	game->rc = malloc(sizeof(t_rc));
 	game->rc->rgb = malloc(sizeof(t_rgb));
-	if (!game->p || !game->mapdata || !game->mlx_r)
+	if (!game->p || !game->mapdata || !game->mlx_r || !game->rc
+		|| !game->rc->rgb)
+	{
 		cleanup_game(game);
+		return (0);
+	}
 	game->mapdata->map_layout = NULL;
 	game->mapdata->map_width = 0;
 	game->mapdata->map_height = 0;
@@ -146,23 +151,34 @@ int	init_game(t_game *game, const char *map_file)
 	game->mlx_r->player = game->p;
 	game->mlx_r->floor_c = 0x383838FF;
 	game->mlx_r->ceiling_c = 0x1E1E1EFF;
-	cub_file_loader(map_file, game->mlx_r);
+	if (cub_file_loader(map_file, game->mlx_r) == 0)
+	{
+		cleanup_game(game);
+		return (0);
+	}
 	player_pos_init(game->mlx_r);
 	init_window(game);
 	if (!game->mlx || !game->screen)
+	{
+		cleanup_game(game);
 		return (0);
+	}
 	if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
+	{
+		cleanup_game(game);
 		return (0);
+	}
 	return (1);
 }
+
 /*Function to free up the game buf*/
 void	cleanup_game(t_game *game)
 {
 	int	i;
 
+	i = 0;
 	if (game->mapdata)
 	{
-		i = 0;
 		while (i < game->mapdata->map_height)
 		{
 			free(game->mapdata->map_layout[i]);
@@ -171,9 +187,9 @@ void	cleanup_game(t_game *game)
 		free(game->mapdata->map_layout);
 		free(game->mapdata);
 	}
+	i = 0;
 	if (game->mlx_r)
 	{
-		i = 0;
 		while (i < 4)
 		{
 			if (game->mlx_r->xpm_texture[i])
@@ -184,6 +200,12 @@ void	cleanup_game(t_game *game)
 	}
 	if (game->p)
 		free(game->p);
+	if (game->rc)
+	{
+		if (game->rc->rgb)
+			free(game->rc->rgb);
+		free(game->rc);
+	}
 	if (game->screen)
 		mlx_delete_image(game->mlx, game->screen);
 	if (game->mlx)
@@ -377,48 +399,45 @@ void	ft_cast_rays(t_game *game, int x, int y)
 			game->rc->side_dist_y = (game->rc->map_y + 1.0 - game->p->pos_y
 					/ BLOCK_SIZE) * game->rc->delta_dist_y;
 		}
-		
 		ft_perform_dda(game);
 		ft_render_wall(game, x, y);
 	}
 }
 
-void ft_cast_ray_fabs(t_rc **rc,t_game *game, int x)
+void	ft_cast_ray_fabs(t_rc **rc, t_game *game, int x)
 {
-	t_rc *temp;
+	t_rc	*temp;
 
 	temp = *rc;
-		temp->camera_x = 2 * x / (double)DISPLAY_WIDTH - 1;
-		temp->ray_dir_x = game->p->dir_x + game->p->plane_x
-			* temp->camera_x;
-		temp->ray_dir_y = game->p->dir_y + game->p->plane_y
-			* temp->camera_x;
-		temp->map_x = (int)(game->p->pos_x / BLOCK_SIZE);
-		temp->map_y = (int)(game->p->pos_y / BLOCK_SIZE);
-		if (temp->ray_dir_x == 0)
-			temp->delta_dist_x = 1e30;
-		else
-			temp->delta_dist_x = fabs(1 / temp->ray_dir_x);
-		if (temp->ray_dir_y == 0)
-			temp->delta_dist_y = 1e30;
-		else
-			temp->delta_dist_y = fabs(1 / temp->ray_dir_y);
-		ft_cast_ray_fabs_cont(game, temp, x);
+	temp->camera_x = 2 * x / (double)DISPLAY_WIDTH - 1;
+	temp->ray_dir_x = game->p->dir_x + game->p->plane_x * temp->camera_x;
+	temp->ray_dir_y = game->p->dir_y + game->p->plane_y * temp->camera_x;
+	temp->map_x = (int)(game->p->pos_x / BLOCK_SIZE);
+	temp->map_y = (int)(game->p->pos_y / BLOCK_SIZE);
+	if (temp->ray_dir_x == 0)
+		temp->delta_dist_x = 1e30;
+	else
+		temp->delta_dist_x = fabs(1 / temp->ray_dir_x);
+	if (temp->ray_dir_y == 0)
+		temp->delta_dist_y = 1e30;
+	else
+		temp->delta_dist_y = fabs(1 / temp->ray_dir_y);
+	ft_cast_ray_fabs_cont(game, temp, x);
 }
 
-void ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x)
+void	ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x)
 {
 	if (temp->ray_dir_x < 0)
 	{
 		temp->step_x = -1;
-		temp->side_dist_x = (game->p->pos_x / BLOCK_SIZE
-				- temp->map_x) * temp->delta_dist_x;
+		temp->side_dist_x = (game->p->pos_x / BLOCK_SIZE - temp->map_x)
+			* temp->delta_dist_x;
 	}
 	else
 	{
 		temp->step_x = 1;
-		temp->side_dist_x = (temp->map_x + 1.0 - game->p->pos_x
-				/ BLOCK_SIZE) * temp->delta_dist_x;
+		temp->side_dist_x = (temp->map_x + 1.0 - game->p->pos_x / BLOCK_SIZE)
+			* temp->delta_dist_x;
 	}
 }
 
@@ -448,7 +467,7 @@ void	ft_perform_dda(t_game *game)
 	}
 }
 
-void ft_render_wall(t_game *game, int x, int y)
+void	ft_render_wall(t_game *game, int x, int y)
 {
 	if (!game || !game->screen || !game->screen->pixels)
 		ft_exit_in_wall("error: invalid game or screen");
@@ -467,31 +486,33 @@ void ft_render_wall(t_game *game, int x, int y)
 		game->rc->draw_end = DISPLAY_HEIGHT - 1;
 	y = game->rc->draw_start;
 	game->rc->step = 1.0 * 64 / game->rc->line_height;
-	game->rc->tex_pos = (game->rc->draw_start - DISPLAY_HEIGHT / 2 + game->rc->line_height / 2) 
-		* game->rc->step;
+	game->rc->tex_pos = (game->rc->draw_start - DISPLAY_HEIGHT / 2
+			+ game->rc->line_height / 2) * game->rc->step;
 	if (game->rc->side == 0 && game->rc->ray_dir_x > 0)
-	game->rc->tex_x = 64 - game->rc->tex_x - 1;
+		game->rc->tex_x = 64 - game->rc->tex_x - 1;
 	if (game->rc->side == 1 && game->rc->ray_dir_y < 0)
 		game->rc->tex_x = 64 - game->rc->tex_x - 1;
 	ft_texture_selection(&game->rc);
 	ft_render_wall_cont(&game, x, y);
 }
 
-void ft_exit_in_wall(char *str)
+void	ft_exit_in_wall(char *str)
 {
 	print_error(str);
 	exit(1);
 }
 
-void ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
+void	ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
 {
 	t_game *temp;
 
 	temp = *game;
 	if (temp->rc->side == 0)
-		temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE + temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
+		temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE
+			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
 	else
-	temp->rc->wall_x = temp->p->pos_x / BLOCK_SIZE + temp->rc->perp_wall_dist * temp->rc->ray_dir_x;
+		temp->rc->wall_x = temp->p->pos_x / BLOCK_SIZE
+			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_x;
 	temp->rc->wall_x -= floor(temp->rc->wall_x);
 	temp->rc->tex_x = (int)(temp->rc->wall_x * 64.0);
 	y = temp->rc->draw_start;
@@ -499,33 +520,37 @@ void ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
 	{
 		temp->rc->tex_y = (int)temp->rc->tex_pos % 64;
 		temp->rc->tex_pos += temp->rc->step;
-		temp->rc->rgb->pixel = &temp->mlx_r->xpm_texture[temp->rc->tex_num]->pixels[
-			(temp->rc->tex_y * 64 + temp->rc->tex_x) * 4];
+		temp->rc->rgb->pixel = &temp->mlx_r->xpm_texture[temp->rc->tex_num]->pixels[(temp->rc->tex_y
+				* 64 + temp->rc->tex_x) * 4];
 		temp->rc->rgb->r = temp->rc->rgb->pixel[3];
 		temp->rc->rgb->g = temp->rc->rgb->pixel[2];
 		temp->rc->rgb->b = temp->rc->rgb->pixel[1];
 		temp->rc->rgb->a = temp->rc->rgb->pixel[0];
 		temp->rc->rgb->color = create_rgba(temp->rc->rgb->r,
-			temp->rc->rgb->g,temp->rc->rgb->b,temp->rc->rgb->a);
+											temp->rc->rgb->g,
+											temp->rc->rgb->b,
+											temp->rc->rgb->a);
 		if (temp->rc->side == 1)
 			ft_rgb_modifier(temp->rc->rgb);
-		((uint32_t *)temp->screen->pixels)[y++ * DISPLAY_WIDTH + x] = temp->rc->rgb->color;
+		((uint32_t *)temp->screen->pixels)[y++ * DISPLAY_WIDTH
+			+ x] = temp->rc->rgb->color;
 	}
 }
 
-void ft_rgb_modifier(t_rgb *rgb)
+void	ft_rgb_modifier(t_rgb *rgb)
 {
 	// rgb->r = (rgb->r * 0.7);
 	// rgb->g = (rgb->g * 0.7);
 	// rgb->b = (rgb->b * 0.7);
 	rgb->color = create_rgba(rgb->r,
-		rgb->g,rgb->b,rgb->a);
+								rgb->g,
+								rgb->b,
+								rgb->a);
 }
-
 
 void	ft_texture_selection(t_rc **rc)
 {
-	t_rc *temp;
+	t_rc	*temp;
 
 	temp = *rc;
 	if (temp->side == 0)
@@ -564,7 +589,7 @@ void	free_split(char **split)
 
 uint32_t	parse_color(const char *line) // bunu duzelt
 {
-	char	**split;
+	char **split;
 
 	int r, g, b;
 	while (*line == 'F' || *line == 'C' || *line == ' ')

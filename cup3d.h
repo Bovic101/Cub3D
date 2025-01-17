@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cup3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/17 12:40:57 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/17 23:37:07 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void		confirm_map_data(t_map_data *map_data);
 void		player_pos_init(t_mlx_render *mlx_data);
 void		texture_loader(const char *texture_path,
 				mlx_texture_t **texture_pos);
-void		cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data);
+int		cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data);
 int			ft_strncmp(const char *str1, const char *str2, size_t n);
 void		texture_input(const char *line_ptr, t_mlx_render *mlx_data);
 void		print_error(const char *string);

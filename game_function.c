@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/14 19:05:08 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/18 00:50:00 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	confirm_map_data(t_map_data *map_data)
 				print_error("Error: Invalid character in map\n");
 			}
 			if (c == ' ' && !is_surrounded_by_walls(map_data, i, j))
-				// Ensure spaces are properly enclosed by walls
+			// Ensure spaces are properly enclosed by walls
 				print_error("Error: Space inside map not enclosed by walls\n");
 		}
 	}
@@ -78,57 +78,59 @@ void	debug_print_map(t_map_data *map_data)
 }
 
 /*Function that load the .cub file*/
-void	cub_file_loader(const char *cub_filename, t_mlx_render *mlx_data)
+int	cub_file_loader(const char *map_file, t_mlx_render *mlx_data)
 {
 	int		fd;
 	char	*line_ptr;
 	char	*trimmed_line;
 
-	printf("status:Opening file: '%s'\n", cub_filename);
-	fd = open(cub_filename, O_RDONLY);
+	// Open the .cub file
+	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error: Failed to open .cub file");
 		print_error("Error: Unable to open .cub file\n");
+		return (0);
 	}
-	line_ptr = NULL;
 	while ((line_ptr = get_next_line(fd)) != NULL)
 	{
-		trimmed_line = ft_strtrim(line_ptr, " \n\t\r");  // Trim leading/trailing spaces for cleaner data processing
-		if (trimmed_line[0] == '\0')  // Skip empty lines
+		trimmed_line = ft_strtrim(line_ptr, " \n\t\r");
+		free(line_ptr);
+		if (!trimmed_line || trimmed_line[0] == '\0')
 		{
 			free(trimmed_line);
-			free(line_ptr);
 			continue ;
 		}
-		printf("status: Processing line: '%s'\n", trimmed_line);
-		if (ft_strncmp(trimmed_line, "NO ", 3) == 0 || ft_strncmp(trimmed_line,
-				"SO ", 3) == 0 ||
-			ft_strncmp(trimmed_line, "WE ", 3) == 0 || ft_strncmp(trimmed_line,
-					"EA ", 3) == 0)
+		if (ft_strncmp(trimmed_line, "NO ", 3) == 0 ||
+			ft_strncmp(trimmed_line, "SO ", 3) == 0 ||
+			ft_strncmp(trimmed_line, "WE ", 3) == 0 ||
+			ft_strncmp(trimmed_line, "EA ", 3) == 0)
 		{
 			texture_input(trimmed_line, mlx_data);
 		}
-		else if (ft_strncmp(trimmed_line, "F ", 2) == 0
-				|| ft_strncmp(trimmed_line, "C ", 2) == 0)
+		else if (ft_strncmp(trimmed_line, "F ", 2) == 0 ||
+					ft_strncmp(trimmed_line, "C ", 2) == 0)
 		{
-			parse_color_line(mlx_data, trimmed_line); // Parse floor/ceiling colors
+			parse_color_line(mlx_data, trimmed_line);
 		}
-		else if (trimmed_line[0] == '1' || trimmed_line[0] == '0')
+		else if (ft_strchr(trimmed_line, '1') || ft_strchr(trimmed_line, '0'))
 		{
 			map_layout_input(trimmed_line, mlx_data->map_data);
 		}
 		else
 		{
 			free(trimmed_line);
-			free(line_ptr);
 			print_error("Error: Unknown or invalid line in .cub file\n");
+			close(fd);
+			return (0);
 		}
 		free(trimmed_line);
-		free(line_ptr);
 	}
 	if (close(fd) == -1)
+	{
 		print_error("Error: Unable to close .cub file\n");
-	confirm_map_data(mlx_data->map_data);  // Validate the map data after parsing
-	debug_print_map(mlx_data->map_data);  //Print parsed map outputr
+		return (0);
+	}
+	confirm_map_data(mlx_data->map_data);
+	debug_print_map(mlx_data->map_data);
+	return (1);
 }
