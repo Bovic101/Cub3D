@@ -6,42 +6,52 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/18 00:50:00 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/19 22:20:36 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
 
+void	check_map_character(t_map_data *map_data, int i, int *player_count)
+{
+	size_t	j;
+	char	c;
+
+	j = 0;
+	while (j < ft_strlen(map_data->map_layout[i]))
+	{
+		c = map_data->map_layout[i][j];
+		if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		{
+			map_data->player_block_x = j;
+			map_data->player_block_y = i;
+			(*player_count)++;
+			printf("status: Player found at (%d, %zu)\n", i, j);
+		}
+		else if (c != '1' && c != '0' && c != ' ')
+		{
+			printf("status: Invalid character '%c' at (%d, %zu)\n", c, i, j);
+			print_error("Error: Invalid character in map\n");
+		}
+		if (c == ' ' && !is_surrounded_by_walls(map_data, i, j))
+			print_error("Error: Space inside map not enclosed by walls\n");
+		j++;
+	}
+}
+
 void	confirm_map_data(t_map_data *map_data)
 {
-	char	c;
-	size_t	j;
+	int	i;
+	int	player_count;
 
-	int i, player_count = 0;
+	i = 0;
+	player_count = 0;
 	if (!map_data || !map_data->map_layout)
 		print_error("Error: Map data is null\n");
-	for (i = 0; i < map_data->map_height; i++)
+	while (i < map_data->map_height)
 	{
-		for (j = 0; j < ft_strlen(map_data->map_layout[i]); j++)
-		{
-			c = map_data->map_layout[i][j];
-			if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
-			{
-				map_data->player_block_x = j;
-				map_data->player_block_y = i;
-				player_count++;
-				printf("status: Player found at (%d, %zu)\n", i, j);
-			}
-			else if (c != '1' && c != '0' && c != ' ')
-			{
-				printf("status: Invalid character '%c' at (%d, %zu)\n", c, i,
-						j);
-				print_error("Error: Invalid character in map\n");
-			}
-			if (c == ' ' && !is_surrounded_by_walls(map_data, i, j))
-			// Ensure spaces are properly enclosed by walls
-				print_error("Error: Space inside map not enclosed by walls\n");
-		}
+		check_map_character(map_data, i, &player_count);
+		i++;
 	}
 	printf("status: Total player positions found: %d\n", player_count);
 	if (player_count != 1)

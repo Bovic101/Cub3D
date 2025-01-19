@@ -12,7 +12,8 @@ SRCS = main.c \
 	populate_data.c \
 	get_next_line.c \
 	get_next_line_utils.c \
-	input_function.c
+	input_function.c \
+	input_function_2.c \
 
 OBJS = $(SRCS:.c=.o)
 

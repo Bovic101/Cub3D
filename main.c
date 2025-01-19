@@ -537,6 +537,7 @@ void	ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
 	}
 }
 
+
 void	ft_rgb_modifier(t_rgb *rgb)
 {
 	// rgb->r = (rgb->r * 0.7);

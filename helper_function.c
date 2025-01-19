@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:50 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/12 13:21:44 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/19 22:33:51 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		i--;
 	return (s1[i] - s2[i]);
 }
+
 void	print_error(const char *error_message)
 {
 	write(2, error_message, ft_strlen(error_message));

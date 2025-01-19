@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/16 18:23:21 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/19 22:34:32 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*texture_path_parser(const char *line_ptr)
 			print_error("Error: Memory allocation failed for texture path\n");
 		len = ft_strlen(path);
 		while (len > 0 && (path[len - 1] == '\n' || path[len - 1] == ' '))
-		// Trim whitespace and newlines
 		{
 			path[len - 1] = '\0';
 			len--;
@@ -57,8 +56,7 @@ void	texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 }
 
 /*Function parse and load textures using the texture_loader and texture_path-parser function*/
-
-void texture_input(const char *line_ptr, t_mlx_render *mlx_data)
+void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 {
 	char	*texture_path;
 	int		texture_index;
@@ -80,7 +78,6 @@ void texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 	texture_loader(texture_path, &mlx_data->xpm_texture[texture_index]);
 	free(texture_path);
 }
-
 
 /*Function that read map line in the cub and stores it in the 2D array rep. d map*/
 void	map_layout_input(const char *line_ptr, t_map_data *map_data)
@@ -114,37 +111,4 @@ void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 			line_length);
 	map_data->map_layout[map_data->map_height][line_length] = '\0';
 	map_data->map_height++;
-}
-
-void	parse_color_line(t_mlx_render *mlx_data, const char *line)
-{
-	if (line[0] == 'F')
-		mlx_data->floor_c = parse_color(line); //strore parse floor color
-	else if (line[0] == 'C')
-		mlx_data->ceiling_c = parse_color(line);
-}
-
-void	read_colors(const char *file_path, t_mlx_render *mlx_data)
-{
-	int		fd;
-	char	*line;
-
-	if (!file_path || !mlx_data)
-		print_error("Error: Invalid arguments passed to read_colors\n");
-	printf("status: Opening file for reading colors: '%s'\n", file_path);
-	fd = open(file_path, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("status: Open failed");
-		print_error("Error: Unable to open .cub file for reading colors\n");
-	}
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("status: Read line: %s\n", line);
-		if (line[0] == 'F' || line[0] == 'C')
-			parse_color_line(mlx_data, line);
-		free(line);
-	}
-	if (close(fd) == -1)
-		print_error("Error: Unable to close .cub file after reading colors\n");
 }
