@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/19 22:39:49 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 01:16:08 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ void	texture_loader(const char *texture_path,
 int					cub_file_loader(const char *map_file,
 						t_mlx_render *mlx_data);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
+void				allocate_map_layout(t_map_data *map_data);
 void				texture_input(const char *line_ptr, t_mlx_render *mlx_data);
 void				print_error(const char *string);
 void				map_layout_input(const char *line_ptr,

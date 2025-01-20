@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/19 22:34:32 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 01:14:44 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,12 @@ void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 	texture_loader(texture_path, &mlx_data->xpm_texture[texture_index]);
 	free(texture_path);
 }
-
-/*Function that read map line in the cub and stores it in the 2D array rep. d map*/
-void	map_layout_input(const char *line_ptr, t_map_data *map_data)
+/* function ensures that the map_layout is allocated by initializing it with a default height
+ if it is uninitialized, handling potential memory allocation failures*/
+void	allocate_map_layout(t_map_data *map_data)
 {
-	size_t	line_length;
-
-	line_length = ft_strlen(line_ptr);
 	if (!map_data)
-		print_error("Error: Null map_data in map_layout_input\n");
+		print_error("Error: Null map_data in allocate_map_layout\n");
 	if (!map_data->map_layout)
 	{
 		map_data->allocated_height = MAX_MAP_HEIGHT;
@@ -95,6 +92,15 @@ void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 		if (!map_data->map_layout)
 			print_error("Error: Memory allocation failed for map layout\n");
 	}
+}
+
+/*Function that read map line in the cub and stores it in the 2D array rep. d map*/
+void	map_layout_input(const char *line_ptr, t_map_data *map_data)
+{
+	size_t	line_length;
+
+	line_length = ft_strlen(line_ptr);
+	allocate_map_layout(map_data);
 	if (map_data->map_height >= map_data->allocated_height)
 	{
 		map_data->allocated_height *= 2;
