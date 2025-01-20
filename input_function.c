@@ -6,25 +6,25 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/20 01:14:44 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 02:01:07 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cup3d.h"
 
-/*Function extractthe file path of a tecture from the config file(.cub flie) line*/
+/*Function extractthe file path of a tecture from 
+the config	file(.cub flie) line*/
 char	*texture_path_parser(const char *line_ptr)
 {
 	char	*path;
 	size_t	len;
 
 	path = NULL;
-	if (ft_strncmp(line_ptr, "NO ", 3) == 0 ||
-		ft_strncmp(line_ptr, "SO ", 3) == 0 ||
-		ft_strncmp(line_ptr, "WE ", 3) == 0 ||
-		ft_strncmp(line_ptr, "EA ", 3) == 0)
+	if (ft_strncmp(line_ptr, "NO ", 3) == 0 || ft_strncmp(line_ptr, "SO ",
+			3) == 0 || ft_strncmp(line_ptr, "WE ", 3) == 0
+		|| ft_strncmp(line_ptr, "EA ", 3) == 0)
 	{
-		path = ft_strdup(line_ptr + 3); // Duplicate the path
+		path = ft_strdup(line_ptr + 3);
 		if (!path)
 			print_error("Error: Memory allocation failed for texture path\n");
 		len = ft_strlen(path);
@@ -39,7 +39,8 @@ char	*texture_path_parser(const char *line_ptr)
 	return (NULL);
 }
 
-/*Function that load texture into the exact position in the texture array as declared in the header*/
+/*Function that load texture into the exact position in t
+he texture array as declared in the header*/
 void	texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 {
 	if (!texture_path || !texture_pos)
@@ -55,7 +56,8 @@ void	texture_loader(const char *texture_path, mlx_texture_t **texture_pos)
 	printf("Status: Successfully loaded texture: '%s'\n", texture_path);
 }
 
-/*Function parse and load textures using the texture_loader and texture_path-parser function*/
+/*Function parse and load textures using the texture_loader 
+and texture_path-parser function*/
 void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 {
 	char	*texture_path;
@@ -78,8 +80,9 @@ void	texture_input(const char *line_ptr, t_mlx_render *mlx_data)
 	texture_loader(texture_path, &mlx_data->xpm_texture[texture_index]);
 	free(texture_path);
 }
-/* function ensures that the map_layout is allocated by initializing it with a default height
- if it is uninitialized, handling potential memory allocation failures*/
+
+/* function ensures that the map_layout is allocated by initializing
+it with a default height, handling potential memory allocation failures*/
 void	allocate_map_layout(t_map_data *map_data)
 {
 	if (!map_data)
@@ -94,7 +97,8 @@ void	allocate_map_layout(t_map_data *map_data)
 	}
 }
 
-/*Function that read map line in the cub and stores it in the 2D array rep. d map*/
+/*Function that read map line in the cub and 
+stores it in the 2D array rep. d map*/
 void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 {
 	size_t	line_length;
@@ -105,16 +109,15 @@ void	map_layout_input(const char *line_ptr, t_map_data *map_data)
 	{
 		map_data->allocated_height *= 2;
 		map_data->map_layout = realloc(map_data->map_layout,
-										map_data->allocated_height
-											* sizeof(char *));
+				map_data->allocated_height * sizeof(char *));
 		if (!map_data->map_layout)
-			print_error("Error: Memory allocation failed during map reallocation\n");
+			print_error("Error: Memory allocation failed\n");
 	}
 	map_data->map_layout[map_data->map_height] = malloc(line_length + 1);
 	if (!map_data->map_layout[map_data->map_height])
 		print_error("Error: Memory allocation failed for map row\n");
 	ft_strncpy(map_data->map_layout[map_data->map_height], line_ptr,
-			line_length);
+		line_length);
 	map_data->map_layout[map_data->map_height][line_length] = '\0';
 	map_data->map_height++;
 }
