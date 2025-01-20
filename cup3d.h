@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cup3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 02:43:27 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 11:02:17 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,6 +189,7 @@ void				ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x);
 void				ft_render_wall_cont(t_game **game, int x, int y);
 void				ft_rgb_modifier(t_rgb *rgb);
 void				ft_exit_in_wall(char *str);
+void				ft_map_data_mod(t_game *game);
 void				ft_resize_handle(int32_t widht, int32_t height,
 						void *param);
 

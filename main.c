@@ -13,9 +13,6 @@
 
 #include "MLX42/MLX42.h"
 #include "cup3d.h"
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
@@ -46,7 +43,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	ft_resize_handle(int32_t widht, int32_t height, void *param)  // will be improved
+void	ft_resize_handle(int32_t widht, int32_t height, void *param)
 {
 	t_game *game;
 
@@ -143,14 +140,6 @@ int	init_game(t_game *game, const char *map_file)
 		cleanup_game(game);
 		return (0);
 	}
-	game->mapdata->map_layout = NULL;
-	game->mapdata->map_width = 0;
-	game->mapdata->map_height = 0;
-	game->mapdata->allocated_height = 0;
-	game->mlx_r->map_data = game->mapdata;
-	game->mlx_r->player = game->p;
-	game->mlx_r->floor_c = 0x383838FF;
-	game->mlx_r->ceiling_c = 0x1E1E1EFF;
 	if (cub_file_loader(map_file, game->mlx_r) == 0)
 	{
 		cleanup_game(game);
@@ -169,6 +158,18 @@ int	init_game(t_game *game, const char *map_file)
 		return (0);
 	}
 	return (1);
+}
+
+void	ft_map_data_mod(t_game *game)
+{
+	game->mapdata->map_layout = NULL;
+	game->mapdata->map_width = 0;
+	game->mapdata->map_height = 0;
+	game->mapdata->allocated_height = 0;
+	game->mlx_r->map_data = game->mapdata;
+	game->mlx_r->player = game->p;
+	game->mlx_r->floor_c = 0x383838FF;
+	game->mlx_r->ceiling_c = 0x1E1E1EFF;
 }
 
 /*Function to free up the game buf*/
@@ -539,13 +540,7 @@ void	ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
 
 void	ft_rgb_modifier(t_rgb *rgb)
 {
-	// rgb->r = (rgb->r * 0.7);
-	// rgb->g = (rgb->g * 0.7);
-	// rgb->b = (rgb->b * 0.7);
-	rgb->color = create_rgba(rgb->r,
-								rgb->g,
-								rgb->b,
-								rgb->a);
+	rgb->color = create_rgba(rgb->r,rgb->g, rgb->b,rgb->a);
 }
 
 void	ft_texture_selection(t_rc **rc)
