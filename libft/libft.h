@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 02:10:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/13 18:30:43 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 13:07:46 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,8 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 int					ft_lstsize(t_list *lst);
-double				ft_atoi_double(const char *str);
 void				handle_error(const char *str);
 const char			*acceptable_input(const char *str);
-long				ft_atol(const char *str);
 int					ft_isspace(char c);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 #endif
