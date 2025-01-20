@@ -127,14 +127,7 @@ void	init_game(t_game *game, const char *map_file)
 	game->mlx_r = malloc(sizeof(t_mlx_render));
 	game->rc = malloc(sizeof(t_rc));
 	game->rc->rgb = malloc(sizeof(t_rgb));
-	game->mapdata->map_layout = NULL;
-	game->mapdata->map_width = 0;
-	game->mapdata->map_height = 0;
-	game->mapdata->allocated_height = 0;
-	game->mlx_r->map_data = game->mapdata;
-	game->mlx_r->player = game->p;
-	game->mlx_r->floor_c = 0x383838FF;
-	game->mlx_r->ceiling_c = 0x1E1E1EFF;
+	ft_map_data_mod(&game);
 	if (!game->p || !game->mapdata || !game->mlx_r || !game->rc
 		|| !game->rc->rgb)
 		cleanup_game(game);
@@ -148,12 +141,21 @@ void	init_game(t_game *game, const char *map_file)
 		cleanup_game(game);
 }
 
-// void	ft_map_data_mod(t_game *game)
-// {
+void	ft_map_data_mod(t_game **param)
+{
+	t_game *game;
+	game = *param;
 
-// }
+	game->mapdata->map_layout = NULL;
+	game->mapdata->map_width = 0;
+	game->mapdata->map_height = 0;
+	game->mapdata->allocated_height = 0;
+	game->mlx_r->map_data = game->mapdata;
+	game->mlx_r->player = game->p;
+	game->mlx_r->floor_c = 0x383838FF;
+	game->mlx_r->ceiling_c = 0x1E1E1EFF;
+}
 
-/*Function to free up the game buf*/
 void	cleanup_game(t_game *game)
 {
 	int	i;
@@ -180,6 +182,14 @@ void	cleanup_game(t_game *game)
 		}
 		free(game->mlx_r);
 	}
+	cleanup_game_sec(&game);
+}
+
+void	cleanup_game_sec(t_game **param)
+{
+	t_game *game;
+	game = *param;
+
 	if (game->p)
 		free(game->p);
 	if (game->rc)
@@ -221,6 +231,14 @@ void	cleanup_game_wout_exit(t_game *game)
 		}
 		free(game->mlx_r);
 	}
+	cleanup_game_wout_exit_sec(&game);
+}
+
+void	cleanup_game_wout_exit_sec(t_game **param)
+{
+	t_game *game;
+	game = *param;
+
 	if (game->p)
 		free(game->p);
 	if (game->rc)
@@ -233,7 +251,6 @@ void	cleanup_game_wout_exit(t_game *game)
 		mlx_delete_image(game->mlx, game->screen);
 	if (game->mlx)
 		mlx_terminate(game->mlx);
-	exit(1);
 }
 
 void	key_handler(mlx_key_data_t keydata, void *param)
@@ -525,45 +542,64 @@ void	ft_exit_in_wall(char *str)
 	exit(1);
 }
 
-void	ft_render_wall_cont(t_game **game, int x, int y) // should be 25 line
+void	ft_render_wall_cont(t_game **game, int x, int y)
 {
 	t_game *temp;
 
 	temp = *game;
-	if (temp->rc->side == 0)
-		temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE
-			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
-	else
-		temp->rc->wall_x = temp->p->pos_x / BLOCK_SIZE
-			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_x;
-	temp->rc->wall_x -= floor(temp->rc->wall_x);
-	temp->rc->tex_x = (int)(temp->rc->wall_x * 64.0);
-	y = temp->rc->draw_start;
+	ft_render_wall_cont_sec(game, &y);
 	while (y <= temp->rc->draw_end)
 	{
-		temp->rc->tex_y = (int)temp->rc->tex_pos % 64;
-		temp->rc->tex_pos += temp->rc->step;
-		temp->rc->rgb->pixel = &temp->mlx_r->xpm_texture[temp->rc->tex_num]->pixels[(temp->rc->tex_y
-				* 64 + temp->rc->tex_x) * 4];
-		temp->rc->rgb->r = temp->rc->rgb->pixel[3];
-		temp->rc->rgb->g = temp->rc->rgb->pixel[2];
-		temp->rc->rgb->b = temp->rc->rgb->pixel[1];
-		temp->rc->rgb->a = temp->rc->rgb->pixel[0];
+		ft_wall_render_helper(&temp);
+		ft_rgb_assigner(&temp->rc->rgb);
 		temp->rc->rgb->color = create_rgba(temp->rc->rgb->r,
 											temp->rc->rgb->g,
 											temp->rc->rgb->b,
 											temp->rc->rgb->a);
 		if (temp->rc->side == 1)
-			ft_rgb_modifier(temp->rc->rgb);
+			create_rgba(temp->rc->rgb->r,temp->rc->rgb->g,
+				temp->rc->rgb->b,temp->rc->rgb->a);
 		((uint32_t *)temp->screen->pixels)[y++ * DISPLAY_WIDTH
 			+ x] = temp->rc->rgb->color;
 	}
 }
 
-
-void	ft_rgb_modifier(t_rgb *rgb)
+void	ft_render_wall_cont_sec(t_game **game, int *y)
 {
-	rgb->color = create_rgba(rgb->r,rgb->g, rgb->b,rgb->a);
+	t_game *temp;
+
+	temp = *game;
+	if (temp->rc->side == 0)
+	temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE
+		+ temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
+	else
+		temp->rc->wall_x = temp->p->pos_x / BLOCK_SIZE
+			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_x;
+	temp->rc->wall_x -= floor(temp->rc->wall_x);
+	temp->rc->tex_x = (int)(temp->rc->wall_x * 64.0);
+	*y = temp->rc->draw_start;
+}
+
+void	ft_wall_render_helper(t_game **param)
+{
+	t_game *game;
+	game = *param;
+
+	game->rc->tex_y = (int)game->rc->tex_pos % 64;
+	game->rc->tex_pos += game->rc->step;
+	game->rc->rgb->pixel = &game->mlx_r->xpm_texture[game->rc->tex_num]->pixels[(game->rc->tex_y
+		* 64 + game->rc->tex_x) * 4];
+}
+
+void	ft_rgb_assigner(t_rgb **param)
+{
+	t_rgb *rgb;
+	rgb = *param;
+
+		rgb->r = rgb->pixel[3];
+		rgb->g = rgb->pixel[2];
+		rgb->b = rgb->pixel[1];
+		rgb->a = rgb->pixel[0];
 }
 
 void	ft_texture_selection(t_rc **rc)
