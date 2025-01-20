@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 01:00:22 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/20 02:15:55 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 12:46:27 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../source/get_next_line.h"
 // Calculate the length of a string
 
 size_t	ft_strlen(const char *s)

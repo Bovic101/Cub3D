@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cubfile_reader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:35:01 by victor-linu       #+#    #+#             */
-/*   Updated: 2025/01/20 02:36:36 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 12:46:01 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cup3d.h"
+#include "../source/cup3d.h"
 
 /*Function that handles file opening and 
 returns the file descriptor*/

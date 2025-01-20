@@ -7,14 +7,20 @@ MLX42_LIB = $(MLX42_PATH)/build/libmlx42.a
 LIBFT_OBJS = $(LIBFT_PATH)/libft.a
 
 SRCS = main.c \
-	game_function.c \
-	helper_function.c \
-	populate_data.c \
-	get_next_line.c \
-	get_next_line_utils.c \
-	input_function.c \
-	input_function_2.c \
-	cubfile_reader.c \
+	parsing/game_function.c \
+	parsing/helper_function.c \
+	parsing/populate_data.c \
+	parsing/get_next_line.c \
+	parsing/get_next_line_utils.c \
+	parsing/input_function.c \
+	parsing/input_function_2.c \
+	parsing/cubfile_reader.c \
+	ray_cast/cleanup.c \
+	ray_cast/input_handle.c \
+	ray_cast/movement.c \
+	ray_cast/raycasting.c \
+	ray_cast/rendering.c \
+	ray_cast/rendering_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:05:47 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:47:37 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "MLX42/MLX42.h"
 # include "get_next_line.h"
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <errno.h>
 # include <fcntl.h> // open() function header
 # include <limits.h>

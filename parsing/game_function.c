@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/20 02:38:05 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 12:46:04 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cup3d.h"
+#include "../source/cup3d.h"
 
 void	check_map_character(t_map_data *map_data, int i, int *player_count)
 {

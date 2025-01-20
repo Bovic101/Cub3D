@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   helper_function.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:50 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/19 22:33:51 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 12:46:21 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cup3d.h"
+#include "../source/cup3d.h"
 
 /*Function to converts an angle given in degrees into its equivalent in radian*/
 double	degree_to_radian(double value)

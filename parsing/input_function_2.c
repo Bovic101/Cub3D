@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_function_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:26:17 by victor-linu       #+#    #+#             */
-/*   Updated: 2025/01/20 02:06:56 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 12:46:33 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cup3d.h"
+#include "../source/cup3d.h"
 
 void	parse_color_line(t_mlx_render *mlx_data, const char *line)
 {

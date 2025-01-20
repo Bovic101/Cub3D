@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 01:22:15 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/20 02:01:07 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 12:46:35 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cup3d.h"
+#include "../source/cup3d.h"
 
 /*Function extractthe file path of a tecture from 
 the config	file(.cub flie) line*/
