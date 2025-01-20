@@ -25,21 +25,14 @@ int	main(int argc, char **argv)
 	ft_memset(&game, 0, sizeof(t_game));
 	game.window_height = DISPLAY_HEIGHT;
 	game.window_width = DISPLAY_WIDTH;
-	if (!init_game(&game, argv[1]))
-	{
-		cleanup_game(&game);
-		return (1);
-	}
+	init_game(&game, argv[1]);
 	mlx_key_hook(game.mlx, &key_handler, &game);
 	mlx_loop_hook(game.mlx, &game_loop, &game);
 	mlx_resize_hook(game.mlx, &ft_resize_handle, &game);
 	if (mlx_image_to_window(game.mlx, game.screen, 0, 0) < 0)
-	{
 		cleanup_game(&game);
-		return (1);
-	}
 	mlx_loop(game.mlx);
-	cleanup_game(&game);
+	cleanup_game_wout_exit(&game);
 	return (0);
 }
 
@@ -124,7 +117,7 @@ void	rotate_player(t_game *game)
 	}
 }
 
-int	init_game(t_game *game, const char *map_file)
+void	init_game(t_game *game, const char *map_file)
 {
 	ft_memset(game, 0, sizeof(t_game));
 	game->window_width = DISPLAY_WIDTH;
@@ -134,34 +127,6 @@ int	init_game(t_game *game, const char *map_file)
 	game->mlx_r = malloc(sizeof(t_mlx_render));
 	game->rc = malloc(sizeof(t_rc));
 	game->rc->rgb = malloc(sizeof(t_rgb));
-	if (!game->p || !game->mapdata || !game->mlx_r || !game->rc
-		|| !game->rc->rgb)
-	{
-		cleanup_game(game);
-		return (0);
-	}
-	if (cub_file_loader(map_file, game->mlx_r) == 0)
-	{
-		cleanup_game(game);
-		return (0);
-	}
-	player_pos_init(game->mlx_r);
-	init_window(game);
-	if (!game->mlx || !game->screen)
-	{
-		cleanup_game(game);
-		return (0);
-	}
-	if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
-	{
-		cleanup_game(game);
-		return (0);
-	}
-	return (1);
-}
-
-void	ft_map_data_mod(t_game *game)
-{
 	game->mapdata->map_layout = NULL;
 	game->mapdata->map_width = 0;
 	game->mapdata->map_height = 0;
@@ -170,7 +135,23 @@ void	ft_map_data_mod(t_game *game)
 	game->mlx_r->player = game->p;
 	game->mlx_r->floor_c = 0x383838FF;
 	game->mlx_r->ceiling_c = 0x1E1E1EFF;
+	if (!game->p || !game->mapdata || !game->mlx_r || !game->rc
+		|| !game->rc->rgb)
+		cleanup_game(game);
+	if (cub_file_loader(map_file, game->mlx_r) == 0)
+		cleanup_game(game);
+	player_pos_init(game->mlx_r);
+	init_window(game);
+	if (!game->mlx || !game->screen)
+		cleanup_game(game);
+	if (mlx_image_to_window(game->mlx, game->screen, 0, 0) < 0)
+		cleanup_game(game);
 }
+
+// void	ft_map_data_mod(t_game *game)
+// {
+
+// }
 
 /*Function to free up the game buf*/
 void	cleanup_game(t_game *game)
@@ -211,6 +192,48 @@ void	cleanup_game(t_game *game)
 		mlx_delete_image(game->mlx, game->screen);
 	if (game->mlx)
 		mlx_terminate(game->mlx);
+	exit(1);
+}
+
+void	cleanup_game_wout_exit(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	if (game->mapdata)
+	{
+		while (i < game->mapdata->map_height)
+		{
+			free(game->mapdata->map_layout[i]);
+			i++;
+		}
+		free(game->mapdata->map_layout);
+		free(game->mapdata);
+	}
+	i = 0;
+	if (game->mlx_r)
+	{
+		while (i < 4)
+		{
+			if (game->mlx_r->xpm_texture[i])
+				mlx_delete_texture(game->mlx_r->xpm_texture[i]);
+			i++;
+		}
+		free(game->mlx_r);
+	}
+	if (game->p)
+		free(game->p);
+	if (game->rc)
+	{
+		if (game->rc->rgb)
+			free(game->rc->rgb);
+		free(game->rc);
+	}
+	if (game->screen)
+		mlx_delete_image(game->mlx, game->screen);
+	if (game->mlx)
+		mlx_terminate(game->mlx);
+	exit(1);
 }
 
 void	key_handler(mlx_key_data_t keydata, void *param)

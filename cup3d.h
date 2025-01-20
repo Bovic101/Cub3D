@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 11:02:17 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:34:11 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ void				check_map_character(t_map_data *map_data, int i,
 
 // Movement, keybinding, raycasting, etc.
 void				move_player(t_game *game);
-int					init_game(t_game *game, const char *map_file);
+void	init_game(t_game *game, const char *map_file);
 void				cleanup_game(t_game *game);
 void				init_player(t_game *game);
 void				key_handler(mlx_key_data_t keydata, void *param);
@@ -189,7 +189,7 @@ void				ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x);
 void				ft_render_wall_cont(t_game **game, int x, int y);
 void				ft_rgb_modifier(t_rgb *rgb);
 void				ft_exit_in_wall(char *str);
-void				ft_map_data_mod(t_game *game);
+void	cleanup_game_wout_exit(t_game *game);
 void				ft_resize_handle(int32_t widht, int32_t height,
 						void *param);
 
