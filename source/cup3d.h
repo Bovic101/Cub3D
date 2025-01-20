@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 13:00:44 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:20:46 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,29 +100,29 @@ typedef struct s_game
 
 typedef struct s_rc
 {
-	double			camera_x;
-	double			ray_dir_x;
-	double			ray_dir_y;
-	int				map_x;
-	int				map_y;
-	double			side_dist_x;
-	double			side_dist_y;
-	double			delta_dist_x;
-	double			delta_dist_y;
-	int				step_x;
-	int				step_y;
-	int				hit;
-	int				side;
-	double			perp_wall_dist;
-	int				line_height;
-	int				draw_start;
-	int				draw_end;
-	double			wall_x;
-	int				tex_x;
-	int				tex_y;
-	int				tex_num;
-	double			step;
-	double			tex_pos;
+	double			camera_x; // rays coordinate in cam between -1 and 1
+	double			ray_dir_x; // x ray vector 
+	double			ray_dir_y; // y ray vector
+	int				map_x; // x coordinate in map grid
+	int				map_y; // y coordinate in map grid
+	double			side_dist_x; // distance to next x grid line
+	double			side_dist_y; // distance to next y grid line
+	double			delta_dist_x; // fixed distance between x grid lines
+	double			delta_dist_y; // fixed distance between y grid lines
+	int				step_x; // direction to step in x -1 to 1
+	int				step_y; // direction to setep in y -1 to 1
+	int				hit; // hit to wall ?
+	int				side; // hitted wall side 0x 1y
+	double			perp_wall_dist; // for fish eye fix
+	int				line_height; // vector y of line
+	int				draw_start; // y coordinate start
+	int				draw_end; // y coordinate end
+	double			wall_x; // exact coordinate where hit
+	int				tex_x; // texture x coordinate
+	int				tex_y; // texture y coordinate
+	int				tex_num; // texture selector
+	double			step; // about texture increase
+	double			tex_pos; // texture position
 	struct s_rgb	*rgb;
 }					t_rc;
 
@@ -133,7 +133,7 @@ typedef struct s_rgb
 	uint8_t			r;
 	uint8_t			g;
 	uint8_t			b;
-	uint8_t			a;
+	uint8_t			a; // alpha 0-255
 }					t_rgb;
 
 // Function prototypes
