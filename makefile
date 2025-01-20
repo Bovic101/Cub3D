@@ -25,7 +25,7 @@ all: $(MLX42_LIB) $(LIBFT_OBJS) $(NAME)
 
 $(LIBFT_OBJS):
 	make -C $(LIBFT_PATH)
-	rm -f $(LIBFT_PATH)/*.o  # Remove libft object files after compilation
+	rm -f $(LIBFT_PATH)/*.o
 
 $(MLX42_LIB):
 	@if [ ! -d "$(MLX42_PATH)" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
