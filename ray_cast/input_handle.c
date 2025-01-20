@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:36:25 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:46:49 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:56:39 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	key_handler_sec(mlx_key_data_t keydata, t_game *game)
 
 void	ft_resize_handle(int32_t widht, int32_t height, void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
 	if (game->screen)
@@ -72,11 +72,13 @@ void	ft_resize_handle(int32_t widht, int32_t height, void *param)
 	ft_cast_rays(game, 0, 0);
 }
 
-uint32_t	parse_color(const char *line) // bunu duzelt
+uint32_t	parse_color(const char *line)
 {
-	char **split;
+	char	**split;
+	int		r;
+	int		g;
+	int		b;
 
-	int r, g, b;
 	while (*line == 'F' || *line == 'C' || *line == ' ')
 		line++;
 	split = ft_split(line, ',');

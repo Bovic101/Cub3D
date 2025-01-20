@@ -1,13 +1,12 @@
-;
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:35:05 by taha              #+#    #+#             */
-/*   Updated: 2025/01/17 09:50:50 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/20 12:57:33 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +102,9 @@ void	init_game(t_game *game, const char *map_file)
 
 void	ft_map_data_mod(t_game **param)
 {
-	t_game *game;
-	game = *param;
+	t_game	*game;
 
+	game = *param;
 	game->mapdata->map_layout = NULL;
 	game->mapdata->map_width = 0;
 	game->mapdata->map_height = 0;

@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:37:54 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:46:52 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:55:45 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int	is_valid_position(t_game *game, double x, double y)
 
 	map_x = (int)(x / BLOCK_SIZE);
 	map_y = (int)(y / BLOCK_SIZE);
-	if (map_x < 0 || map_y < 0 ||
-		map_y >= game->mapdata->map_height ||
-		map_x >= (int)strlen(game->mapdata->map_layout[map_y]))
+	if (map_x < 0 || map_y < 0 || map_y
+		>= game->mapdata->map_height || map_x
+		>= (int)strlen(game->mapdata->map_layout[map_y]))
 		return (0);
 	if (game->mapdata->map_layout[map_y][map_x] == '1')
 		return (0);
@@ -100,14 +100,14 @@ void	rotate_player(t_game *game)
 	if (game->p->p_rot != 0)
 	{
 		old_dir_x = game->p->dir_x;
-		game->p->dir_x = game->p->dir_x * cos(game->p->p_rot) -
-			game->p->dir_y * sin(game->p->p_rot);
-		game->p->dir_y = old_dir_x * sin(game->p->p_rot) +
-			game->p->dir_y * cos(game->p->p_rot);
+		game->p->dir_x = game->p->dir_x * cos(game->p->p_rot)
+			- game->p->dir_y * sin(game->p->p_rot);
+		game->p->dir_y = old_dir_x * sin(game->p->p_rot)
+			+ game->p->dir_y * cos(game->p->p_rot);
 		old_plane_x = game->p->plane_x;
-		game->p->plane_x = game->p->plane_x * cos(game->p->p_rot) -
-			game->p->plane_y * sin(game->p->p_rot);
-		game->p->plane_y = old_plane_x * sin(game->p->p_rot) +
-			game->p->plane_y * cos(game->p->p_rot);
+		game->p->plane_x = game->p->plane_x * cos(game->p->p_rot)
+			- game->p->plane_y * sin(game->p->p_rot);
+		game->p->plane_y = old_plane_x * sin(game->p->p_rot)
+			+ game->p->plane_y * cos(game->p->p_rot);
 	}
 }

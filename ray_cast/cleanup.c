@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:35:57 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:46:45 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:57:05 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	cleanup_game(t_game *game)
 
 void	cleanup_game_sec(t_game **param)
 {
-	t_game *game;
-	game = *param;
+	t_game	*game;
 
+	game = *param;
 	if (game->p)
 		free(game->p);
 	if (game->rc)
@@ -92,9 +92,9 @@ void	cleanup_game_wout_exit(t_game *game)
 
 void	cleanup_game_wout_exit_sec(t_game **param)
 {
-	t_game *game;
-	game = *param;
+	t_game	*game;
 
+	game = *param;
 	if (game->p)
 		free(game->p);
 	if (game->rc)

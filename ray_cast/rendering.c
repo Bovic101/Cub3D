@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:39:20 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:47:00 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:53:00 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,6 @@ void	ft_draw_ceiling_floor(t_game *game)
 	}
 }
 
-
-
-
-
 void	ft_render_wall(t_game *game, int x, int y)
 {
 	if (!game || !game->screen || !game->screen->pixels)
@@ -89,7 +85,7 @@ void	ft_render_wall(t_game *game, int x, int y)
 
 void	ft_render_wall_cont(t_game **game, int x, int y)
 {
-	t_game *temp;
+	t_game	*temp;
 
 	temp = *game;
 	ft_render_wall_cont_sec(game, &y);
@@ -98,25 +94,23 @@ void	ft_render_wall_cont(t_game **game, int x, int y)
 		ft_wall_render_helper(&temp);
 		ft_rgb_assigner(&temp->rc->rgb);
 		temp->rc->rgb->color = create_rgba(temp->rc->rgb->r,
-											temp->rc->rgb->g,
-											temp->rc->rgb->b,
-											temp->rc->rgb->a);
+				temp->rc->rgb->g, temp->rc->rgb->b, temp->rc->rgb->a);
 		if (temp->rc->side == 1)
-			create_rgba(temp->rc->rgb->r,temp->rc->rgb->g,
-				temp->rc->rgb->b,temp->rc->rgb->a);
-		((uint32_t *)temp->screen->pixels)[y++ * DISPLAY_WIDTH
-			+ x] = temp->rc->rgb->color;
+			create_rgba(temp->rc->rgb->r, temp->rc->rgb->g,
+				temp->rc->rgb->b, temp->rc->rgb->a);
+		((uint32_t *)temp->screen->pixels)
+		[((y++) * DISPLAY_WIDTH) + x] = temp->rc->rgb->color;
 	}
 }
 
 void	ft_render_wall_cont_sec(t_game **game, int *y)
 {
-	t_game *temp;
+	t_game	*temp;
 
 	temp = *game;
 	if (temp->rc->side == 0)
-	temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE
-		+ temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
+		temp->rc->wall_x = temp->p->pos_y / BLOCK_SIZE
+			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_y;
 	else
 		temp->rc->wall_x = temp->p->pos_x / BLOCK_SIZE
 			+ temp->rc->perp_wall_dist * temp->rc->ray_dir_x;

@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:38:42 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:46:54 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:54:43 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ void	ft_perform_dda(t_game *game)
 			game->rc->side = 1;
 		}
 		if (game->rc->map_x >= 0 && game->rc->map_y >= 0
-			&& game->rc->map_y < game->mapdata->map_height &&
-			game->rc->map_x < (int)strlen(game->mapdata->map_layout[game->rc->map_y])
-				&&
-			game->mapdata->map_layout[game->rc->map_y][game->rc->map_x] == '1')
+			&& game->rc->map_y < game->mapdata->map_height && game->rc->map_x
+			< (int)strlen(game->mapdata->map_layout[game->rc->map_y])
+			&& game->mapdata->map_layout[game->rc->map_y]
+			[game->rc->map_x] == '1')
 			game->rc->hit = 1;
 	}
 }
