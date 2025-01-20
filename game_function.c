@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 09:34:25 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/19 22:20:36 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 02:38:05 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	confirm_map_data(t_map_data *map_data)
 	}
 	printf("status: Total player positions found: %d\n", player_count);
 	if (player_count != 1)
-		print_error("Error: Map must have exactly one player starting position\n");
+		print_error("Error: Map must have exactly one player at start\n");
 }
 
 int	is_surrounded_by_walls(t_map_data *map_data, int i, int j)
@@ -77,70 +77,17 @@ int	is_surrounded_by_walls(t_map_data *map_data, int i, int j)
 		return (0);
 	return (1);
 }
+
 /*Function to debug map layout*/
 void	debug_print_map(t_map_data *map_data)
 {
+	int	i;
+
+	i = 0;
 	printf("status: Parsed Map Layout:\n");
-	for (int i = 0; i < map_data->map_height; i++)
+	while (i < map_data->map_height)
 	{
 		printf("%s\n", map_data->map_layout[i]);
+		i++;
 	}
-}
-
-/*Function that load the .cub file*/
-int	cub_file_loader(const char *map_file, t_mlx_render *mlx_data)
-{
-	int		fd;
-	char	*line_ptr;
-	char	*trimmed_line;
-
-	// Open the .cub file
-	fd = open(map_file, O_RDONLY);
-	if (fd == -1)
-	{
-		print_error("Error: Unable to open .cub file\n");
-		return (0);
-	}
-	while ((line_ptr = get_next_line(fd)) != NULL)
-	{
-		trimmed_line = ft_strtrim(line_ptr, " \n\t\r");
-		free(line_ptr);
-		if (!trimmed_line || trimmed_line[0] == '\0')
-		{
-			free(trimmed_line);
-			continue ;
-		}
-		if (ft_strncmp(trimmed_line, "NO ", 3) == 0 ||
-			ft_strncmp(trimmed_line, "SO ", 3) == 0 ||
-			ft_strncmp(trimmed_line, "WE ", 3) == 0 ||
-			ft_strncmp(trimmed_line, "EA ", 3) == 0)
-		{
-			texture_input(trimmed_line, mlx_data);
-		}
-		else if (ft_strncmp(trimmed_line, "F ", 2) == 0 ||
-					ft_strncmp(trimmed_line, "C ", 2) == 0)
-		{
-			parse_color_line(mlx_data, trimmed_line);
-		}
-		else if (ft_strchr(trimmed_line, '1') || ft_strchr(trimmed_line, '0'))
-		{
-			map_layout_input(trimmed_line, mlx_data->map_data);
-		}
-		else
-		{
-			free(trimmed_line);
-			print_error("Error: Unknown or invalid line in .cub file\n");
-			close(fd);
-			return (0);
-		}
-		free(trimmed_line);
-	}
-	if (close(fd) == -1)
-	{
-		print_error("Error: Unable to close .cub file\n");
-		return (0);
-	}
-	confirm_map_data(mlx_data->map_data);
-	debug_print_map(mlx_data->map_data);
-	return (1);
 }

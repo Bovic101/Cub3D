@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 00:59:52 by vodebunm          #+#    #+#             */
-/*   Updated: 2025/01/04 12:02:04 by taha             ###   ########.fr       */
+/*   Updated: 2025/01/20 02:15:06 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ char	*get_next_line(int fd)
 	free_null(&read_return);
 	return (res);
 }
-

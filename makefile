@@ -14,6 +14,7 @@ SRCS = main.c \
 	get_next_line_utils.c \
 	input_function.c \
 	input_function_2.c \
+	cubfile_reader.c \
 
 OBJS = $(SRCS:.c=.o)
 

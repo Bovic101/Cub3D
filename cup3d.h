@@ -6,7 +6,7 @@
 /*   By: victor-linux <victor-linux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:07:34 by tkirmizi          #+#    #+#             */
-/*   Updated: 2025/01/20 01:16:08 by victor-linu      ###   ########.fr       */
+/*   Updated: 2025/01/20 02:43:27 by victor-linu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,12 +142,15 @@ typedef struct s_rgb
 double				degree_to_radian(double value);
 int					is_surrounded_by_walls(t_map_data *map_data, int i, int j);
 void				confirm_map_data(t_map_data *map_data);
+void				debug_print_map(t_map_data *map_data);
 void				player_pos_init(t_mlx_render *mlx_data);
-void	texture_loader(const char *texture_path,
+int					process_cub_line(char *trimmed_line, t_mlx_render *mlx_data,
+						int fd);
+void				texture_loader(const char *texture_path,
 					mlx_texture_t **texture_pos);
-//int		cub_file_loader(const char *cubfile_name, t_mlx_render *mlx_data);
+int					open_cub_file(const char *map_file);
 int					cub_file_loader(const char *map_file,
-						t_mlx_render *mlx_data);
+					t_mlx_render *mlx_data);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
 void				allocate_map_layout(t_map_data *map_data);
 void				texture_input(const char *line_ptr, t_mlx_render *mlx_data);
