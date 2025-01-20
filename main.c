@@ -324,10 +324,8 @@ int	is_valid_position(t_game *game, double x, double y)
 
 void	move_player(t_game *game)
 {
-	static int	debug_counter;
 	double		move_speed;
 
-	debug_counter = 0;
 	move_speed = PLAYER_MOVE_SPEED;
 	move_player_forward_back(game, move_speed);
 	move_player_left_right(game, move_speed);
@@ -427,6 +425,7 @@ void	ft_cast_ray_fabs(t_rc **rc, t_game *game, int x)
 
 void	ft_cast_ray_fabs_cont(t_game *game, t_rc *temp, int x)
 {
+	(void)x;
 	if (temp->ray_dir_x < 0)
 	{
 		temp->step_x = -1;

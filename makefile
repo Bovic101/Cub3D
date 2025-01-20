@@ -1,6 +1,6 @@
 NAME = cup3d
 CC = gcc
-#CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g
 MLX42_PATH = MLX42
 LIBFT_PATH = libft
 MLX42_LIB = $(MLX42_PATH)/build/libmlx42.a
@@ -25,6 +25,7 @@ all: $(MLX42_LIB) $(LIBFT_OBJS) $(NAME)
 
 $(LIBFT_OBJS):
 	make -C $(LIBFT_PATH)
+	rm -f $(LIBFT_PATH)/*.o  # Remove libft object files after compilation
 
 $(MLX42_LIB):
 	@if [ ! -d "$(MLX42_PATH)" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
@@ -32,6 +33,7 @@ $(MLX42_LIB):
 
 $(NAME): $(OBJS) $(LIBFT_OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_OBJS) $(MLX42_LIB) $(LIBS) -o $(NAME)
+	rm -f $(OBJS) $(LIBFT_PATH)/*.o  # Remove compiled object files
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
@@ -55,4 +57,3 @@ run: all
 	./$(NAME) map.cub
 
 .PHONY: all clean fclean re debug run
-
